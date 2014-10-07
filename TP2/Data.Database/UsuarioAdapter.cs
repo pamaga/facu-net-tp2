@@ -2,14 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Business.Entities;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace Data.Database
 {
     public class UsuarioAdapter:Adapter
     {
         #region DatosEnMemoria
-        // Esta regiÛn solo se usa en esta etapa donde los datos se mantienen en memoria.
-        // Al modificar este proyecto para que acceda a la base de datos esta ser· eliminada
+        // Esta regi√≥n solo se usa en esta etapa donde los datos se mantienen en memoria.
+        // Al modificar este proyecto para que acceda a la base de datos esta ser√° eliminada
         private static List<Usuario> _Usuarios;
 
         private static List<Usuario> Usuarios
@@ -61,7 +63,11 @@ namespace Data.Database
 
         public List<Usuario> GetAll()
         {
-            return new List<Usuario>(Usuarios);
+            List<Usuario> Usuarios= new List<Usuario>();
+            this.OpenConnection();
+
+
+            return Usuarios;
         }
 
         public Business.Entities.Usuario GetOne(int ID)
