@@ -1,4 +1,0 @@
-C:\Users\zeus_mobile\Desktop\NET\TP2\facu-net-tp2\TP2\Negocio\bin\Debug\Negocio.dll
-C:\Users\zeus_mobile\Desktop\NET\TP2\facu-net-tp2\TP2\Negocio\bin\Debug\Negocio.pdb
-C:\Users\zeus_mobile\Desktop\NET\TP2\facu-net-tp2\TP2\Negocio\obj\Debug\Negocio.dll
-C:\Users\zeus_mobile\Desktop\NET\TP2\facu-net-tp2\TP2\Negocio\obj\Debug\Negocio.pdb

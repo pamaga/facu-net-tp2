@@ -8,28 +8,30 @@ namespace Data.Database
 {
     public class Adapter
     {
+        //private SqlConnection sqlConnection = new SqlConnection("ConnectionString;");
 
         //Clave por defecto a utlizar para la cadena de conexion
         const string consKeyDefaultCnnString = "ConnStringLocal";
-
-        SqlConnection sqlConn;
-
         
+        private SqlConnection _sqlConn;
 
+        public SqlConnection sqlConn
+        {
+            get { return _sqlConn; }
+            set { _sqlConn = value; }
+        }
 
         protected void OpenConnection()
         {
-            SqlConnection sqlConn = new SqlConnection(ConfigurationManager.ConnectionStrings[consKeyDefaultCnnString].ConnectionString);
-
-            //throw new Exception("Metodo no implementado");
+            string connString = ConfigurationManager.ConnectionStrings[consKeyDefaultCnnString].ConnectionString;
+            sqlConn = new SqlConnection(connString);
+            sqlConn.Open();
         }
 
         protected void CloseConnection()
         {
-
             sqlConn.Close();
             sqlConn = null;
-            //throw new Exception("Metodo no implementado");
         }
 
         protected SqlDataReader ExecuteReader(String commandText)

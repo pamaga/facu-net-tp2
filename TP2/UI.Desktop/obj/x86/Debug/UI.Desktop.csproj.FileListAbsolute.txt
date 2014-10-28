@@ -1,13 +1,1 @@
-C:\Users\zeus_mobile\Desktop\NET\TP2\facu-net-tp2\TP2\UI.Desktop\bin\Debug\UI.Desktop.exe
-C:\Users\zeus_mobile\Desktop\NET\TP2\facu-net-tp2\TP2\UI.Desktop\bin\Debug\UI.Desktop.pdb
-C:\Users\zeus_mobile\Desktop\NET\TP2\facu-net-tp2\TP2\UI.Desktop\obj\x86\Debug\UI.Desktop.Properties.Resources.resources
-C:\Users\zeus_mobile\Desktop\NET\TP2\facu-net-tp2\TP2\UI.Desktop\obj\x86\Debug\UI.Desktop.csproj.GenerateResource.Cache
-C:\Users\zeus_mobile\Desktop\NET\TP2\facu-net-tp2\TP2\UI.Desktop\obj\x86\Debug\UI.Desktop.exe
-C:\Users\zeus_mobile\Desktop\NET\TP2\facu-net-tp2\TP2\UI.Desktop\obj\x86\Debug\UI.Desktop.pdb
-C:\Users\zeus_mobile\Desktop\NET\TP2\facu-net-tp2\TP2\UI.Desktop\bin\Debug\Business.Entities.dll
-C:\Users\zeus_mobile\Desktop\NET\TP2\facu-net-tp2\TP2\UI.Desktop\bin\Debug\Business.Logic.dll
-C:\Users\zeus_mobile\Desktop\NET\TP2\facu-net-tp2\TP2\UI.Desktop\bin\Debug\Business.Entities.pdb
-C:\Users\zeus_mobile\Desktop\NET\TP2\facu-net-tp2\TP2\UI.Desktop\bin\Debug\Business.Logic.pdb
-C:\Users\zeus_mobile\Desktop\NET\TP2\facu-net-tp2\TP2\UI.Desktop\obj\x86\Debug\UI.Desktop.csprojResolveAssemblyReference.cache
-C:\Users\zeus_mobile\Desktop\NET\TP2\facu-net-tp2\TP2\UI.Desktop\bin\Debug\Data.Database.dll
-C:\Users\zeus_mobile\Desktop\NET\TP2\facu-net-tp2\TP2\UI.Desktop\bin\Debug\Data.Database.pdb
+G:\Facultad\Tecnologías .NET\Unidad.06\TP2L06\UI.Desktop\bin\Debug\UI.Desktop.exe.config

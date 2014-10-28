@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Iniciar sesión" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
-    CodeFile="Login.aspx.cs" Inherits="Account_Login" %>
+    CodeBehind="Login.aspx.cs" Inherits="UI.Web.Account.Login" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
