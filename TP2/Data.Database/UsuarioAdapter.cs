@@ -88,8 +88,10 @@ namespace Data.Database
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al recuperar lista de usuarios", Ex);
-                throw ExcepcionManejada;
+                //Exception ExcepcionManejada = new Exception("Error al recuperar lista de usuarios", Ex);
+               // throw ExcepcionManejada;
+                throw Ex;
+                
             }finally{
                 this.CloseConnection();
             }

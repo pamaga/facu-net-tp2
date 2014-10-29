@@ -10,6 +10,6 @@
 namespace UI.Web {
     
     
-    public partial class Default {
+    public partial class Usuarios {
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="UI.Web.Site" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="UI.Web.SiteMaster" %>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -7,8 +7,12 @@
 </head>
 <body>
     <form id="bodyForm" runat="server">
-        <asp:Menu runat="server" ID="menu" DataSource="SiteMapDataSource"></asp:Menu>
+        
         <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" />
+        <asp:Menu ID="Menu3" runat="server" DataSourceID="SiteMapDataSource" 
+            Orientation="Horizontal">
+        </asp:Menu>
+        
         <div>
             <asp:ContentPlaceHolder ID="bodyContentPlaceHolder" runat="server">
             </asp:ContentPlaceHolder>

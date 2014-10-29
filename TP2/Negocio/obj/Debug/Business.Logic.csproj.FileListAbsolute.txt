@@ -1,0 +1,9 @@
+C:\Users\zeus_mobile\Desktop\NET\TP2\tp2_git\TP2\Negocio\bin\Debug\Business.Logic.dll
+C:\Users\zeus_mobile\Desktop\NET\TP2\tp2_git\TP2\Negocio\bin\Debug\Business.Logic.pdb
+C:\Users\zeus_mobile\Desktop\NET\TP2\tp2_git\TP2\Negocio\bin\Debug\Business.Entities.dll
+C:\Users\zeus_mobile\Desktop\NET\TP2\tp2_git\TP2\Negocio\bin\Debug\Data.Database.dll
+C:\Users\zeus_mobile\Desktop\NET\TP2\tp2_git\TP2\Negocio\bin\Debug\Data.Database.pdb
+C:\Users\zeus_mobile\Desktop\NET\TP2\tp2_git\TP2\Negocio\bin\Debug\Business.Entities.pdb
+C:\Users\zeus_mobile\Desktop\NET\TP2\tp2_git\TP2\Negocio\obj\Debug\Business.Logic.csprojResolveAssemblyReference.cache
+C:\Users\zeus_mobile\Desktop\NET\TP2\tp2_git\TP2\Negocio\obj\Debug\Business.Logic.dll
+C:\Users\zeus_mobile\Desktop\NET\TP2\tp2_git\TP2\Negocio\obj\Debug\Business.Logic.pdb

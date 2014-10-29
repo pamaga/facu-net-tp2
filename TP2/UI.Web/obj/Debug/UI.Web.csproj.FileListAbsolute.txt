@@ -1,0 +1,5 @@
+C:\Users\zeus_mobile\Desktop\NET\TP2\tp2_git\TP2\UI.Web\bin\UI.Web.dll
+C:\Users\zeus_mobile\Desktop\NET\TP2\tp2_git\TP2\UI.Web\bin\UI.Web.pdb
+C:\Users\zeus_mobile\Desktop\NET\TP2\tp2_git\TP2\UI.Web\obj\Debug\UI.Web.csprojResolveAssemblyReference.cache
+C:\Users\zeus_mobile\Desktop\NET\TP2\tp2_git\TP2\UI.Web\obj\Debug\UI.Web.dll
+C:\Users\zeus_mobile\Desktop\NET\TP2\tp2_git\TP2\UI.Web\obj\Debug\UI.Web.pdb

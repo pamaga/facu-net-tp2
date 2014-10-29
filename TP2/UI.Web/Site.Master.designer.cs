@@ -10,7 +10,7 @@
 namespace UI.Web {
     
     
-    public partial class Site {
+    public partial class SiteMaster {
         
         /// <summary>
         /// Control bodyForm.
@@ -22,15 +22,6 @@ namespace UI.Web {
         protected global::System.Web.UI.HtmlControls.HtmlForm bodyForm;
         
         /// <summary>
-        /// Control menu.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Menu menu;
-        
-        /// <summary>
         /// Control SiteMapDataSource.
         /// </summary>
         /// <remarks>
@@ -38,6 +29,15 @@ namespace UI.Web {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SiteMapDataSource SiteMapDataSource;
+        
+        /// <summary>
+        /// Control Menu3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Menu Menu3;
         
         /// <summary>
         /// Control bodyContentPlaceHolder.
