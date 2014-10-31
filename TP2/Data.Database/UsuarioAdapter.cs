@@ -148,6 +148,7 @@ namespace Data.Database
 
         public void Save(Usuario usuario)
         {
+
             if (usuario.State == BusinessEntity.States.New)
             {
                 this.Insert(usuario);
@@ -166,7 +167,7 @@ namespace Data.Database
         protected void Update(Usuario usuario) {
             try{
                 this.OpenConnection();
-                SqlCommand cmdSave = new SqlCommand("UPDATE usuarios SET nombre_usuario = @nobre_usuario, clave = @clave, habilitado = @habilitado, nombre = @nombre, apellido = @apellido, email = @email WHERE id_usuario = @id",sqlConn);
+                SqlCommand cmdSave = new SqlCommand("UPDATE usuarios SET nombre_usuario = @nombre_usuario, clave = @clave, habilitado = @habilitado, nombre = @nombre, apellido = @apellido, email = @email WHERE id_usuario = @id", sqlConn);
                 cmdSave.Parameters.Add("@id",SqlDbType.Int).Value = usuario.ID;
                 cmdSave.Parameters.Add("@nombre_usuario", SqlDbType.VarChar,50).Value = usuario.NombreUsuario;
                 cmdSave.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = usuario.Clave;
@@ -179,6 +180,7 @@ namespace Data.Database
             catch (Exception Ex)
             {
                 Exception ExcepcionManejada = new Exception("Error al modificar datos del usuario", Ex);
+                throw ExcepcionManejada;
             }
             finally
             {
@@ -191,8 +193,8 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdSave = new SqlCommand("INSERT INTO usuarios SET (nombre_usuario, clave, habilitado, nombre, apellido, email) "+
-                    "VALUES (@nobre_usuario, @clave, @habilitado, @nombre, @apellido, @email) "+
+                SqlCommand cmdSave = new SqlCommand("INSERT INTO usuarios (nombre_usuario, clave, habilitado, nombre, apellido, email) "+
+                    "VALUES (@nombre_usuario, @clave, @habilitado, @nombre, @apellido, @email) " +
                     "SELECT @@identity", sqlConn);
                 cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = usuario.ID;
                 cmdSave.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = usuario.NombreUsuario;
@@ -202,11 +204,12 @@ namespace Data.Database
                 cmdSave.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = usuario.Apellido;
                 cmdSave.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = usuario.EMail;
                 usuario.ID = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar() );
-                cmdSave.ExecuteNonQuery();
+                //cmdSave.ExecuteNonQuery();
             }
             catch (Exception Ex)
             {
                 Exception ExcepcionManejada = new Exception("Error al crear usuario", Ex);
+                throw ExcepcionManejada;
             }
             finally
             {

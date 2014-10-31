@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
+using System.Diagnostics;
+
 
 namespace UI.Desktop
 {
@@ -41,6 +43,7 @@ namespace UI.Desktop
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
+           
             this.Listar();
             
         }
@@ -61,6 +64,7 @@ namespace UI.Desktop
         {
             if(this.dgvUsuarios.SelectedRows.Count == 1){
                 int ID = ((Business.Entities.Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
+               
                 UsuarioDesktop formUsuario = new UsuarioDesktop(ID,ApplicationForm.ModoForm.Modificacion);
                 formUsuario.ShowDialog();
                 this.Listar();
