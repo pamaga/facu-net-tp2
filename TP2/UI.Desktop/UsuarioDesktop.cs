@@ -137,5 +137,10 @@ namespace UI.Desktop
         {
             this.Close();
         }
+
+        private void chkHabilitado_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
