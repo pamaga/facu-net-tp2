@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
 using System.Diagnostics;
+using System.Windows.Forms;
 
 
 namespace UI.Desktop
@@ -80,6 +81,10 @@ namespace UI.Desktop
                 formUsuario.ShowDialog();
                 this.Listar();
             }
+            else {
+                MessageBox.Show("Seleccione un registro para eliminar");
+            }
+           
         }
     }
 }

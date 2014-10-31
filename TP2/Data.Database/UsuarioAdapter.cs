@@ -107,7 +107,7 @@ namespace Data.Database
 
                 this.OpenConnection();
 
-                SqlCommand cmdUsuarios = new SqlCommand("SELECT * FROM usuarios", sqlConn);
+                SqlCommand cmdUsuarios = new SqlCommand("SELECT * FROM usuarios WHERE id_usuario=@id", sqlConn);
                 cmdUsuarios.Parameters.Add("@id", SqlDbType.Int).Value = ID;
                 SqlDataReader drUsuarios = cmdUsuarios.ExecuteReader();
                 if (drUsuarios.Read())
@@ -138,9 +138,10 @@ namespace Data.Database
                 this.OpenConnection();
                 SqlCommand cmdDelete = new SqlCommand("DELETE usuarios WHERE id_usuario=@id", sqlConn);
                 cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = ID;
+
                 cmdDelete.ExecuteNonQuery();
             } catch(Exception Ex) {
-                Exception ExcepcionManejada = new Exception("Error al eliminar usuario",Ex);
+                Exception ExcepcionManejada = new Exception("Error al eliminar usuario:" + Ex.ToString(), Ex);
             } finally {
                 this.CloseConnection();
             }
