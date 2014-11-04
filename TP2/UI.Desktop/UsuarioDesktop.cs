@@ -51,24 +51,21 @@ namespace UI.Desktop
 
             string txtAceptar = "Aceptar";
 
-            if(Modo.Equals(ModoForm.Alta) || Modo.Equals(ModoForm.Modificacion)){
-                txtAceptar = "Guardar";
-            }else if(Modo.Equals(ModoForm.Baja)){
-                txtAceptar = "Eliminar";
-            }
+            if(Modo.Equals(ModoForm.Alta) || Modo.Equals(ModoForm.Modificacion)) txtAceptar = "Guardar";
             this.btnAceptar.Text = txtAceptar;
         }
 
         public override void MapearADatos() {
-            if(Modo.Equals(ModoForm.Alta)){
+            if(Modo.Equals(ModoForm.Alta))
+            {
                 this.UsuarioActual = new Usuario();
                 this.UsuarioActual.State = BusinessEntity.States.New;
-            } else if (Modo.Equals(ModoForm.Modificacion)) {
-                this.UsuarioActual.State = BusinessEntity.States.Modified;
-            } else if (Modo.Equals(ModoForm.Baja)) {
-                this.UsuarioActual.State = BusinessEntity.States.Deleted;
             }
-
+            else if (Modo.Equals(ModoForm.Modificacion))
+            {
+                this.UsuarioActual.ID = Int32.Parse(txtID.Text);
+                this.UsuarioActual.State = BusinessEntity.States.Modified;
+            }
 
             this.UsuarioActual.Habilitado = this.chkHabilitado.Checked;
             this.UsuarioActual.Nombre = this.txtNombre.Text;
@@ -76,7 +73,6 @@ namespace UI.Desktop
             this.UsuarioActual.EMail = this.txtEmail.Text;
             this.UsuarioActual.NombreUsuario = this.txtUsuario.Text;
             this.UsuarioActual.Clave = this.txtClave.Text;
-            this.UsuarioActual.Clave = this.txtClave2.Text;
         }
 
         public override bool Validar() {

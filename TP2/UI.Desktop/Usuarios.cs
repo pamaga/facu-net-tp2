@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace UI.Desktop
 {
-    public partial class Usuarios : Form
+    public partial class Usuarios : ApplicationForm
     {
         public Usuarios()
         {
@@ -63,28 +63,29 @@ namespace UI.Desktop
 
         private void tsbEditar_Click(object sender, EventArgs e)
         {
-            if(this.dgvUsuarios.SelectedRows.Count == 1){
+            if (!(this.dgvUsuarios.SelectedRows.Equals(null)))
+            {
                 int ID = ((Business.Entities.Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
-               
                 UsuarioDesktop formUsuario = new UsuarioDesktop(ID,ApplicationForm.ModoForm.Modificacion);
                 formUsuario.ShowDialog();
                 this.Listar();
             }
+            else this.Notificar("No hay fila seleccionada", "Por favor, seleccione una fila", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
         private void tsbEliminar_Click(object sender, EventArgs e)
         {
-            if (this.dgvUsuarios.SelectedRows.Count == 1)
+            if (!(this.dgvUsuarios.SelectedRows.Equals(null)))
             {
                 int ID = ((Business.Entities.Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
-                UsuarioDesktop formUsuario = new UsuarioDesktop(ID, ApplicationForm.ModoForm.Baja);
-                formUsuario.ShowDialog();
-                this.Listar();
+                if (MessageBox.Show("¿Esta seguro de querer eliminar?", "Baja", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                {
+                    UsuarioLogic usr = new UsuarioLogic();
+                    usr.Delete(ID);
+                    this.Listar();
+                }
             }
-            else {
-                MessageBox.Show("Seleccione un registro para eliminar");
-            }
-           
+            else this.Notificar("No hay fila seleccionada", "Por favor, seleccione una fila", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);           
         }
     }
 }

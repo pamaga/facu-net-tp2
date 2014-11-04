@@ -3,3 +3,8 @@ C:\Users\zeus_mobile\Desktop\NET\TP2\tp2_git\TP2\Entidades\bin\Debug\Business.En
 C:\Users\zeus_mobile\Desktop\NET\TP2\tp2_git\TP2\Entidades\obj\Debug\Business.Entities.csprojResolveAssemblyReference.cache
 C:\Users\zeus_mobile\Desktop\NET\TP2\tp2_git\TP2\Entidades\obj\Debug\Business.Entities.dll
 C:\Users\zeus_mobile\Desktop\NET\TP2\tp2_git\TP2\Entidades\obj\Debug\Business.Entities.pdb
+C:\Users\Julian\Documents\facu-net-tp2\TP2\Entidades\bin\Debug\Business.Entities.dll
+C:\Users\Julian\Documents\facu-net-tp2\TP2\Entidades\bin\Debug\Business.Entities.pdb
+C:\Users\Julian\Documents\facu-net-tp2\TP2\Entidades\obj\Debug\Business.Entities.csprojResolveAssemblyReference.cache
+C:\Users\Julian\Documents\facu-net-tp2\TP2\Entidades\obj\Debug\Business.Entities.dll
+C:\Users\Julian\Documents\facu-net-tp2\TP2\Entidades\obj\Debug\Business.Entities.pdb

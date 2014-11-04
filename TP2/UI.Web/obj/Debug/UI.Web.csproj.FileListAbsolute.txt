@@ -1,5 +1,57 @@
-C:\Users\zeus_mobile\Desktop\NET\TP2\tp2_git\TP2\UI.Web\bin\UI.Web.dll
-C:\Users\zeus_mobile\Desktop\NET\TP2\tp2_git\TP2\UI.Web\bin\UI.Web.pdb
-C:\Users\zeus_mobile\Desktop\NET\TP2\tp2_git\TP2\UI.Web\obj\Debug\UI.Web.csprojResolveAssemblyReference.cache
-C:\Users\zeus_mobile\Desktop\NET\TP2\tp2_git\TP2\UI.Web\obj\Debug\UI.Web.dll
-C:\Users\zeus_mobile\Desktop\NET\TP2\tp2_git\TP2\UI.Web\obj\Debug\UI.Web.pdb
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\UI.Web.dll.config
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\UI.Web.dll
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\UI.Web.pdb
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Antlr3.Runtime.dll
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\AspNet.ScriptManager.bootstrap.dll
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\AspNet.ScriptManager.jQuery.dll
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Business.Entities.dll
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Business.Logic.dll
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\EntityFramework.dll
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\EntityFramework.SqlServer.dll
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Microsoft.AspNet.FriendlyUrls.dll
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Microsoft.Owin.dll
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Microsoft.Owin.Security.dll
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Microsoft.ScriptManager.MSAjax.dll
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Microsoft.ScriptManager.WebForms.dll
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Newtonsoft.Json.dll
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Owin.dll
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\System.Web.Optimization.dll
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\System.Web.Providers.dll
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\WebGrease.dll
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Data.Database.dll
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Business.Entities.pdb
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Business.Logic.pdb
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\System.Web.Optimization.xml
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Antlr3.Runtime.pdb
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Newtonsoft.Json.xml
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Microsoft.AspNet.FriendlyUrls.xml
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\EntityFramework.xml
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\EntityFramework.SqlServer.xml
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Microsoft.Owin.xml
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Microsoft.Owin.Security.xml
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\bin\Data.Database.pdb
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\obj\Debug\UI.Web.csprojResolveAssemblyReference.cache
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\obj\Debug\UI.Web.dll
+C:\Users\Julian\Desktop\IDE Net\TP2\UI.Web\obj\Debug\UI.Web.pdb

@@ -5,3 +5,10 @@ C:\Users\zeus_mobile\Desktop\NET\TP2\tp2_git\TP2\Data.Database\bin\Debug\Busines
 C:\Users\zeus_mobile\Desktop\NET\TP2\tp2_git\TP2\Data.Database\obj\Debug\Data.Database.csprojResolveAssemblyReference.cache
 C:\Users\zeus_mobile\Desktop\NET\TP2\tp2_git\TP2\Data.Database\obj\Debug\Data.Database.dll
 C:\Users\zeus_mobile\Desktop\NET\TP2\tp2_git\TP2\Data.Database\obj\Debug\Data.Database.pdb
+C:\Users\Julian\Documents\facu-net-tp2\TP2\Data.Database\bin\Debug\Data.Database.dll
+C:\Users\Julian\Documents\facu-net-tp2\TP2\Data.Database\bin\Debug\Data.Database.pdb
+C:\Users\Julian\Documents\facu-net-tp2\TP2\Data.Database\bin\Debug\Business.Entities.dll
+C:\Users\Julian\Documents\facu-net-tp2\TP2\Data.Database\bin\Debug\Business.Entities.pdb
+C:\Users\Julian\Documents\facu-net-tp2\TP2\Data.Database\obj\Debug\Data.Database.csprojResolveAssemblyReference.cache
+C:\Users\Julian\Documents\facu-net-tp2\TP2\Data.Database\obj\Debug\Data.Database.dll
+C:\Users\Julian\Documents\facu-net-tp2\TP2\Data.Database\obj\Debug\Data.Database.pdb

@@ -1,32 +1,36 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Security;
 using System.Web.UI;
-using System.Web.UI.WebControls;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Owin;
+using UI.Web.Models;
 
 namespace UI.Web.Account
 {
-    public partial class Register : System.Web.UI.Page
+    public partial class Register : Page
     {
-
-        protected void Page_Load(object sender, EventArgs e)
+        protected void CreateUser_Click(object sender, EventArgs e)
         {
-            RegisterUser.ContinueDestinationPageUrl = Request.QueryString["ReturnUrl"];
-        }
-
-        protected void RegisterUser_CreatedUser(object sender, EventArgs e)
-        {
-            FormsAuthentication.SetAuthCookie(RegisterUser.UserName, false /* createPersistentCookie */);
-
-            string continueUrl = RegisterUser.ContinueDestinationPageUrl;
-            if (String.IsNullOrEmpty(continueUrl))
+            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            var user = new ApplicationUser() { UserName = Email.Text, Email = Email.Text };
+            IdentityResult result = manager.Create(user, Password.Text);
+            if (result.Succeeded)
             {
-                continueUrl = "~/";
-            }
-            Response.Redirect(continueUrl);
-        }
+                IdentityHelper.SignIn(manager, user, isPersistent: false);
 
+                // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
+                //string code = manager.GenerateEmailConfirmationToken(user.Id);
+                //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id);
+                //manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
+
+                IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+            }
+            else 
+            {
+                ErrorMessage.Text = result.Errors.FirstOrDefault();
+            }
+        }
     }
 }
