@@ -133,7 +133,7 @@ namespace UI.Web
             this.Entity = this.Logic.GetOne(id);
             this.nombreTextBox.Text = this.Entity.Nombre;
             this.apellidoTextBox.Text = this.Entity.Apellido;
-            this.emailTextBox.Text = this.Entity.Email;
+            this.emailTextBox.Text = this.Entity.EMail;
             this.habilitadoCheckBox.Checked = this.Entity.Habilitado;
             this.nombreUsuarioTextBox.Text = this.Entity.NombreUsuario;
             claveTextBox.Attributes["value"] = this.Entity.Clave;
@@ -144,7 +144,7 @@ namespace UI.Web
         {
             usuario.Nombre = this.nombreTextBox.Text;
             usuario.Apellido = this.apellidoTextBox.Text;
-            usuario.Email = this.emailTextBox.Text;
+            usuario.EMail = this.emailTextBox.Text;
             usuario.NombreUsuario = this.nombreUsuarioTextBox.Text;
             usuario.Clave = this.claveTextBox.Text;
             usuario.Habilitado = this.habilitadoCheckBox.Checked;

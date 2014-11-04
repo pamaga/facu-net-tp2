@@ -342,12 +342,12 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Business.Entities\Business.Entities.csproj">
-      <Project>{1e3fc26e-4b5d-4a07-8f8a-b9a8aa4673bd}</Project>
+    <ProjectReference Include="..\Entidades\Business.Entities.csproj">
+      <Project>{cfcc75f7-45ae-4c0b-ab17-d3e154848df5}</Project>
       <Name>Business.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Business.Logic\Business.Logic.csproj">
-      <Project>{6bc5eadc-08dd-4fbf-8e5a-f61f2f22257d}</Project>
+    <ProjectReference Include="..\Negocio\Business.Logic.csproj">
+      <Project>{dcba4f21-125b-4954-8261-d5c93f770453}</Project>
       <Name>Business.Logic</Name>
     </ProjectReference>
   </ItemGroup>
