@@ -9,7 +9,6 @@ using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
 using System.Diagnostics;
-using System.Windows.Forms;
 
 
 namespace UI.Desktop

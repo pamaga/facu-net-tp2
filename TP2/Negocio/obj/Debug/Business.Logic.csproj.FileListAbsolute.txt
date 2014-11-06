@@ -16,3 +16,12 @@ C:\Users\Julian\Documents\facu-net-tp2\TP2\Negocio\bin\Debug\Business.Entities.p
 C:\Users\Julian\Documents\facu-net-tp2\TP2\Negocio\obj\Debug\Business.Logic.csprojResolveAssemblyReference.cache
 C:\Users\Julian\Documents\facu-net-tp2\TP2\Negocio\obj\Debug\Business.Logic.dll
 C:\Users\Julian\Documents\facu-net-tp2\TP2\Negocio\obj\Debug\Business.Logic.pdb
+D:\puntonet_tp2\TP2\Negocio\bin\Debug\Business.Logic.dll
+D:\puntonet_tp2\TP2\Negocio\bin\Debug\Business.Logic.pdb
+D:\puntonet_tp2\TP2\Negocio\bin\Debug\Business.Entities.dll
+D:\puntonet_tp2\TP2\Negocio\bin\Debug\Data.Database.dll
+D:\puntonet_tp2\TP2\Negocio\bin\Debug\Data.Database.pdb
+D:\puntonet_tp2\TP2\Negocio\bin\Debug\Business.Entities.pdb
+D:\puntonet_tp2\TP2\Negocio\obj\Debug\Business.Logic.csprojResolveAssemblyReference.cache
+D:\puntonet_tp2\TP2\Negocio\obj\Debug\Business.Logic.dll
+D:\puntonet_tp2\TP2\Negocio\obj\Debug\Business.Logic.pdb

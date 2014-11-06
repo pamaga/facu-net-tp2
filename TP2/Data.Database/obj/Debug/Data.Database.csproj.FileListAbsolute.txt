@@ -12,3 +12,10 @@ C:\Users\Julian\Documents\facu-net-tp2\TP2\Data.Database\bin\Debug\Business.Enti
 C:\Users\Julian\Documents\facu-net-tp2\TP2\Data.Database\obj\Debug\Data.Database.csprojResolveAssemblyReference.cache
 C:\Users\Julian\Documents\facu-net-tp2\TP2\Data.Database\obj\Debug\Data.Database.dll
 C:\Users\Julian\Documents\facu-net-tp2\TP2\Data.Database\obj\Debug\Data.Database.pdb
+D:\puntonet_tp2\TP2\Data.Database\bin\Debug\Data.Database.dll
+D:\puntonet_tp2\TP2\Data.Database\bin\Debug\Data.Database.pdb
+D:\puntonet_tp2\TP2\Data.Database\bin\Debug\Business.Entities.dll
+D:\puntonet_tp2\TP2\Data.Database\bin\Debug\Business.Entities.pdb
+D:\puntonet_tp2\TP2\Data.Database\obj\Debug\Data.Database.csprojResolveAssemblyReference.cache
+D:\puntonet_tp2\TP2\Data.Database\obj\Debug\Data.Database.dll
+D:\puntonet_tp2\TP2\Data.Database\obj\Debug\Data.Database.pdb

@@ -66,5 +66,11 @@ namespace UI.Desktop
         {
             this.Dispose();
         }
+
+        private void especialidadesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Especialidades esp = new Especialidades();
+            esp.ShowDialog();
+        }
     }
 }
