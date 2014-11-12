@@ -58,13 +58,31 @@ namespace UI.Desktop
 
         private void alumnosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Usuarios usu = new Usuarios();
-            usu.ShowDialog();
+            
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void especialidadesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Especialidades esp = new Especialidades();
+            esp.ShowDialog();
+        }
+
+        private void planesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+          Planes plan = new Planes();
+          plan.ShowDialog();
+            
+        }
+
+        private void cursosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
