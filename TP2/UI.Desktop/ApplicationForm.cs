@@ -12,7 +12,9 @@ using Business.Entities;
 namespace UI.Desktop
 {
     public partial class ApplicationForm : Form
-    {   
+    {
+        public List<Especialidad> lstEsp;
+
         public enum ModoForm 
         {
             Alta,
@@ -38,6 +40,21 @@ namespace UI.Desktop
         private void ApplicationForm_Load(object sender, EventArgs e)
         {
 
+        }
+        public List<Especialidad> getEspecialidades(){
+            if (null == lstEsp)
+            {
+                EspecialidadLogic esp = new EspecialidadLogic();
+                this.lstEsp = esp.GetAll();
+            }
+            return this.lstEsp;
+        }
+
+        public string getEspecialidadById(int id)
+        {
+            this.getEspecialidades();
+            string nombre = this.lstEsp.Find(o => o.ID == id).Descripcion;
+            return nombre;
         }
 
         public virtual void MapearDeDatos() { }

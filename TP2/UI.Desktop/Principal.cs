@@ -43,6 +43,14 @@ namespace UI.Desktop
 
         private void Principal_Load(object sender, EventArgs e)
         {
+            formLogin appLogin = new formLogin();
+            if (appLogin._activado)
+            {
+                if (appLogin.ShowDialog() != DialogResult.OK)
+                {
+                    this.Dispose();
+                }
+            }
 
         }
 
