@@ -98,5 +98,11 @@ namespace UI.Desktop
             Comisiones form = new Comisiones();
             form.ShowDialog();
         }
+
+        private void materiasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Materias form = new Materias();
+            form.ShowDialog();
+        }
     }
 }

@@ -42,6 +42,7 @@
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.planesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.materiasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,7 +96,8 @@
             this.planesToolStripMenuItem1,
             this.especialidadesToolStripMenuItem,
             this.comisionesToolStripMenuItem,
-            this.cursosToolStripMenuItem1});
+            this.cursosToolStripMenuItem1,
+            this.materiasToolStripMenuItem});
             this.catedrasToolStripMenuItem.Name = "catedrasToolStripMenuItem";
             this.catedrasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.catedrasToolStripMenuItem.Text = "Catedras";
@@ -156,6 +158,13 @@
             this.planesToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.planesToolStripMenuItem.Text = "Planes";
             // 
+            // materiasToolStripMenuItem
+            // 
+            this.materiasToolStripMenuItem.Name = "materiasToolStripMenuItem";
+            this.materiasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.materiasToolStripMenuItem.Text = "Materias";
+            this.materiasToolStripMenuItem.Click += new System.EventHandler(this.materiasToolStripMenuItem_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -190,6 +199,7 @@
         private System.Windows.Forms.ToolStripMenuItem especialidadesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem comisionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem materiasToolStripMenuItem;
 
     }
 }

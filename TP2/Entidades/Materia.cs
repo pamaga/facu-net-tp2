@@ -7,6 +7,13 @@ namespace Business.Entities
 {
     public class Materia : BusinessEntity
     {
+        private string _Plan;
+
+        public string Plan
+        {
+            get { return _Plan; }
+            set { _Plan = value; }
+        }
         private string _Descripcion;
         public string Descripcion
         {
