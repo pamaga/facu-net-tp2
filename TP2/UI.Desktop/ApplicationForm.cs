@@ -14,6 +14,7 @@ namespace UI.Desktop
     public partial class ApplicationForm : Form
     {
         public List<Especialidad> lstEsp;
+        public List<Plan> lstPlan;
 
         public enum ModoForm 
         {
@@ -48,6 +49,15 @@ namespace UI.Desktop
                 this.lstEsp = esp.GetAll();
             }
             return this.lstEsp;
+        }
+        public List<Plan> getPlanes()
+        {
+            if (null == lstEsp)
+            {
+                PlanLogic esp = new PlanLogic();
+                this.lstPlan = esp.GetAll();
+            }
+            return this.lstPlan;
         }
 
         public string getEspecialidadById(int id)

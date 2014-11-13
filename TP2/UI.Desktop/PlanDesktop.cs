@@ -26,7 +26,7 @@ namespace UI.Desktop
         {
             InitializeComponent();
             this.loadCmb();
-            Trace.Write("1-PlanDesktop \n");
+         
            
         }
         public PlanDesktop(ModoForm modo):this()
@@ -36,12 +36,12 @@ namespace UI.Desktop
 
         public PlanDesktop(int ID, ModoForm modo):this()
         {
-            Trace.Write("2-PlanDesktop \n");
+           
             this.Modo = modo;
             PlanLogic logic = new PlanLogic();
             this.Plan = logic.GetOne(ID);
             MapearDeDatos();
-            Trace.Write("PlanDesktop\n");
+           
         }
         public override void MapearDeDatos()
         {

@@ -62,6 +62,7 @@
             this.tlUsuarios.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlUsuarios.Size = new System.Drawing.Size(713, 296);
             this.tlUsuarios.TabIndex = 8;
+            this.tlUsuarios.Paint += new System.Windows.Forms.PaintEventHandler(this.tlUsuarios_Paint);
             // 
             // dgvPlanes
             // 
@@ -86,9 +87,7 @@
             this.dgvPlanes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPlanes.Size = new System.Drawing.Size(707, 261);
             this.dgvPlanes.TabIndex = 0;
-            this.dgvPlanes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPlanes_CellContentClick_1);
-            this.dgvPlanes.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPlanes_CellContentDoubleClick);
-            this.dgvPlanes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPlanes_CellDoubleClick);
+            this.dgvPlanes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPlanes_CellContentClick_2);
             // 
             // id
             // 
@@ -121,6 +120,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Actualizar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -142,7 +142,6 @@
             this.tsUsuarios.Name = "tsUsuarios";
             this.tsUsuarios.Size = new System.Drawing.Size(713, 25);
             this.tsUsuarios.TabIndex = 7;
-            this.tsUsuarios.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.tsUsuarios_ItemClicked);
             // 
             // tsbNuevo
             // 
@@ -233,6 +232,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellido;
+        private System.Windows.Forms.DataGridViewCellEventHandler dgvPlanes_CellContentClick_1;
 
+
+       
     }
 }

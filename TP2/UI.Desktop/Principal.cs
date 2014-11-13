@@ -92,5 +92,11 @@ namespace UI.Desktop
         {
 
         }
+
+        private void comisionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Comisiones form = new Comisiones();
+            form.ShowDialog();
+        }
     }
 }

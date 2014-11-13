@@ -7,6 +7,13 @@ namespace Business.Entities
 {
     public class Comision : BusinessEntity
     {
+        private string _PlanDescripcion;
+
+        public string PlanDescripcion
+        {
+            get { return _PlanDescripcion; }
+            set { _PlanDescripcion = value; }
+        }
         private int _AnioEspecialidad;
         public int AnioEspecialidad
         {
