@@ -104,5 +104,12 @@ namespace UI.Desktop
             Materias form = new Materias();
             form.ShowDialog();
         }
+
+        private void materiasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            reporteMaterias form = new reporteMaterias();
+            form.ShowDialog();
+
+        }
     }
 }

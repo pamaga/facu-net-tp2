@@ -38,8 +38,11 @@
     <StartupObject>UI.Desktop.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -67,6 +70,11 @@
     </Compile>
     <Compile Include="Comisiones.Designer.cs">
       <DependentUpon>Comisiones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dataSetReportes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dataSetReportes.xsd</DependentUpon>
     </Compile>
     <Compile Include="EspecialidadDesktop.cs">
       <SubType>Form</SubType>
@@ -116,6 +124,12 @@
     <Compile Include="Principal.Designer.cs">
       <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
+    <Compile Include="reporteMaterias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reporteMaterias.Designer.cs">
+      <DependentUpon>reporteMaterias.cs</DependentUpon>
+    </Compile>
     <Compile Include="UsuarioDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,6 +177,10 @@
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="reporteMaterias.resx">
+      <DependentUpon>reporteMaterias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reporteMateriasXPlan.rdlc" />
     <EmbeddedResource Include="UsuarioDesktop.resx">
       <DependentUpon>UsuarioDesktop.cs</DependentUpon>
     </EmbeddedResource>
@@ -180,10 +198,29 @@
       <DependentUpon>Usuarios.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.Config" />
+    <None Include="dataSetReportes.xsc">
+      <DependentUpon>dataSetReportes.xsd</DependentUpon>
+    </None>
+    <None Include="dataSetReportes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dataSetReportes.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dataSetReportes.xss">
+      <DependentUpon>dataSetReportes.xsd</DependentUpon>
+    </None>
     <None Include="Properties\DataSources\Business.Entities.Comision.datasource" />
+    <None Include="Properties\DataSources\Business.Entities.Materia.datasource" />
     <None Include="Properties\DataSources\Business.Logic.BusinessLogic.datasource" />
     <None Include="Properties\DataSources\Business.Logic.ComisionLogic.datasource" />
+    <None Include="Properties\DataSources\Business.Logic.MateriaLogic.datasource" />
     <None Include="Properties\DataSources\Business.Logic.UsuarioLogic.datasource" />
+    <None Include="Properties\DataSources\Data.Database.Adapter.datasource" />
+    <None Include="Properties\DataSources\Data.Database.ComisionAdapter.datasource" />
+    <None Include="Properties\DataSources\Data.Database.EspecialidadAdapter.datasource" />
+    <None Include="Properties\DataSources\Data.Database.MateriaAdapter.datasource" />
+    <None Include="Properties\DataSources\Data.Database.PlanAdapter.datasource" />
+    <None Include="Properties\DataSources\Data.Database.UsuarioAdapter.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -195,6 +232,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Data.Database\Data.Database.csproj">
+      <Project>{18D1C50F-58E0-4D94-B05B-4A95A146E6BB}</Project>
+      <Name>Data.Database</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Entidades\Business.Entities.csproj">
       <Project>{CFCC75F7-45AE-4C0B-AB17-D3E154848DF5}</Project>
       <Name>Business.Entities</Name>
