@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Business.Entities;
 
 namespace UI.Desktop
 {
@@ -66,7 +67,8 @@ namespace UI.Desktop
 
         private void alumnosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            Usuarios form = new Usuarios(TiposUsuarios.Alumno);
+            form.ShowDialog();
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -110,6 +112,12 @@ namespace UI.Desktop
             reporteMaterias form = new reporteMaterias();
             form.ShowDialog();
 
+        }
+
+        private void docentesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Usuarios form = new Usuarios(TiposUsuarios.Docente);
+            form.ShowDialog();
         }
     }
 }

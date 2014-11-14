@@ -17,23 +17,28 @@ namespace Business.Logic
             set { _usuarioData = value; }
         }
 
-        public UsuarioLogic(){
+        public UsuarioLogic()
+        {
             UsuarioData = new Data.Database.UsuarioAdapter();
         }
 
-        public Usuario GetOne(int id){
+        public Usuario GetOne(int id)
+        {
             return UsuarioData.GetOne(id);
         }
 
-        public List<Usuario> GetAll(){
-            return UsuarioData.GetAll();
+        public List<Usuario> GetAll(TiposUsuarios TipoUsuario)
+        {
+            return UsuarioData.GetAll(TipoUsuario);
         }
 
-        public void Save(Usuario user){
+        public void Save(Usuario user)
+        {
             UsuarioData.Save(user);
         }
 
-        public void Delete(int id){
+        public void Delete(int id)
+        {
             UsuarioData.Delete(id);
         }
     }

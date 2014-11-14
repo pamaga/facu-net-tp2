@@ -5,6 +5,13 @@ using System.Text;
 
 namespace Business.Entities
 {
+    public enum TiposUsuarios
+    {
+        Administrador,
+        Docente,
+        Alumno
+    }
+
     public class Usuario : BusinessEntity
     {
         private string _NombreUsuario;
@@ -12,6 +19,13 @@ namespace Business.Entities
         {
             get { return _NombreUsuario; }
             set { _NombreUsuario = value; }
+        }
+
+        private TiposUsuarios _tipoUsuario;
+        public TiposUsuarios TipoUsuario
+        {
+            get { return _tipoUsuario; }
+            set { _tipoUsuario = value; }
         }
 
         private string _Clave;
@@ -40,6 +54,27 @@ namespace Business.Entities
         {
             get { return _EMail; }
             set { _EMail = value; }
+        }
+
+        private string _fechaNac;
+        public string FechaNac
+        {
+            get { return _fechaNac; }
+            set { _fechaNac = value; }
+        }
+
+        private int _Legajo;
+        public int Legajo
+        {
+            get { return _Legajo; }
+            set { _Legajo = value; }
+        }
+
+        private string _Telefono;
+        public string Telefono
+        {
+            get { return _Telefono; }
+            set { _Telefono = value; }
         }
 
         private bool _Habilitado;

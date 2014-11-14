@@ -2,3 +2,7 @@ C:\Users\zeus_mobile\Desktop\NET\TP2\tp2_git\TP2\Util\bin\Debug\Util.dll
 C:\Users\zeus_mobile\Desktop\NET\TP2\tp2_git\TP2\Util\bin\Debug\Util.pdb
 C:\Users\zeus_mobile\Desktop\NET\TP2\tp2_git\TP2\Util\obj\Debug\Util.dll
 C:\Users\zeus_mobile\Desktop\NET\TP2\tp2_git\TP2\Util\obj\Debug\Util.pdb
+D:\net_tp2_new\TP2\Util\bin\Debug\Util.dll
+D:\net_tp2_new\TP2\Util\bin\Debug\Util.pdb
+D:\net_tp2_new\TP2\Util\obj\Debug\Util.dll
+D:\net_tp2_new\TP2\Util\obj\Debug\Util.pdb

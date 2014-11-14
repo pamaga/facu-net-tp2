@@ -9,16 +9,31 @@ using System.Windows.Forms;
 using Business.Entities;
 using Business.Logic;
 using System.Diagnostics;
-using System.Windows.Forms;
 
 
 namespace UI.Desktop
 {
     public partial class Usuarios : Form
     {
+        private TiposUsuarios _tipoUsuario;
+
+        public TiposUsuarios TipoUsuario
+        {
+            get { return _tipoUsuario; }
+            set { _tipoUsuario = value; }
+        }
+
         public Usuarios()
         {
             InitializeComponent();
+            this.dgvUsuarios.AutoGenerateColumns = false;
+        }
+
+        public Usuarios(TiposUsuarios tipo)
+        {
+            InitializeComponent();
+            this.Text = tipo.ToString();
+            this.TipoUsuario = tipo;
             this.dgvUsuarios.AutoGenerateColumns = false;
         }
 
@@ -32,9 +47,10 @@ namespace UI.Desktop
             this.Listar();
         }
 
-        public void Listar(){
+        public void Listar()
+        {
             UsuarioLogic ul = new UsuarioLogic();
-            this.dgvUsuarios.DataSource = ul.GetAll();
+            this.dgvUsuarios.DataSource = ul.GetAll(this.TipoUsuario);
         }
 
         private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -44,9 +60,9 @@ namespace UI.Desktop
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-           
+
             this.Listar();
-            
+
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -56,17 +72,18 @@ namespace UI.Desktop
 
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
-            UsuarioDesktop formUsuario = new UsuarioDesktop(ApplicationForm.ModoForm.Alta);
+            UsuarioDesktop formUsuario = new UsuarioDesktop(ApplicationForm.ModoForm.Alta, this.TipoUsuario);
             formUsuario.ShowDialog();
             this.Listar();
         }
 
         private void tsbEditar_Click(object sender, EventArgs e)
         {
-            if(this.dgvUsuarios.SelectedRows.Count == 1){
+            if (this.dgvUsuarios.SelectedRows.Count == 1)
+            {
                 int ID = ((Business.Entities.Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
-               
-                UsuarioDesktop formUsuario = new UsuarioDesktop(ID,ApplicationForm.ModoForm.Modificacion);
+
+                UsuarioDesktop formUsuario = new UsuarioDesktop(ID, ApplicationForm.ModoForm.Modificacion, this.TipoUsuario);
                 formUsuario.ShowDialog();
                 this.Listar();
             }
@@ -77,14 +94,15 @@ namespace UI.Desktop
             if (this.dgvUsuarios.SelectedRows.Count == 1)
             {
                 int ID = ((Business.Entities.Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
-                UsuarioDesktop formUsuario = new UsuarioDesktop(ID, ApplicationForm.ModoForm.Baja);
+                UsuarioDesktop formUsuario = new UsuarioDesktop(ID, ApplicationForm.ModoForm.Baja, this.TipoUsuario);
                 formUsuario.ShowDialog();
                 this.Listar();
             }
-            else {
+            else
+            {
                 MessageBox.Show("Seleccione un registro para eliminar");
             }
-           
+
         }
     }
 }

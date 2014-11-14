@@ -4,10 +4,11 @@ using System.Text;
 using Business.Entities;
 using System.Data;
 using System.Data.SqlClient;
+using Util;
 
 namespace Data.Database
 {
-    public class UsuarioAdapter:Adapter
+    public class UsuarioAdapter : Adapter
     {
         #region DatosEnMemoria
         // Esta región solo se usa en esta etapa donde los datos se mantienen en memoria.
@@ -61,17 +62,20 @@ namespace Data.Database
         }
         #endregion
 
-        public List<Usuario> GetAll()
+        public List<Usuario> GetAll(TiposUsuarios TipoUsuario)
         {
             List<Usuario> usuarios = new List<Usuario>();
 
-            try{
-            
+            try
+            {
+
                 this.OpenConnection();
 
-                SqlCommand cmdUsuarios = new SqlCommand("SELECT * FROM usuarios",sqlConn);
+                SqlCommand cmdUsuarios = new SqlCommand("SELECT * FROM usuarios WHERE tipo_usuario = @tipo_usuario", sqlConn);
+                cmdUsuarios.Parameters.Add("@tipo_usuario", SqlDbType.Int).Value = (int)TipoUsuario;
                 SqlDataReader drUsuarios = cmdUsuarios.ExecuteReader();
-                while(drUsuarios.Read()){
+                while (drUsuarios.Read())
+                {
                     Usuario usr = new Usuario();
 
                     usr.ID = (int)drUsuarios["id_usuario"];
@@ -81,6 +85,10 @@ namespace Data.Database
                     usr.Nombre = (string)drUsuarios["nombre"];
                     usr.Apellido = (string)drUsuarios["apellido"];
                     usr.EMail = (string)drUsuarios["email"];
+                    usr.Telefono = (string)drUsuarios["telefono"];
+                    usr.FechaNac = ((DateTime)drUsuarios["fecha_nac"]).ToString("dd/MM/yyyy");
+                    usr.Legajo = (int)drUsuarios["legajo"];
+                    usr.TipoUsuario = (TiposUsuarios)drUsuarios["tipo_usuario"];
 
                     usuarios.Add(usr);
                 }
@@ -89,10 +97,12 @@ namespace Data.Database
             catch (Exception Ex)
             {
                 //Exception ExcepcionManejada = new Exception("Error al recuperar lista de usuarios", Ex);
-               // throw ExcepcionManejada;
+                // throw ExcepcionManejada;
                 throw Ex;
-                
-            }finally{
+
+            }
+            finally
+            {
                 this.CloseConnection();
             }
             return usuarios;
@@ -119,6 +129,10 @@ namespace Data.Database
                     usr.Nombre = (string)drUsuarios["nombre"];
                     usr.Apellido = (string)drUsuarios["apellido"];
                     usr.EMail = (string)drUsuarios["email"];
+                    usr.Telefono = (string)drUsuarios["telefono"];
+                    usr.FechaNac = ((DateTime)drUsuarios["fecha_nac"]).ToString("dd/MM/yyyy");
+                    usr.Legajo = (int)drUsuarios["legajo"];
+                    usr.TipoUsuario = (TiposUsuarios)drUsuarios["tipo_usuario"];
                 }
                 drUsuarios.Close();
             }
@@ -126,7 +140,9 @@ namespace Data.Database
             {
                 Exception ExcepcionManejada = new Exception("Error al recuperar lista de usuarios", Ex);
                 throw ExcepcionManejada;
-            }finally{
+            }
+            finally
+            {
                 this.CloseConnection();
             }
             return usr;
@@ -134,15 +150,20 @@ namespace Data.Database
 
         public void Delete(int ID)
         {
-            try{
+            try
+            {
                 this.OpenConnection();
                 SqlCommand cmdDelete = new SqlCommand("DELETE usuarios WHERE id_usuario=@id", sqlConn);
                 cmdDelete.Parameters.Add("@id", SqlDbType.Int).Value = ID;
 
                 cmdDelete.ExecuteNonQuery();
-            } catch(Exception Ex) {
+            }
+            catch (Exception Ex)
+            {
                 Exception ExcepcionManejada = new Exception("Error al eliminar usuario:" + Ex.ToString(), Ex);
-            } finally {
+            }
+            finally
+            {
                 this.CloseConnection();
             }
         }
@@ -162,20 +183,25 @@ namespace Data.Database
             {
                 this.Update(usuario);
             }
-            usuario.State = BusinessEntity.States.Unmodified;            
+            usuario.State = BusinessEntity.States.Unmodified;
         }
-    
-        protected void Update(Usuario usuario) {
-            try{
+
+        protected void Update(Usuario usuario)
+        {
+            try
+            {
                 this.OpenConnection();
-                SqlCommand cmdSave = new SqlCommand("UPDATE usuarios SET nombre_usuario = @nombre_usuario, clave = @clave, habilitado = @habilitado, nombre = @nombre, apellido = @apellido, email = @email WHERE id_usuario = @id", sqlConn);
-                cmdSave.Parameters.Add("@id",SqlDbType.Int).Value = usuario.ID;
-                cmdSave.Parameters.Add("@nombre_usuario", SqlDbType.VarChar,50).Value = usuario.NombreUsuario;
+                SqlCommand cmdSave = new SqlCommand("UPDATE usuarios SET nombre_usuario = @nombre_usuario, clave = @clave, habilitado = @habilitado, nombre = @nombre, apellido = @apellido, email = @email, telefono = @telefono, legajo = @legajo, fecha_nac = @fecha_nac WHERE id_usuario = @id", sqlConn);
+                cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = usuario.ID;
+                cmdSave.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = usuario.NombreUsuario;
                 cmdSave.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = usuario.Clave;
                 cmdSave.Parameters.Add("@habilitado", SqlDbType.Bit).Value = usuario.Habilitado;
                 cmdSave.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = usuario.Nombre;
                 cmdSave.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = usuario.Apellido;
                 cmdSave.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = usuario.EMail;
+                cmdSave.Parameters.Add("@telefono", SqlDbType.VarChar, 50).Value = usuario.Telefono;
+                cmdSave.Parameters.Add("@legajo", SqlDbType.Int).Value = usuario.Legajo;
+                cmdSave.Parameters.Add("@fecha_nac", SqlDbType.Date).Value = DateTime.ParseExact(Util.Util.DateToDb(usuario.FechaNac), "yyyy-MM-dd", null);
                 cmdSave.ExecuteNonQuery();
             }
             catch (Exception Ex)
@@ -194,18 +220,21 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdSave = new SqlCommand("INSERT INTO usuarios (nombre_usuario, clave, habilitado, nombre, apellido, email) "+
-                    "VALUES (@nombre_usuario, @clave, @habilitado, @nombre, @apellido, @email) " +
+                SqlCommand cmdSave = new SqlCommand("INSERT INTO usuarios (nombre_usuario, clave, habilitado, nombre, apellido, email, telefono, legajo, fecha_nac, tipo_usuario) " +
+                    "VALUES (@nombre_usuario, @clave, @habilitado, @nombre, @apellido, @email, @telefono, @legajo, @fecha_nac, @tipo_usuario) " +
                     "SELECT @@identity", sqlConn);
-                cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = usuario.ID;
+
                 cmdSave.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = usuario.NombreUsuario;
                 cmdSave.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = usuario.Clave;
                 cmdSave.Parameters.Add("@habilitado", SqlDbType.Bit).Value = usuario.Habilitado;
                 cmdSave.Parameters.Add("@nombre", SqlDbType.VarChar, 50).Value = usuario.Nombre;
                 cmdSave.Parameters.Add("@apellido", SqlDbType.VarChar, 50).Value = usuario.Apellido;
                 cmdSave.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = usuario.EMail;
-                usuario.ID = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar() );
-                //cmdSave.ExecuteNonQuery();
+                cmdSave.Parameters.Add("@telefono", SqlDbType.VarChar, 50).Value = usuario.Telefono;
+                cmdSave.Parameters.Add("@legajo", SqlDbType.Int).Value = usuario.Legajo;
+                cmdSave.Parameters.Add("@fecha_nac", SqlDbType.Date).Value = DateTime.ParseExact(Util.Util.DateToDb(usuario.FechaNac), "yyyy-MM-dd", null);
+                cmdSave.Parameters.Add("@tipo_usuario", SqlDbType.Int).Value = (int)usuario.TipoUsuario;
+                usuario.ID = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
             }
             catch (Exception Ex)
             {
@@ -217,6 +246,6 @@ namespace Data.Database
                 this.CloseConnection();
             }
         }
-    
+
     }
 }
