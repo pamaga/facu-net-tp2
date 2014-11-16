@@ -7,3 +7,8 @@ D:\net_tp2_new\TP2\Entidades\bin\Debug\Business.Entities.dll
 D:\net_tp2_new\TP2\Entidades\bin\Debug\Business.Entities.pdb
 D:\net_tp2_new\TP2\Entidades\obj\Debug\Business.Entities.dll
 D:\net_tp2_new\TP2\Entidades\obj\Debug\Business.Entities.pdb
+C:\Users\Julian\Documents\TP2\TP2\Entidades\bin\Debug\Business.Entities.dll
+C:\Users\Julian\Documents\TP2\TP2\Entidades\bin\Debug\Business.Entities.pdb
+C:\Users\Julian\Documents\TP2\TP2\Entidades\obj\Debug\Business.Entities.csprojResolveAssemblyReference.cache
+C:\Users\Julian\Documents\TP2\TP2\Entidades\obj\Debug\Business.Entities.dll
+C:\Users\Julian\Documents\TP2\TP2\Entidades\obj\Debug\Business.Entities.pdb

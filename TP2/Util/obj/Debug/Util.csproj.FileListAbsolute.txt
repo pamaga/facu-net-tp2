@@ -6,3 +6,8 @@ D:\net_tp2_new\TP2\Util\bin\Debug\Util.dll
 D:\net_tp2_new\TP2\Util\bin\Debug\Util.pdb
 D:\net_tp2_new\TP2\Util\obj\Debug\Util.dll
 D:\net_tp2_new\TP2\Util\obj\Debug\Util.pdb
+C:\Users\Julian\Documents\TP2\TP2\Util\bin\Debug\Util.dll
+C:\Users\Julian\Documents\TP2\TP2\Util\bin\Debug\Util.pdb
+C:\Users\Julian\Documents\TP2\TP2\Util\obj\Debug\Util.csprojResolveAssemblyReference.cache
+C:\Users\Julian\Documents\TP2\TP2\Util\obj\Debug\Util.dll
+C:\Users\Julian\Documents\TP2\TP2\Util\obj\Debug\Util.pdb
