@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace UI.Web
+namespace UI.Web.Catedras
 {
-    public partial class Usuarios : System.Web.UI.Page
+    public partial class Materias : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
