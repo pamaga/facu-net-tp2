@@ -1,8 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
-  <siteMapNode url="~" title="Home" description="">
+  <siteMapNode>
+    <siteMapNode url="~" title="Home" description="" />
     <siteMapNode title="Personas"  description="Personas" >
-      <siteMapNode url="~/Personas/Usuarios.aspx" title="Usuarios"  description="ABM usuarios" />
+      <siteMapNode url="~/Personas/Alumnos.aspx" title="Alumnos"  description="ABM alumnos" />
+      <siteMapNode url="~/Personas/Docentes.aspx" title="Docentes"  description="ABM docentes" />
     </siteMapNode>
     <siteMapNode title="Catedras" description="Catedras">
       <siteMapNode url="~/Catedras/Comisiones.aspx" title="Comisiones"  description="ABM comisiones" />

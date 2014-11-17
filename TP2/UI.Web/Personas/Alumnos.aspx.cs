@@ -7,20 +7,17 @@ using System.Web.UI.WebControls;
 using Business.Entities;
 using Business.Logic;
 
-namespace UI.Web.Catedras
+namespace UI.Web
 {
-    public partial class Materias : System.Web.UI.Page
+    public partial class Alumnos : System.Web.UI.Page
     {
-        MateriaLogic _logic;
-        private MateriaLogic Logic
+        private UsuarioLogic _Logic;
+        public UsuarioLogic Logic
         {
             get
             {
-                if(_logic==null)
-                {
-                    _logic = new MateriaLogic();
-                }
-                return _logic;
+                if (_Logic == null) _Logic = new UsuarioLogic();
+                return _Logic;
             }
         }
 
@@ -31,7 +28,7 @@ namespace UI.Web.Catedras
             set { this.ViewState["FormMode"] = value; }
         }
 
-        private Materia Entity
+        private Usuario Entity
         {
             get;
             set;
@@ -60,14 +57,14 @@ namespace UI.Web.Catedras
 
         private void LoadGrid()
         {
-            this.GridView.DataSource = this.Logic.GetAll();
-            this.GridView.DataBind();
+            this.gridView.DataSource = this.Logic.GetAll(Business.Entities.TiposUsuarios.Alumno);
+            this.gridView.DataBind();
         }
 
         #region Eventos
         protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.SelectedID = (int)this.GridView.SelectedValue;
+            this.SelectedID = (int)this.gridView.SelectedValue;
         }
 
         protected void editarLinkButton_Click(object sender, EventArgs e)
@@ -107,7 +104,7 @@ namespace UI.Web.Catedras
                     this.LoadGrid();
                     break;
                 case FormModes.Modificacion:
-                    this.Entity = new Materia();
+                    this.Entity = new Usuario();
                     this.Entity.ID = this.SelectedID;
                     this.Entity.State = BusinessEntity.States.Modified;
                     this.LoadEntity(this.Entity);
@@ -115,7 +112,7 @@ namespace UI.Web.Catedras
                     this.LoadGrid();
                     break;
                 case FormModes.Alta:
-                    this.Entity = new Materia();
+                    this.Entity = new Usuario();
                     this.LoadEntity(this.Entity);
                     this.SaveEntity(this.Entity);
                     this.LoadGrid();
@@ -134,34 +131,40 @@ namespace UI.Web.Catedras
         private void LoadForm(int id)
         {
             this.Entity = this.Logic.GetOne(id);
-            this.descripcionTextBox.Text = this.Entity.Descripcion;
-            this.idPlanTextBox.Text = this.Entity.IDPlan.ToString();
-            this.horasSemanalesTextBox.Text = this.Entity.HSSemanales.ToString();
-            this.horasTotalesTextBox.Text = this.Entity.HSTotales.ToString();
-            this.planDescripcionTextBox.Text = this.Entity.Plan;
+            this.nombreTextBox.Text = this.Entity.Nombre;
+            this.apellidoTextBox.Text = this.Entity.Apellido;
+            this.emailTextBox.Text = this.Entity.EMail;
+            this.habilitadoCheckBox.Checked = this.Entity.Habilitado;
+            this.nombreUsuarioTextBox.Text = this.Entity.NombreUsuario;
+            claveTextBox.Attributes["value"] = this.Entity.Clave;
+            repetirClaveTextBox.Attributes["value"] = this.Entity.Clave;
         }
 
-        private void LoadEntity(Materia materia)
+        private void LoadEntity(Usuario usuario)
         {
-            materia.Descripcion = this.descripcionTextBox.Text;
-            materia.IDPlan = Int32.Parse(this.idPlanTextBox.Text);
-            materia.HSSemanales = Int32.Parse(this.horasSemanalesTextBox.Text);
-            materia.HSTotales = Int32.Parse(this.horasTotalesTextBox.Text);
-            materia.Plan = this.planDescripcionTextBox.Text;
+            usuario.Nombre = this.nombreTextBox.Text;
+            usuario.Apellido = this.apellidoTextBox.Text;
+            usuario.EMail = this.emailTextBox.Text;
+            usuario.NombreUsuario = this.nombreUsuarioTextBox.Text;
+            usuario.Clave = this.claveTextBox.Text;
+            usuario.Habilitado = this.habilitadoCheckBox.Checked;
         }
 
-        private void SaveEntity(Materia materia)
+        private void SaveEntity(Usuario usuario)
         {
-            this.Logic.Save(materia);
+            this.Logic.Save(usuario);
         }
 
         private void EnableForm(bool enable)
         {
-            this.descripcionTextBox.Enabled = enable;
-            this.idPlanTextBox.Enabled = enable;
-            this.horasSemanalesTextBox.Enabled = enable;
-            this.horasTotalesTextBox.Enabled = enable;
-            this.planDescripcionTextBox.Enabled = enable;
+            this.nombreTextBox.Enabled = enable;
+            this.apellidoTextBox.Enabled = enable;
+            this.emailTextBox.Enabled = enable;
+            this.nombreUsuarioTextBox.Enabled = enable;
+            this.claveTextBox.Visible = enable;
+            this.claveLabel.Visible = enable;
+            this.repetirClaveTextBox.Visible = enable;
+            this.repetirClaveLabel.Visible = enable;
         }
 
         private void DeleteEntity(int id)
@@ -171,11 +174,13 @@ namespace UI.Web.Catedras
 
         private void ClearForm()
         {
-            this.descripcionTextBox.Text = string.Empty;
-            this.idPlanTextBox.Text = string.Empty;
-            this.horasSemanalesTextBox.Text = string.Empty;
-            this.horasTotalesTextBox.Text = string.Empty;
-            this.planDescripcionTextBox.Text = string.Empty;
+            this.nombreTextBox.Text = string.Empty;
+            this.apellidoTextBox.Text = string.Empty;
+            this.emailTextBox.Text = string.Empty;
+            this.habilitadoCheckBox.Checked = false;
+            this.nombreUsuarioTextBox.Text = string.Empty;
+            claveTextBox.Attributes["value"] = string.Empty;
+            repetirClaveTextBox.Attributes["value"] = string.Empty;
         }
     }
 }

@@ -7,20 +7,31 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace UI.Web.Catedras {
-    
-    
-    public partial class Materias {
-        
+namespace UI.Web
+{
+
+
+    public partial class Docentes
+    {
+
         /// <summary>
-        /// GridView control.
+        /// gridPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView;
-        
+        protected global::System.Web.UI.WebControls.Panel gridPanel;
+
+        /// <summary>
+        /// gridView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gridView;
+
         /// <summary>
         /// gridActionsPanel control.
         /// </summary>
@@ -29,7 +40,7 @@ namespace UI.Web.Catedras {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel gridActionsPanel;
-        
+
         /// <summary>
         /// editarLinkButton control.
         /// </summary>
@@ -38,7 +49,7 @@ namespace UI.Web.Catedras {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton editarLinkButton;
-        
+
         /// <summary>
         /// eliminarLinkButton control.
         /// </summary>
@@ -47,7 +58,7 @@ namespace UI.Web.Catedras {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton eliminarLinkButton;
-        
+
         /// <summary>
         /// nuevoLinkButton control.
         /// </summary>
@@ -56,7 +67,7 @@ namespace UI.Web.Catedras {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton nuevoLinkButton;
-        
+
         /// <summary>
         /// formPanel control.
         /// </summary>
@@ -65,97 +76,133 @@ namespace UI.Web.Catedras {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel formPanel;
-        
+
         /// <summary>
-        /// descripcionLabel control.
+        /// nombreLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label descripcionLabel;
-        
+        protected global::System.Web.UI.WebControls.Label nombreLabel;
+
         /// <summary>
-        /// descripcionTextBox control.
+        /// nombreTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox descripcionTextBox;
-        
+        protected global::System.Web.UI.WebControls.TextBox nombreTextBox;
+
         /// <summary>
-        /// idPlanLabel control.
+        /// apellidoLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label idPlanLabel;
-        
+        protected global::System.Web.UI.WebControls.Label apellidoLabel;
+
         /// <summary>
-        /// idPlanTextBox control.
+        /// apellidoTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox idPlanTextBox;
-        
+        protected global::System.Web.UI.WebControls.TextBox apellidoTextBox;
+
         /// <summary>
-        /// horasSemanalesLabel control.
+        /// emailLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label horasSemanalesLabel;
-        
+        protected global::System.Web.UI.WebControls.Label emailLabel;
+
         /// <summary>
-        /// horasSemanalesTextBox control.
+        /// emailTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox horasSemanalesTextBox;
-        
+        protected global::System.Web.UI.WebControls.TextBox emailTextBox;
+
         /// <summary>
-        /// horasTotalesLabel control.
+        /// habilitadoLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label horasTotalesLabel;
-        
+        protected global::System.Web.UI.WebControls.Label habilitadoLabel;
+
         /// <summary>
-        /// horasTotalesTextBox control.
+        /// habilitadoCheckBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox horasTotalesTextBox;
-        
+        protected global::System.Web.UI.WebControls.CheckBox habilitadoCheckBox;
+
         /// <summary>
-        /// planDescripcionLabel control.
+        /// nombreUsuarioLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label planDescripcionLabel;
-        
+        protected global::System.Web.UI.WebControls.Label nombreUsuarioLabel;
+
         /// <summary>
-        /// planDescripcionTextBox control.
+        /// nombreUsuarioTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox planDescripcionTextBox;
-        
+        protected global::System.Web.UI.WebControls.TextBox nombreUsuarioTextBox;
+
+        /// <summary>
+        /// claveLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label claveLabel;
+
+        /// <summary>
+        /// claveTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox claveTextBox;
+
+        /// <summary>
+        /// repetirClaveLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label repetirClaveLabel;
+
+        /// <summary>
+        /// repetirClaveTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox repetirClaveTextBox;
+
         /// <summary>
         /// formActionsPanel control.
         /// </summary>
@@ -164,7 +211,7 @@ namespace UI.Web.Catedras {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel formActionsPanel;
-        
+
         /// <summary>
         /// aceptarLinkButton control.
         /// </summary>
@@ -173,7 +220,7 @@ namespace UI.Web.Catedras {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton aceptarLinkButton;
-        
+
         /// <summary>
         /// cancelarLinkButton control.
         /// </summary>

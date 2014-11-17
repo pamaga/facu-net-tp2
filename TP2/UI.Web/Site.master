@@ -10,7 +10,7 @@
         
         <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" />
         <asp:Menu ID="Menu3" runat="server" DataSourceID="SiteMapDataSource" 
-            Orientation="Horizontal">
+            Orientation="Horizontal" BorderStyle="Solid" RenderingMode="List" DynamicHorizontalOffset="5" DynamicVerticalOffset="5" StaticDisplayLevels="2">
         </asp:Menu>
         
         <div>

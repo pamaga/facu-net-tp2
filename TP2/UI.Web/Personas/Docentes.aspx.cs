@@ -9,7 +9,7 @@ using Business.Logic;
 
 namespace UI.Web
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class Docentes : System.Web.UI.Page
     {
         private UsuarioLogic _Logic;
         public UsuarioLogic Logic
