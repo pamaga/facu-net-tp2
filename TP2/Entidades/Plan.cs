@@ -27,5 +27,12 @@ namespace Business.Entities
             get { return _IdEspecialidad; }
             set { _IdEspecialidad = value; }
         }
+
+        private string _DescCompleta;
+
+        public string DescCompleta
+        {
+            get { return this.Descripcion + " - " + this.Especialidad; }
+        }
     }
 }

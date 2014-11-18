@@ -34,7 +34,7 @@ namespace UI.Desktop
         private void loadCmb()
         {
             this.cmbPlanes.DataSource = this.getPlanes();
-            this.cmbPlanes.DisplayMember = "Descripcion";
+            this.cmbPlanes.DisplayMember = "DescCompleta";
             this.cmbPlanes.ValueMember = "ID";
         }
 

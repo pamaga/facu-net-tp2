@@ -83,7 +83,7 @@
             this.cmbPlanes.FormattingEnabled = true;
             this.cmbPlanes.Location = new System.Drawing.Point(80, 149);
             this.cmbPlanes.Name = "cmbPlanes";
-            this.cmbPlanes.Size = new System.Drawing.Size(121, 21);
+            this.cmbPlanes.Size = new System.Drawing.Size(198, 21);
             this.cmbPlanes.TabIndex = 3;
             // 
             // txtDescripcion

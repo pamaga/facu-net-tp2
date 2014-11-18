@@ -36,14 +36,14 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.tsUsuarios = new System.Windows.Forms.ToolStrip();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AnioEspecialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PlanDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.comisionLogicBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AnioEspecialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PlanDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tlUsuarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComisiones)).BeginInit();
             this.tsUsuarios.SuspendLayout();
@@ -145,35 +145,6 @@
             this.tsUsuarios.Size = new System.Drawing.Size(484, 25);
             this.tsUsuarios.TabIndex = 8;
             // 
-            // id
-            // 
-            this.id.DataPropertyName = "ID";
-            this.id.FillWeight = 64F;
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // AnioEspecialidad
-            // 
-            this.AnioEspecialidad.DataPropertyName = "AnioEspecialidad";
-            this.AnioEspecialidad.HeaderText = "AnioEspecialidad";
-            this.AnioEspecialidad.Name = "AnioEspecialidad";
-            this.AnioEspecialidad.ReadOnly = true;
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.DataPropertyName = "Descripcion";
-            this.Descripcion.HeaderText = "Descripcion";
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            // 
-            // PlanDescripcion
-            // 
-            this.PlanDescripcion.DataPropertyName = "PlanDescripcion";
-            this.PlanDescripcion.HeaderText = "PlanDescripcion";
-            this.PlanDescripcion.Name = "PlanDescripcion";
-            this.PlanDescripcion.ReadOnly = true;
-            // 
             // tsbNuevo
             // 
             this.tsbNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -210,6 +181,35 @@
             // comisionLogicBindingSource
             // 
             this.comisionLogicBindingSource.DataSource = typeof(Business.Logic.ComisionLogic);
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "ID";
+            this.id.FillWeight = 64F;
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // AnioEspecialidad
+            // 
+            this.AnioEspecialidad.DataPropertyName = "AnioEspecialidad";
+            this.AnioEspecialidad.HeaderText = "Año Especialidad";
+            this.AnioEspecialidad.Name = "AnioEspecialidad";
+            this.AnioEspecialidad.ReadOnly = true;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.DataPropertyName = "Descripcion";
+            this.Descripcion.HeaderText = "Descripcion";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            // 
+            // PlanDescripcion
+            // 
+            this.PlanDescripcion.DataPropertyName = "PlanDescripcion";
+            this.PlanDescripcion.HeaderText = "Plan - Especialidad";
+            this.PlanDescripcion.Name = "PlanDescripcion";
+            this.PlanDescripcion.ReadOnly = true;
             // 
             // Comisiones
             // 

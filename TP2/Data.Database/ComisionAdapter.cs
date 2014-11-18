@@ -18,7 +18,7 @@ namespace Data.Database
             
                 this.OpenConnection();
 
-                SqlCommand cmdComisiones = new SqlCommand("SELECT C.*,P.desc_plan FROM comisiones C LEFT JOIN planes P ON P.id_plan = C.id_plan", sqlConn);
+                SqlCommand cmdComisiones = new SqlCommand("SELECT C.*,P.desc_plan, E.desc_especialidad FROM comisiones C LEFT JOIN planes P ON P.id_plan = C.id_plan LEFT JOIN especialidades E ON E.id_especialidad = P.id_especialidad", sqlConn);
                 SqlDataReader drComisiones = cmdComisiones.ExecuteReader();
                 while (drComisiones.Read())
                 {
@@ -27,7 +27,7 @@ namespace Data.Database
                     Comision.ID = (int)drComisiones["id_comision"];
                     Comision.Descripcion = (string)drComisiones["desc_comision"];
                     Comision.IDPlan = (int)drComisiones["id_plan"];
-                    Comision.PlanDescripcion = (string)drComisiones["desc_plan"];
+                    Comision.PlanDescripcion = (string)drComisiones["desc_plan"] + " - " + (string)drComisiones["desc_especialidad"];
                     Comision.AnioEspecialidad = (int)drComisiones["anio_especialidad"];
 
                     Comisiones.Add(Comision);
