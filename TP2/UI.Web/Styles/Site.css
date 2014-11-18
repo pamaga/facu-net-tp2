@@ -292,3 +292,9 @@ div.accountInfo
     text-align: right;
     padding-right: 10px;
 }
+
+/*Estilos agregados*/
+#MenuPrincipal
+{
+    margin-bottom: 20px;
+}

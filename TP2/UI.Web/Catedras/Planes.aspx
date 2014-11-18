@@ -23,6 +23,15 @@
         <asp:Label ID="especialidadDescripcionLabel" runat="server" Text="Descripcion especialidad: "></asp:Label>
         <asp:TextBox ID="especialidadDescripcionTextBox" runat="server"></asp:TextBox>
         <br />
+        <asp:DropDownList ID="DropDownList1" runat="server" 
+            DataSourceID="SqlDataSource1" DataTextField="id_especialidad" 
+            DataValueField="id_especialidad">
+        </asp:DropDownList>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+            ConnectionString="<%$ ConnectionStrings:ConnStringExpress %>" 
+            SelectCommand="SELECT [id_especialidad], [desc_especialidad] FROM [especialidades]">
+        </asp:SqlDataSource>
+        <br />
         <asp:Panel ID="formActionsPanel" runat="server">
             <asp:LinkButton ID="aceptarLinkButton" runat="server" OnClick="aceptarLinkButton_Click">Aceptar</asp:LinkButton>
             <asp:LinkButton ID="cancelarLinkButton" runat="server" OnClick="cancelarLinkButton_Click">Cancelar</asp:LinkButton>

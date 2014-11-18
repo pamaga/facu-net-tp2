@@ -110,56 +110,57 @@ namespace UI.Desktop
 
         public override bool Validar()
         {
-            if (this.txtNombre.Text == string.Empty ||
-                this.txtApellido.Text == string.Empty ||
-                this.txtEmail.Text == string.Empty ||
-                this.txtUsuario.Text == string.Empty ||
-                this.txtClave.Text == string.Empty ||
-                this.txtClave2.Text == string.Empty ||
-                this.txtTelefono.Text == string.Empty ||
-                this.txtLegajo.Text == string.Empty ||
-                this.txtFechaNac.Text == string.Empty)
+            bool error = false;
+            string mensaje = "Errores en el formulario:" + Environment.NewLine;
+
+            if (
+                !Util.Util.validarRequerido(this.txtNombre.Text) ||
+                !Util.Util.validarRequerido(this.txtApellido.Text) ||
+                !Util.Util.validarRequerido(this.txtEmail.Text) ||
+                !Util.Util.validarRequerido(this.txtUsuario.Text) ||
+                !Util.Util.validarRequerido(this.txtClave.Text) ||
+                !Util.Util.validarRequerido(this.txtClave2.Text) ||
+                !Util.Util.validarRequerido(this.txtTelefono.Text) ||
+                !Util.Util.validarRequerido(this.txtLegajo.Text) ||
+                !Util.Util.validarRequerido(this.txtFechaNac.Text))
             {
-                this.Notificar("Error de validación", "Complete todos los campos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtNombre.Focus();
-                return false;
+                mensaje += "- Complete todos los campos" + Environment.NewLine;
+                error = true;
             }
 
-            if (!this.txtClave.Text.Equals(this.txtClave2.Text))
+            if (!Util.Util.validarIguales(this.txtClave.Text,this.txtClave2.Text))
             {
-                this.Notificar("Error de validación", "Las claves no coinciden", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtClave.Focus();
-                return false;
+                mensaje += "- Las claves no coinciden" + Environment.NewLine;
+                error = true;
             }
 
-            if (this.txtClave.Text.Length < 8)
+            if (!Util.Util.validarMinLength(this.txtClave.Text,8))
             {
-                this.Notificar("Error de validación", "La clave debe tener al menos 8 caracteres", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtClave.Focus();
-                return false;
+                mensaje += "- La clave debe tener al menos 8 caracteres" + Environment.NewLine;
+                error = true;
             }
 
-            if (!Regex.IsMatch(this.txtEmail.Text, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase))
+            if (!Util.Util.validarEmail(this.txtEmail.Text))
             {
-                this.Notificar("Error de validación", "Ingrese un Email válido", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtEmail.Focus();
-                return false;
+                mensaje += "- Ingrese un Email válido" + Environment.NewLine;
+                error = true;
             }
 
-            if (!Regex.IsMatch(this.txtFechaNac.Text, @"^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$", RegexOptions.IgnoreCase))
+            if (!Util.Util.validarFecha(this.txtFechaNac.Text))
             {
-                this.Notificar("Error de validación", "Ingrese la fecha en formato dd/mm/yyyy", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtLegajo.Focus();
-                return false;
+                mensaje += "- Ingrese la fecha en formato dd/mm/yyyy" + Environment.NewLine;
+                error = true;
             }
 
-            if (!Regex.IsMatch(this.txtLegajo.Text, @"^\d+$", RegexOptions.IgnoreCase))
+            if (!Util.Util.validarNumero(this.txtLegajo.Text))
             {
-                this.Notificar("Error de validación", "El legajo sólo puede contener números", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtLegajo.Focus();
-                return false;
+                mensaje += "- El legajo sólo puede contener números" + Environment.NewLine;
+                error = true;
             }
-            return true;
+            if(error){
+                this.Notificar("Error de validación", mensaje, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return !error;
         }
 
         public override void GuardarCambios()

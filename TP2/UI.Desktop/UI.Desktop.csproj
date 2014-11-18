@@ -197,7 +197,9 @@
     <EmbeddedResource Include="Usuarios.resx">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="App.Config" />
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="dataSetReportes.xsc">
       <DependentUpon>dataSetReportes.xsd</DependentUpon>
     </None>
@@ -243,6 +245,10 @@
     <ProjectReference Include="..\Negocio\Business.Logic.csproj">
       <Project>{DCBA4F21-125B-4954-8261-D5C93F770453}</Project>
       <Name>Business.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Util\Util.csproj">
+      <Project>{F96F42A3-8D23-4B3A-83A2-1C80363F8343}</Project>
+      <Name>Util</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -9,7 +9,7 @@ using Business.Logic;
 
 namespace UI.Web
 {
-    public partial class Docentes : System.Web.UI.Page
+    public partial class Usuarios : System.Web.UI.Page
     {
         private UsuarioLogic _Logic;
         public UsuarioLogic Logic
@@ -57,7 +57,7 @@ namespace UI.Web
 
         private void LoadGrid()
         {
-            this.gridView.DataSource = this.Logic.GetAll(Business.Entities.TiposUsuarios.Docente);
+            this.gridView.DataSource = this.Logic.GetAll( (TiposUsuarios)Enum.Parse(typeof(TiposUsuarios),Request.QueryString["TipoUsuario"]) );
             this.gridView.DataBind();
         }
 
@@ -138,6 +138,9 @@ namespace UI.Web
             this.nombreUsuarioTextBox.Text = this.Entity.NombreUsuario;
             claveTextBox.Attributes["value"] = this.Entity.Clave;
             repetirClaveTextBox.Attributes["value"] = this.Entity.Clave;
+            this.txtLegajo.Text = this.Entity.Legajo.ToString();
+            this.txtTelefono.Text = this.Entity.Telefono;
+            this.txtFechaNac.Text = this.Entity.FechaNac;
         }
 
         private void LoadEntity(Usuario usuario)
@@ -147,7 +150,11 @@ namespace UI.Web
             usuario.EMail = this.emailTextBox.Text;
             usuario.NombreUsuario = this.nombreUsuarioTextBox.Text;
             usuario.Clave = this.claveTextBox.Text;
+            usuario.Legajo = int.Parse(this.txtLegajo.Text);
+            usuario.Telefono = this.txtTelefono.Text;
+            usuario.FechaNac = this.txtFechaNac.Text;
             usuario.Habilitado = this.habilitadoCheckBox.Checked;
+            usuario.TipoUsuario = (TiposUsuarios)Enum.Parse(typeof(TiposUsuarios), Request.QueryString["TipoUsuario"]);
         }
 
         private void SaveEntity(Usuario usuario)
@@ -163,6 +170,9 @@ namespace UI.Web
             this.nombreUsuarioTextBox.Enabled = enable;
             this.claveTextBox.Visible = enable;
             this.claveLabel.Visible = enable;
+            this.txtLegajo.Visible = enable;
+            this.txtTelefono.Visible = enable;
+            this.txtFechaNac.Visible = enable;
             this.repetirClaveTextBox.Visible = enable;
             this.repetirClaveLabel.Visible = enable;
         }
@@ -179,6 +189,9 @@ namespace UI.Web
             this.emailTextBox.Text = string.Empty;
             this.habilitadoCheckBox.Checked = false;
             this.nombreUsuarioTextBox.Text = string.Empty;
+            this.txtLegajo.Text = string.Empty;
+            this.txtTelefono.Text = string.Empty;
+            this.txtFechaNac.Text = string.Empty;
             claveTextBox.Attributes["value"] = string.Empty;
             repetirClaveTextBox.Attributes["value"] = string.Empty;
         }

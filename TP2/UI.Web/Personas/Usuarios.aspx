@@ -1,15 +1,21 @@
-﻿<%@ Page Title="Docentes" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Docentes.aspx.cs" Inherits="UI.Web.Personas.Docentes" %>
+﻿<%@ Page Title="Docentes" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Usuarios.aspx.cs" Inherits="UI.Web.Usuarios" %>
 <asp:Content ID="ContentDocentes" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
     <asp:Panel ID="gridPanel" runat="server">
-        <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="false" SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="White" DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" >
+        <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="False" 
+            SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="White" 
+            DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" >
             <Columns>
                 <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
                 <asp:BoundField HeaderText="Apellido" DataField="Apellido" />
                 <asp:BoundField HeaderText="EMail" DataField="EMail" />
                 <asp:BoundField HeaderText="Usuario" DataField="NombreUsuario" />
                 <asp:BoundField HeaderText="Habilitado" DataField="Habilitado" />
+                <asp:BoundField DataField="Legajo" HeaderText="Legajo" />
+                <asp:BoundField DataField="Telefono" HeaderText="Teléfono" />
+                <asp:BoundField DataField="FechaNac" HeaderText="Fecha de Nacimiento" />
                 <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
             </Columns>
+            <SelectedRowStyle BackColor="Black" ForeColor="White" />
         </asp:GridView>
     </asp:Panel>
     <asp:Panel ID="gridActionsPanel" runat="server">
@@ -32,6 +38,15 @@
         <br />
         <asp:Label ID="nombreUsuarioLabel" runat="server" Text="Usuario: "></asp:Label>
         <asp:TextBox ID="nombreUsuarioTextBox" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="lblLegajo" runat="server" Text="Legajo: "></asp:Label>
+        <asp:TextBox ID="txtLegajo" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="lblTelefono" runat="server" Text="Teléfono: "></asp:Label>
+        <asp:TextBox ID="txtTelefono" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="lblFechaNac" runat="server" Text="Fecha de Nacimiento: "></asp:Label>
+        <asp:TextBox ID="txtFechaNac" runat="server"></asp:TextBox>
         <br />
         <asp:Label ID="claveLabel" runat="server" Text="Clave: "></asp:Label>
         <asp:TextBox ID="claveTextBox" TextMode="Password" runat="server"></asp:TextBox>
