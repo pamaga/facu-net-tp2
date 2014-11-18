@@ -8,7 +8,6 @@ using System.Text;
 using System.Windows.Forms;
 using Business.Logic;
 using Business.Entities;
-using System.Text.RegularExpressions;
 
 namespace UI.Desktop
 {
@@ -33,16 +32,14 @@ namespace UI.Desktop
             InitializeComponent();
         }
 
-        public UsuarioDesktop(ModoForm modo, TiposUsuarios TipoUsuario)
-            : this()
+        public UsuarioDesktop(ModoForm modo, TiposUsuarios TipoUsuario):this()
         {
             this.TipoUsuario = TipoUsuario;
             this.Modo = modo;
             this.Text = this.Modo.ToString() + " de " + this.TipoUsuario.ToString();
         }
 
-        public UsuarioDesktop(int ID, ModoForm modo, TiposUsuarios TipoUsuario)
-            : this()
+        public UsuarioDesktop(int ID, ModoForm modo, TiposUsuarios TipoUsuario):this()
         {
             this.Modo = modo;
             UsuarioLogic usuario = new UsuarioLogic();
@@ -189,9 +186,5 @@ namespace UI.Desktop
             this.Close();
         }
 
-        private void chkHabilitado_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

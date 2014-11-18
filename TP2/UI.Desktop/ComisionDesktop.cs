@@ -26,15 +26,18 @@ namespace UI.Desktop
             InitializeComponent();
             this.loadCmb();
         }
+
         public ComisionDesktop(ModoForm modo):this(){
             this.Modo = modo;
         }
+
         private void loadCmb()
         {
             this.cmbPlanes.DataSource = this.getPlanes();
             this.cmbPlanes.DisplayMember = "Descripcion";
             this.cmbPlanes.ValueMember = "ID";
         }
+
         public ComisionDesktop(int ID, ModoForm modo):this()
         {
            
@@ -58,11 +61,6 @@ namespace UI.Desktop
             this.btnAceptar.Text = txtAceptar;
         }
         
-
-        private void ComisionDesktop_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
@@ -99,7 +97,28 @@ namespace UI.Desktop
 
         public override bool Validar()
         {
-            return true;
+            bool error = false;
+            string mensaje = "Errores en el formulario:" + Environment.NewLine;
+
+            if (
+                !Util.Util.validarRequerido(this.txtDescripcion.Text) ||
+                !Util.Util.validarRequerido(this.txtAnio.Text))
+            {
+                mensaje += "- Complete todos los campos" + Environment.NewLine;
+                error = true;
+            }
+
+            if (!Util.Util.validarNumero(this.txtAnio.Text) || !Util.Util.validarLength(this.txtAnio.Text, 4))
+            {
+                mensaje += "- El año debe ser en formato yyyy (Ej: 2014)" + Environment.NewLine;
+                error = true;
+            }
+
+            if (error)
+            {
+                this.Notificar("Error de validación", mensaje, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return !error;
         }
     }
 }

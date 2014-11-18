@@ -54,10 +54,10 @@
             // 
             // txtHsSemanales
             // 
-            this.txtHsSemanales.Location = new System.Drawing.Point(79, 117);
+            this.txtHsSemanales.Location = new System.Drawing.Point(79, 116);
             this.txtHsSemanales.Name = "txtHsSemanales";
             this.txtHsSemanales.Size = new System.Drawing.Size(120, 20);
-            this.txtHsSemanales.TabIndex = 32;
+            this.txtHsSemanales.TabIndex = 2;
             // 
             // label2
             // 
@@ -81,18 +81,19 @@
             // 
             // cmbPlanes
             // 
+            this.cmbPlanes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPlanes.FormattingEnabled = true;
             this.cmbPlanes.Location = new System.Drawing.Point(76, 175);
             this.cmbPlanes.Name = "cmbPlanes";
             this.cmbPlanes.Size = new System.Drawing.Size(121, 21);
-            this.cmbPlanes.TabIndex = 33;
+            this.cmbPlanes.TabIndex = 4;
             // 
             // txtMateria
             // 
-            this.txtMateria.Location = new System.Drawing.Point(78, 87);
+            this.txtMateria.Location = new System.Drawing.Point(79, 88);
             this.txtMateria.Name = "txtMateria";
             this.txtMateria.Size = new System.Drawing.Size(198, 20);
-            this.txtMateria.TabIndex = 31;
+            this.txtMateria.TabIndex = 1;
             // 
             // txtID
             // 
@@ -120,7 +121,7 @@
             this.btnAceptar.Location = new System.Drawing.Point(84, 207);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
-            this.btnAceptar.TabIndex = 34;
+            this.btnAceptar.TabIndex = 5;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
@@ -132,7 +133,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(181, 207);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 37;
+            this.btnCancelar.TabIndex = 6;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
@@ -151,7 +152,7 @@
             this.txtHsTotales.Location = new System.Drawing.Point(79, 143);
             this.txtHsTotales.Name = "txtHsTotales";
             this.txtHsTotales.Size = new System.Drawing.Size(120, 20);
-            this.txtHsTotales.TabIndex = 41;
+            this.txtHsTotales.TabIndex = 3;
             // 
             // MateriaDesktop
             // 

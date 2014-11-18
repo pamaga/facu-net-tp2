@@ -71,8 +71,32 @@ namespace UI.Desktop
 
         public override bool Validar()
         {
-            return true;
+            bool error = false;
+            string mensaje = "Errores en el formulario:" + Environment.NewLine;
+
+            if (!Util.Util.validarRequerido(this.txtMateria.Text) ||
+                !Util.Util.validarRequerido(this.txtHsSemanales.Text) ||
+                !Util.Util.validarRequerido(this.txtHsTotales.Text))
+            {
+                mensaje += "- Complete todos los campos" + Environment.NewLine;
+                error = true;
+            }
+
+            if(!Util.Util.validarNumero(this.txtHsSemanales.Text) ||
+               !Util.Util.validarNumero(this.txtHsTotales.Text))
+            {
+                mensaje += "- Ingrese un valor numérico para las horas" + Environment.NewLine;
+                error = true;
+            }
+
+
+            if (error)
+            {
+                this.Notificar("Error de validación", mensaje, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return !error;
         }
+
         public override void GuardarCambios()
         {
             this.MapearADatos();

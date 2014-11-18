@@ -42,11 +42,6 @@ namespace UI.Desktop
             this.Close();
         }
 
-        private void tsUsuarios_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
         private void Comisiones_Load(object sender, EventArgs e)
         {
             this.Listar();
@@ -90,13 +85,7 @@ namespace UI.Desktop
                     this.Listar();
                 }
             }
-            else this.Notificar("No hay fila seleccionada", "Por favor, seleccione una fila", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);           
-        
-        }
-
-        private void tlUsuarios_Paint(object sender, PaintEventArgs e)
-        {
-
+            else this.Notificar("No hay fila seleccionada", "Por favor, seleccione una fila", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
     }
 }

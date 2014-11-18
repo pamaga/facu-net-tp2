@@ -66,7 +66,6 @@
             this.tlUsuarios.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlUsuarios.Size = new System.Drawing.Size(484, 237);
             this.tlUsuarios.TabIndex = 11;
-            this.tlUsuarios.Paint += new System.Windows.Forms.PaintEventHandler(this.tlUsuarios_Paint);
             // 
             // dgvComisiones
             // 
@@ -145,7 +144,6 @@
             this.tsUsuarios.Name = "tsUsuarios";
             this.tsUsuarios.Size = new System.Drawing.Size(484, 25);
             this.tsUsuarios.TabIndex = 8;
-            this.tsUsuarios.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.tsUsuarios_ItemClicked);
             // 
             // id
             // 

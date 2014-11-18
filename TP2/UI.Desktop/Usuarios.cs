@@ -13,7 +13,7 @@ using System.Diagnostics;
 
 namespace UI.Desktop
 {
-    public partial class Usuarios : Form
+    public partial class Usuarios : ApplicationForm
     {
         private TiposUsuarios _tipoUsuario;
 
@@ -37,11 +37,6 @@ namespace UI.Desktop
             this.dgvUsuarios.AutoGenerateColumns = false;
         }
 
-        private void toolStripContainer1_TopToolStripPanel_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             this.Listar();
@@ -53,16 +48,9 @@ namespace UI.Desktop
             this.dgvUsuarios.DataSource = ul.GetAll(this.TipoUsuario);
         }
 
-        private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-
             this.Listar();
-
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -91,18 +79,17 @@ namespace UI.Desktop
 
         private void tsbEliminar_Click(object sender, EventArgs e)
         {
-            if (this.dgvUsuarios.SelectedRows.Count == 1)
+            if (!(this.dgvUsuarios.SelectedRows.Equals(null)))
             {
                 int ID = ((Business.Entities.Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
-                UsuarioDesktop formUsuario = new UsuarioDesktop(ID, ApplicationForm.ModoForm.Baja, this.TipoUsuario);
-                formUsuario.ShowDialog();
-                this.Listar();
+                if (MessageBox.Show("¿Esta seguro de querer eliminar?", "Baja", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                {
+                    UsuarioLogic oEntity = new UsuarioLogic();
+                    oEntity.Delete(ID);
+                    this.Listar();
+                }
             }
-            else
-            {
-                MessageBox.Show("Seleccione un registro para eliminar");
-            }
-
+            else this.Notificar("No hay fila seleccionada", "Por favor, seleccione una fila", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
     }
 }

@@ -73,10 +73,5 @@ namespace UI.Desktop
             }
             else this.Notificar("No hay fila seleccionada", "Por favor, seleccione una fila", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
-
-        private void tscEspecialidades_TopToolStripPanel_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

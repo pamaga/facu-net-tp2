@@ -79,6 +79,7 @@
             // 
             // cmbPlanes
             // 
+            this.cmbPlanes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPlanes.FormattingEnabled = true;
             this.cmbPlanes.Location = new System.Drawing.Point(80, 149);
             this.cmbPlanes.Name = "cmbPlanes";
@@ -151,7 +152,6 @@
             this.Controls.Add(this.btnCancelar);
             this.Name = "ComisionDesktop";
             this.Text = "Comisión";
-            this.Load += new System.EventHandler(this.ComisionDesktop_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

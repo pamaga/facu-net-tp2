@@ -71,7 +71,6 @@
             // tscEspecialidades.TopToolStripPanel
             // 
             this.tscEspecialidades.TopToolStripPanel.Controls.Add(this.tsEspecialidades);
-            this.tscEspecialidades.TopToolStripPanel.Click += new System.EventHandler(this.tscEspecialidades_TopToolStripPanel_Click);
             // 
             // tlEspecialidades
             // 

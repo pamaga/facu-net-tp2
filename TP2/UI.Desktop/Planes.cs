@@ -24,11 +24,6 @@ namespace UI.Desktop
               this.Close();
         }
 
-        private void dgvPlanes_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         public void Listar(){
             PlanLogic ul = new PlanLogic();
             this.dgvPlanes.DataSource = ul.GetAll();
@@ -81,33 +76,10 @@ namespace UI.Desktop
             this.Close();
         }
 
-   
-
         private void dgvPlanes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             this.tsbEditar_Click_1(sender, e);
         }
-
-        private void tlUsuarios_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvPlanes_CellContentClick_2(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-      
-
-       
-
-      
     }
 }
 

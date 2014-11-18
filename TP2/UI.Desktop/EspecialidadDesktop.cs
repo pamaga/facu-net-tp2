@@ -67,14 +67,20 @@ namespace UI.Desktop
 
         public override bool Validar()
         {
-            if (this.txtDescripcion.Text == String.Empty)
+            bool error = false;
+            string mensaje = "Errores en el formulario:" + Environment.NewLine;
+
+            if (!Util.Util.validarRequerido(this.txtDescripcion.Text))
             {
-                this.Notificar("Error de validación", "Ingrese una descripción", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.txtDescripcion.Focus();
-                return false;
+                mensaje += "- Complete la descripción" + Environment.NewLine;
+                error = true;
             }
 
-            return true;
+            if (error)
+            {
+                this.Notificar("Error de validación", mensaje, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return !error;
         }
 
         public override void GuardarCambios()

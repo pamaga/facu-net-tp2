@@ -42,7 +42,12 @@ namespace Util
         public static bool validarMinLength(string item, int length){
             return item.Length >= length;
         }
-        
+
+        public static bool validarLength(string item, int length)
+        {
+            return item.Length == length;
+        }
+
         public static bool validarIguales(string item1, string item2)
         {
             return item1.Equals(item2);
