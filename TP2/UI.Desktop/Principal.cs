@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Business.Entities;
+using Business.Logic;
 
 namespace UI.Desktop
 {
@@ -39,17 +40,34 @@ namespace UI.Desktop
 
         private void cursosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+      
         }
 
         private void Principal_Load(object sender, EventArgs e)
         {
             formLogin appLogin = new formLogin();
+            BusinessLogic bl = new BusinessLogic();
+
             if (appLogin._activado)
             {
                 if (appLogin.ShowDialog() != DialogResult.OK)
                 {
                     this.Dispose();
+                }
+                else {
+                    List<String> lstOptionNotAllowed = bl.getMenuNotAllowedByRol(appLogin.Usr);
+                    foreach(String menu in lstOptionNotAllowed ){
+                        MessageBox.Show(menu);
+
+                        ToolStripMenuItem ctrl = menuStrip1.Items.Find(menu, true)[0] as ToolStripMenuItem;
+                        ctrl.Visible = false;
+                    }
+                   
+
+                    //this.personasToolStripMenuItem.Visible = false;
+
+                    this.lblUsuario.Visible = true;
+                    this.lblUsuario.Text = "Usuario: "+appLogin.Usr.NombreUsuario+" ("+appLogin.Usr.Nombre+" "+appLogin.Usr.Apellido+")";
                 }
             }
 
