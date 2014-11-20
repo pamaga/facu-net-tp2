@@ -47,7 +47,8 @@ namespace UI.Desktop
             MapearDeDatos();
            
         }
-         public override void MapearDeDatos()
+        
+        public override void MapearDeDatos()
         {
             this.txtID.Text = this.Comision.ID.ToString();
 
@@ -60,7 +61,6 @@ namespace UI.Desktop
             if (Modo.Equals(ModoForm.Alta) || Modo.Equals(ModoForm.Modificacion)) txtAceptar = "Guardar";
             this.btnAceptar.Text = txtAceptar;
         }
-        
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
@@ -70,12 +70,14 @@ namespace UI.Desktop
                 this.Close();
             }
         }
+       
         public override void GuardarCambios()
         {
             this.MapearADatos();
             ComisionLogic uLogic = new ComisionLogic();
             uLogic.Save(this.Comision);
         }
+        
         public override void MapearADatos()
         {
             if (Modo.Equals(ModoForm.Alta))

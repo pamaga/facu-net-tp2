@@ -79,6 +79,45 @@ namespace Data.Database
             return oEntity;
         }
 
+        public List<Materia> GetSome(int IDPlan)
+        {
+            List<Materia> Materias = new List<Materia>();
+
+            try
+            {
+
+                this.OpenConnection();
+
+                SqlCommand cmdMaterias = new SqlCommand("SELECT M.id_materia, M.desc_materia, M.hs_semanales, M.hs_totales, M.id_plan, P.desc_plan, E.desc_especialidad FROM materias AS M LEFT OUTER JOIN planes AS P ON P.id_plan = M.id_plan LEFT JOIN especialidades E ON E.id_especialidad = P.id_especialidad WHERE M.id_plan = @id_plan", sqlConn);
+                cmdMaterias.Parameters.Add("@id_plan", SqlDbType.Int).Value = IDPlan;
+                SqlDataReader drMaterias = cmdMaterias.ExecuteReader();
+                while (drMaterias.Read())
+                {
+                    Materia Materia = new Materia();
+
+                    Materia.ID = (int)drMaterias["id_materia"];
+                    Materia.Descripcion = (string)drMaterias["desc_materia"];
+                    Materia.IDPlan = (int)drMaterias["id_plan"];
+                    Materia.HSSemanales = (int)drMaterias["hs_semanales"];
+                    Materia.HSTotales = (int)drMaterias["hs_totales"];
+                    Materia.Plan = (string)drMaterias["desc_plan"] + " - " + (string)drMaterias["desc_especialidad"];
+
+                    Materias.Add(Materia);
+                }
+                drMaterias.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de Materias", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return Materias;
+        }
+
         public void Delete(int ID)
         {
             try{
