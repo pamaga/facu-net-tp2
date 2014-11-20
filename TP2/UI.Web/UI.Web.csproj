@@ -72,6 +72,7 @@
     <Content Include="Catedras\Materias.aspx" />
     <Content Include="Catedras\Planes.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="login.aspx" />
     <Content Include="Personas\Usuarios.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Global.asax" />
@@ -169,6 +170,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Personas\Usuarios.aspx.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
