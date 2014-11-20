@@ -146,6 +146,49 @@ namespace Data.Database
             return usr;
         }
 
+        public Business.Entities.Usuario GetUserValid(string usuario, string clave)
+        {
+            Usuario usr =null;
+
+            try
+            {
+
+                this.OpenConnection();
+
+                SqlCommand cmdUsuarios = new SqlCommand("SELECT * FROM usuarios WHERE nombre_usuario=@usuario AND clave=@clave", sqlConn);
+                cmdUsuarios.Parameters.Add("@usuario", SqlDbType.VarChar, 50).Value = usuario;
+                cmdUsuarios.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = clave;
+                SqlDataReader drUsuarios = cmdUsuarios.ExecuteReader();
+                if (drUsuarios.HasRows && drUsuarios.Read())
+                {
+                    usr = new Usuario();
+                    usr.ID = (int)drUsuarios["id_usuario"];
+                    usr.NombreUsuario = (string)drUsuarios["nombre_usuario"];
+                    usr.Clave = (string)drUsuarios["clave"];
+                    usr.Habilitado = (bool)drUsuarios["habilitado"];
+                    usr.Nombre = (string)drUsuarios["nombre"];
+                    usr.Apellido = (string)drUsuarios["apellido"];
+                    usr.EMail = (string)drUsuarios["email"];
+                    usr.Telefono = (string)drUsuarios["telefono"];
+                    usr.FechaNac = ((DateTime)drUsuarios["fecha_nac"]).ToString("dd/MM/yyyy");
+                    usr.Legajo = (int)drUsuarios["legajo"];
+                    usr.TipoUsuario = (TiposUsuarios)drUsuarios["tipo_usuario"];
+                }
+                
+                drUsuarios.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de usuarios", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return usr;
+        }
+
         public void Delete(int ID)
         {
             try

@@ -26,6 +26,10 @@ namespace Business.Logic
         {
             return UsuarioData.GetOne(id);
         }
+        public Usuario getUsuarioPermitido(string usuario, string clave)
+        {
+            return UsuarioData.GetUserValid(usuario, clave);
+        }
 
         public List<Usuario> GetAll(TiposUsuarios TipoUsuario)
         {
