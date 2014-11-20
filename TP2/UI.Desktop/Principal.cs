@@ -110,7 +110,8 @@ namespace UI.Desktop
 
         private void cursosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            Cursos form = new Cursos();
+            form.ShowDialog();
         }
 
         private void comisionesToolStripMenuItem_Click(object sender, EventArgs e)

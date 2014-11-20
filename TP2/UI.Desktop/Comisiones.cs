@@ -32,11 +32,6 @@ namespace UI.Desktop
             this.dgvComisiones.DataSource = ul.GetAll();
         }
 
-        private void dgvComisiones_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void button4_Click(object sender, EventArgs e)
         {
             this.Close();

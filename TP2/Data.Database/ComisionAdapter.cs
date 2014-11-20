@@ -77,6 +77,44 @@ namespace Data.Database
             return oEntity;
         }
 
+        public List<Comision> GetSome(int IDPlan)
+        {
+            List<Comision> Comisiones = new List<Comision>();
+
+            try
+            {
+
+                this.OpenConnection();
+
+                SqlCommand cmdComisiones = new SqlCommand("SELECT C.*,P.desc_plan, E.desc_especialidad FROM comisiones C LEFT JOIN planes P ON P.id_plan = C.id_plan LEFT JOIN especialidades E ON E.id_especialidad = P.id_especialidad WHERE C.id_plan = @id_plan", sqlConn);
+                cmdComisiones.Parameters.Add("@id_plan", SqlDbType.Int).Value = IDPlan;
+                SqlDataReader drComisiones = cmdComisiones.ExecuteReader();
+                while (drComisiones.Read())
+                {
+                    Comision Comision = new Comision();
+
+                    Comision.ID = (int)drComisiones["id_comision"];
+                    Comision.Descripcion = (string)drComisiones["desc_comision"];
+                    Comision.IDPlan = (int)drComisiones["id_plan"];
+                    Comision.PlanDescripcion = (string)drComisiones["desc_plan"] + " - " + (string)drComisiones["desc_especialidad"];
+                    Comision.AnioEspecialidad = (int)drComisiones["anio_especialidad"];
+
+                    Comisiones.Add(Comision);
+                }
+                drComisiones.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de Comisiones", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return Comisiones;
+        }
+
         public void Delete(int ID)
         {
             try{

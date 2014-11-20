@@ -21,13 +21,6 @@ namespace Business.Entities
             set { _Cupo = value; }
         }
 
-        private string _Descripcion;
-        public string Descripcion
-        {
-            get { return _Descripcion; }
-            set { _Descripcion = value; }
-        }
-
         private int _IDComision;
         public int IDComision
         {
@@ -35,11 +28,39 @@ namespace Business.Entities
             set { _IDComision = value; }
         }
 
+        private string _DescComision;
+        public string DescComision
+        {
+            get { return _DescComision; }
+            set { _DescComision = value; }
+        }
+
         private int _IDMateria;
         public int IDMateria
         {
             get { return _IDMateria; }
             set { _IDMateria = value; }
+        }
+
+        private int _IDPlan;
+        public int IDPlan
+        {
+            get { return _IDPlan; }
+            set { _IDPlan = value; }
+        }
+
+        private string _DescPlan;
+        public string DescPlan
+        {
+            get { return _DescPlan; }
+            set { _DescPlan = value; }
+        }
+
+        private string _DescMateria;
+        public string DescMateria
+        {
+            get { return _DescMateria; }
+            set { _DescMateria = value; }
         }
     }
 }

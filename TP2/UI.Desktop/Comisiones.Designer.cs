@@ -91,7 +91,6 @@
             this.dgvComisiones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvComisiones.Size = new System.Drawing.Size(478, 202);
             this.dgvComisiones.TabIndex = 0;
-            this.dgvComisiones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvComisiones_CellContentClick);
             this.dgvComisiones.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvComisiones_CellDoubleClick);
             // 
             // button3
