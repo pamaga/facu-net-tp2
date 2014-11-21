@@ -18,14 +18,12 @@
         <asp:Label ID="descripcionLabel" runat="server" Text="Descripcion: "></asp:Label>
         <asp:TextBox ID="descripcionTextBox" runat="server"></asp:TextBox>
         <br />
-        <asp:Label ID="idPlanLabel" runat="server" Text="ID Plan: "></asp:Label>
-        <asp:TextBox ID="idPlanTextBox" runat="server"></asp:TextBox>
-        <br />
-        <asp:Label ID="planDescripcionLabel" runat="server" Text="Descripcion del plan: "></asp:Label>
-        <asp:TextBox ID="planDescripcionTextBox" runat="server"></asp:TextBox>
+        <asp:Label ID="planLabel" runat="server" Text="Plan:"></asp:Label>
+        <asp:DropDownList ID="planDropDownList" runat="server">
+        </asp:DropDownList>
         <br />
         <asp:Label ID="anioEspecialidadLabel" runat="server" Text="Año especialidad: "></asp:Label>
-        <asp:TextBox ID="anioEspecialidadTextBox" runat="server"></asp:TextBox>
+        <asp:TextBox ID="anioEspecialidadTextBox" runat="server" Width="40px"></asp:TextBox>
         <br />
         <asp:Panel ID="formActionsPanel" runat="server">
             <asp:LinkButton ID="aceptarLinkButton" runat="server" OnClick="aceptarLinkButton_Click">Aceptar</asp:LinkButton>

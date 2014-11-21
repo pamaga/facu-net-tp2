@@ -10,7 +10,7 @@ using Business.Logic;
 
 namespace UI.Web.Catedras
 {
-    public partial class Especialidades : System.Web.UI.Page
+    public partial class Especialidades : BaseABM
     {
         EspecialidadLogic _logic;
         private EspecialidadLogic Logic
@@ -25,35 +25,12 @@ namespace UI.Web.Catedras
             }
         }
 
-        public enum FormModes { Alta, Baja, Modificacion }
-        public FormModes FormMode
-        {
-            get { return (FormModes)this.ViewState["FormMode"]; }
-            set { this.ViewState["FormMode"] = value; }
-        }
-
         private Especialidad Entity
         {
             get;
             set;
         }
-        private int SelectedID
-        {
-            get
-            {
-                if (this.ViewState["SelectedID"] != null) return (int)this.ViewState["SelectedID"];
-                else return 0;
-            }
-            set
-            {
-                this.ViewState["SelectedID"] = value;
-            }
-        }
-        private bool IsEntitySelected
-        {
-            get { return (this.SelectedID != 0); }
-        }
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack) this.LoadGrid();

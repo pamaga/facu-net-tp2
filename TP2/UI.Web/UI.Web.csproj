@@ -88,7 +88,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Personas\Alumnos.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.aspx.cs">
@@ -125,6 +124,9 @@
     </Compile>
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BaseABM.cs">
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Catedras\Comisiones.aspx.cs">
       <DependentUpon>Comisiones.aspx</DependentUpon>
@@ -192,13 +194,6 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Personas\Alumnos.aspx.cs">
-      <DependentUpon>Alumnos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Personas\Alumnos.aspx.designer.cs">
-      <DependentUpon>Alumnos.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

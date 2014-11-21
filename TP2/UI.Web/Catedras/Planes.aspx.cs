@@ -9,7 +9,7 @@ using Business.Logic;
 
 namespace UI.Web.Catedras
 {
-    public partial class Planes : System.Web.UI.Page
+    public partial class Planes : BaseABM
     {
         PlanLogic _logic;
         private PlanLogic Logic
@@ -24,35 +24,12 @@ namespace UI.Web.Catedras
             }
         }
 
-        public enum FormModes { Alta, Baja, Modificacion }
-        public FormModes FormMode
-        {
-            get { return (FormModes)this.ViewState["FormMode"]; }
-            set { this.ViewState["FormMode"] = value; }
-        }
-
         private Plan Entity
         {
             get;
             set;
         }
-        private int SelectedID
-        {
-            get
-            {
-                if (this.ViewState["SelectedID"] != null) return (int)this.ViewState["SelectedID"];
-                else return 0;
-            }
-            set
-            {
-                this.ViewState["SelectedID"] = value;
-            }
-        }
-        private bool IsEntitySelected
-        {
-            get { return (this.SelectedID != 0); }
-        }
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack) this.LoadGrid();
@@ -135,15 +112,13 @@ namespace UI.Web.Catedras
         {
             this.Entity = this.Logic.GetOne(id);
             this.descripcionTextBox.Text = this.Entity.Descripcion;
-            this.idEspecialidadTextBox.Text = this.Entity.IdEspecialidad.ToString();
-            this.especialidadDescripcionTextBox.Text = this.Entity.Especialidad;
+            this.especialidadDropDownList.SelectedValue = this.Entity.IdEspecialidad.ToString();
         }
 
         private void LoadEntity(Plan plan)
         {
             plan.Descripcion = this.descripcionTextBox.Text;
-            plan.IdEspecialidad = Int32.Parse(this.idEspecialidadTextBox.Text);
-            plan.Especialidad = this.especialidadDescripcionTextBox.Text;
+            plan.IdEspecialidad = int.Parse(this.especialidadDropDownList.SelectedValue);
         }
 
         private void SaveEntity(Plan plan)
@@ -154,8 +129,7 @@ namespace UI.Web.Catedras
         private void EnableForm(bool enable)
         {
             this.descripcionTextBox.Enabled = enable;
-            this.idEspecialidadTextBox.Enabled = enable;
-            this.especialidadDescripcionTextBox.Enabled = enable;
+            this.especialidadDropDownList.Enabled = enable;
         }
 
         private void DeleteEntity(int id)
@@ -166,8 +140,7 @@ namespace UI.Web.Catedras
         private void ClearForm()
         {
             this.descripcionTextBox.Text = string.Empty;
-            this.idEspecialidadTextBox.Text = string.Empty;
-            this.especialidadDescripcionTextBox.Text = string.Empty;
+            this.especialidadDropDownList.ClearSelection();
         }
     }
 }

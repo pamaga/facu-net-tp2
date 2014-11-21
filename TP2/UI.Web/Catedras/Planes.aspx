@@ -17,20 +17,10 @@
         <asp:Label ID="descripcionLabel" runat="server" Text="Descripcion plan: "></asp:Label>
         <asp:TextBox ID="descripcionTextBox" runat="server"></asp:TextBox>
         <br />
-        <asp:Label ID="idEspecialidadLabel" runat="server" Text="ID especialidad: "></asp:Label>
-        <asp:TextBox ID="idEspecialidadTextBox" runat="server"></asp:TextBox>
-        <br />
-        <asp:Label ID="especialidadDescripcionLabel" runat="server" Text="Descripcion especialidad: "></asp:Label>
-        <asp:TextBox ID="especialidadDescripcionTextBox" runat="server"></asp:TextBox>
-        <br />
-        <asp:DropDownList ID="DropDownList1" runat="server" 
-            DataSourceID="SqlDataSource1" DataTextField="id_especialidad" 
-            DataValueField="id_especialidad">
+        <asp:Label ID="especialidadDescripcionLabel" runat="server" Text="Especialidad: "></asp:Label>
+        <asp:DropDownList ID="especialidadDropDownList" runat="server" DataSourceID="especialidadSqlDataSource" DataTextField="desc_especialidad" DataValueField="id_especialidad">
         </asp:DropDownList>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-            ConnectionString="<%$ ConnectionStrings:ConnStringExpress %>" 
-            SelectCommand="SELECT [id_especialidad], [desc_especialidad] FROM [especialidades]">
-        </asp:SqlDataSource>
+        <asp:SqlDataSource ID="especialidadSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:tp2_netConnectionString %>" SelectCommand="SELECT * FROM [especialidades]"></asp:SqlDataSource>
         <br />
         <asp:Panel ID="formActionsPanel" runat="server">
             <asp:LinkButton ID="aceptarLinkButton" runat="server" OnClick="aceptarLinkButton_Click">Aceptar</asp:LinkButton>

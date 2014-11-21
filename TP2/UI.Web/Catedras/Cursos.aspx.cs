@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace UI.Web.Catedras
 {
-    public partial class Cursos : System.Web.UI.Page
+    public partial class Cursos : BaseABM
     {
         protected void Page_Load(object sender, EventArgs e)
         {

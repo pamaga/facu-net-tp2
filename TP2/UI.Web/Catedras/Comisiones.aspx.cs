@@ -9,7 +9,7 @@ using Business.Logic;
 
 namespace UI.Web.Catedras
 {
-    public partial class Comisiones : System.Web.UI.Page
+    public partial class Comisiones : BaseABM
     {
         ComisionLogic _logic;
         private ComisionLogic Logic
@@ -24,38 +24,19 @@ namespace UI.Web.Catedras
             }
         }
 
-        public enum FormModes { Alta, Baja, Modificacion }
-        public FormModes FormMode
-        {
-            get { return (FormModes)this.ViewState["FormMode"]; }
-            set { this.ViewState["FormMode"] = value; }
-        }
-
         private Comision Entity
         {
             get;
             set;
         }
-        private int SelectedID
-        {
-            get
-            {
-                if (this.ViewState["SelectedID"] != null) return (int)this.ViewState["SelectedID"];
-                else return 0;
-            }
-            set
-            {
-                this.ViewState["SelectedID"] = value;
-            }
-        }
-        private bool IsEntitySelected
-        {
-            get { return (this.SelectedID != 0); }
-        }
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack) this.LoadGrid();
+            this.planDropDownList.DataSource = this.getPlanes();
+            this.planDropDownList.DataTextField = "DescCompleta";
+            this.planDropDownList.DataValueField = "ID";
+            this.planDropDownList.DataBind();
         }
 
         private void LoadGrid()
@@ -135,16 +116,14 @@ namespace UI.Web.Catedras
         {
             this.Entity = this.Logic.GetOne(id);
             this.descripcionTextBox.Text = this.Entity.Descripcion;
-            this.idPlanTextBox.Text = this.Entity.IDPlan.ToString();
-            this.planDescripcionTextBox.Text = this.Entity.PlanDescripcion;
+            this.planDropDownList.SelectedValue = this.Entity.IDPlan.ToString();
             this.anioEspecialidadTextBox.Text = this.Entity.AnioEspecialidad.ToString();
         }
 
         private void LoadEntity(Comision comision)
         {
             comision.Descripcion = this.descripcionTextBox.Text;
-            comision.IDPlan = Int32.Parse(this.idPlanTextBox.Text);
-            comision.PlanDescripcion = this.planDescripcionTextBox.Text;
+            comision.IDPlan = int.Parse(this.planDropDownList.SelectedValue);
             comision.AnioEspecialidad = Int32.Parse(this.anioEspecialidadTextBox.Text);
         }
 
@@ -156,8 +135,7 @@ namespace UI.Web.Catedras
         private void EnableForm(bool enable)
         {
             this.descripcionTextBox.Enabled = enable;
-            this.idPlanTextBox.Enabled = enable;
-            this.planDescripcionTextBox.Enabled = enable;
+            this.planDropDownList.Enabled = enable;
             this.anioEspecialidadTextBox.Enabled = enable;
         }
 
@@ -169,8 +147,7 @@ namespace UI.Web.Catedras
         private void ClearForm()
         {
             this.descripcionTextBox.Text = string.Empty;
-            this.idPlanTextBox.Text = string.Empty;
-            this.planDescripcionTextBox.Text = string.Empty;
+            this.planDropDownList.ClearSelection();
             this.anioEspecialidadTextBox.Text = string.Empty;
         }
     }

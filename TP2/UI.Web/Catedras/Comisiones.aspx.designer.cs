@@ -85,40 +85,22 @@ namespace UI.Web.Catedras {
         protected global::System.Web.UI.WebControls.TextBox descripcionTextBox;
         
         /// <summary>
-        /// idPlanLabel control.
+        /// planLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label idPlanLabel;
+        protected global::System.Web.UI.WebControls.Label planLabel;
         
         /// <summary>
-        /// idPlanTextBox control.
+        /// planDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox idPlanTextBox;
-        
-        /// <summary>
-        /// planDescripcionLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label planDescripcionLabel;
-        
-        /// <summary>
-        /// planDescripcionTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox planDescripcionTextBox;
+        protected global::System.Web.UI.WebControls.DropDownList planDropDownList;
         
         /// <summary>
         /// anioEspecialidadLabel control.

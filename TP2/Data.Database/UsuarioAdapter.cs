@@ -168,10 +168,10 @@ namespace Data.Database
                     usr.Habilitado = (bool)drUsuarios["habilitado"];
                     usr.Nombre = (string)drUsuarios["nombre"];
                     usr.Apellido = (string)drUsuarios["apellido"];
-                    usr.EMail = (string)drUsuarios["email"];
-                    usr.Telefono = (string)drUsuarios["telefono"];
-                    usr.FechaNac = ((DateTime)drUsuarios["fecha_nac"]).ToString("dd/MM/yyyy");
-                    usr.Legajo = (int)drUsuarios["legajo"];
+                    //usr.EMail = (string)drUsuarios["email"];
+                    //usr.Telefono = (string)drUsuarios["telefono"];
+                    //usr.FechaNac = ((DateTime)drUsuarios["fecha_nac"]).ToString("dd/MM/yyyy");
+                    //usr.Legajo = (int)drUsuarios["legajo"];
                     usr.TipoUsuario = (TiposUsuarios)drUsuarios["tipo_usuario"];
                 }
                 
