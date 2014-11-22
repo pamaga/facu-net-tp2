@@ -29,20 +29,28 @@ namespace UI.Web.Catedras
             get;
             set;
         }
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack) this.LoadGrid();
-            this.planDropDownList.DataSource = this.getPlanes();
-            this.planDropDownList.DataTextField = "DescCompleta";
-            this.planDropDownList.DataValueField = "ID";
-            this.planDropDownList.DataBind();
+            if (!Page.IsPostBack)
+            {
+                loadCmbPlan();
+                this.LoadGrid();
+            }
+
         }
 
         private void LoadGrid()
         {
             this.GridView.DataSource = this.Logic.GetAll();
             this.GridView.DataBind();
+        }
+
+        private void loadCmbPlan(){
+            this.planDropDownList.DataSource = this.getPlanes();
+            this.planDropDownList.DataTextField = "DescCompleta";
+            this.planDropDownList.DataValueField = "ID";
+            this.planDropDownList.DataBind();
         }
 
         #region Eventos
@@ -104,7 +112,7 @@ namespace UI.Web.Catedras
                 default:
                     break;
             }
-            this.formPanel.Visible = false;
+            this.formPanel.Visible = true;
         }
         protected void cancelarLinkButton_Click(object sender, EventArgs e)
         {
@@ -134,6 +142,7 @@ namespace UI.Web.Catedras
 
         private void EnableForm(bool enable)
         {
+            loadCmbPlan();
             this.descripcionTextBox.Enabled = enable;
             this.planDropDownList.Enabled = enable;
             this.anioEspecialidadTextBox.Enabled = enable;

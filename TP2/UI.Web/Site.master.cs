@@ -13,7 +13,7 @@ namespace UI.Web
         {
             if (Session["id_usuario"] == null)
             {
-                Response.Redirect("login.aspx");
+                Response.Redirect("~/login.aspx");
             }
         }
     }
