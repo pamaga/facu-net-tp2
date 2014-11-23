@@ -9,7 +9,7 @@ using Business.Logic;
 
 namespace UI.Web
 {
-    public partial class login : System.Web.UI.Page
+    public partial class Login : System.Web.UI.Page
     {
         public bool _activado = true;
         private Usuario _usr;
@@ -37,6 +37,7 @@ namespace UI.Web
             if (Usr != null)
             {
                 Session["id_usuario"] = Usr.ID;
+                Session["tipo_usuario"] = ((int)Usr.TipoUsuario).ToString();
                 Session["usuario"] = Usr.NombreUsuario;
                 Session["nombre"] = Usr.Nombre;
                 Session["apellido"] = Usr.Apellido;

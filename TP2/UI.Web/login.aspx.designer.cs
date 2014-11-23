@@ -10,7 +10,7 @@
 namespace UI.Web {
     
     
-    public partial class login {
+    public partial class Login {
         
         /// <summary>
         /// Control form1.

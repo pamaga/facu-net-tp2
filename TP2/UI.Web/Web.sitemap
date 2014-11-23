@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
-  <siteMapNode>
-    <siteMapNode url="~" title="Home" description="" />
-    <siteMapNode title="Personas"  description="Personas" >
-      <siteMapNode url="~/Personas/Usuarios.aspx?TipoUsuario=Alumno" title="Alumnos" description="ABM alumnos" />
-      <siteMapNode url="~/Personas/Usuarios.aspx?TipoUsuario=Docente" title="Docentes" description="ABM docentes" />
+  <siteMapNode tipoUsuario="0,1,2">
+    <siteMapNode url="~" title="Home" description="" tipoUsuario="0,1,2"  />
+    <siteMapNode title="Personas"  description="Personas" tipoUsuario="0,1,2" >
+      <siteMapNode url="~/Personas/Usuarios.aspx?TipoUsuario=Alumno" title="Alumnos" description="ABM alumnos" tipoUsuario="0,2" />
+      <siteMapNode url="~/Personas/Usuarios.aspx?TipoUsuario=Docente" title="Docentes" description="ABM docentes" tipoUsuario="0,1" />
     </siteMapNode>
-    <siteMapNode title="Catedras" description="Catedras">
-      <siteMapNode url="~/Catedras/Comisiones.aspx" title="Comisiones"  description="ABM comisiones" />
-      <siteMapNode url="~/Catedras/Cursos.aspx" title="Cursos"  description="ABM cursos" />
-      <siteMapNode url="~/Catedras/Especialidades.aspx" title="Especialidades"  description="ABM especialidades" />
-      <siteMapNode url="~/Catedras/Materias.aspx" title="Materias"  description="ABM materias" />
-      <siteMapNode url="~/Catedras/Planes.aspx" title="Planes"  description="ABM planes" />
+    <siteMapNode title="Catedras" description="Catedras" tipoUsuario="0">
+      <siteMapNode url="~/Catedras/Comisiones.aspx" title="Comisiones"  description="ABM comisiones" tipoUsuario="0" />
+      <siteMapNode url="~/Catedras/Cursos.aspx" title="Cursos"  description="ABM cursos" tipoUsuario="0" />
+      <siteMapNode url="~/Catedras/Especialidades.aspx" title="Especialidades"  description="ABM especialidades" tipoUsuario="0" />
+      <siteMapNode url="~/Catedras/Materias.aspx" title="Materias"  description="ABM materias" tipoUsuario="0" />
+      <siteMapNode url="~/Catedras/Planes.aspx" title="Planes"  description="ABM planes" tipoUsuario="0" />
     </siteMapNode>
   </siteMapNode>
 </siteMap>
