@@ -11,9 +11,21 @@ namespace UI.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["id_usuario"] == null)
+            if (Request.QueryString["logout"] == "true")
+            {
+                Session.Remove("id_usuario");
+                Session.Remove("tipo_usuario");
+                Session.Remove("usuario");
+                Session.Remove("nombre");
+                Session.Remove("apellido");
+                Response.Redirect("~/Login.aspx");
+            }
+            else if (Session["id_usuario"] == null)
             {
                 Response.Redirect("~/Login.aspx");
+            }else{
+                this.lblUsuario.Text = Session["usuario"].ToString();
+                this.lblNombre.Text = Session["nombre"].ToString() + " " + Session["apellido"].ToString();
             }
         }
 

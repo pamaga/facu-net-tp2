@@ -1,5 +1,0 @@
-C:\Users\Julian\Documents\facu-net-tp2\TP2\Util\bin\Debug\Util.dll
-C:\Users\Julian\Documents\facu-net-tp2\TP2\Util\bin\Debug\Util.pdb
-C:\Users\Julian\Documents\facu-net-tp2\TP2\Util\obj\Debug\Util.csprojResolveAssemblyReference.cache
-C:\Users\Julian\Documents\facu-net-tp2\TP2\Util\obj\Debug\Util.dll
-C:\Users\Julian\Documents\facu-net-tp2\TP2\Util\obj\Debug\Util.pdb
