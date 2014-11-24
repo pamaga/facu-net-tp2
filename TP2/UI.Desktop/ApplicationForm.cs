@@ -55,6 +55,12 @@ namespace UI.Desktop
             this.lstPlan = esp.GetAll(IDEspecialidad);
             return this.lstPlan;
         }
+        public List<Plan> getPlanes()
+        {
+            PlanLogic esp = new PlanLogic();
+            this.lstPlan = esp.GetAll();
+            return this.lstPlan;
+        }
 
         public string getEspecialidadById(int id)
         {
@@ -74,6 +80,17 @@ namespace UI.Desktop
         public void Notificar(string mensaje, MessageBoxButtons botones, MessageBoxIcon icono)
         {
             MessageBox.Show(this.Text, mensaje, botones, icono);
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            // ...
+            if (keyData == (Keys.Escape))
+            {
+                Close();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

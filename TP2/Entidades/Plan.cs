@@ -27,5 +27,11 @@ namespace Business.Entities
             get { return _Especialidad; }
             set { _Especialidad = value; }
         }
+
+        public string DescCompleta
+        {
+            get { return this.Descripcion + " - " + Especialidad; }
+         
+        }
     }
 }

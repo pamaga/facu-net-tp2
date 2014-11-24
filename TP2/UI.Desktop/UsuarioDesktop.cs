@@ -30,6 +30,11 @@ namespace UI.Desktop
         public UsuarioDesktop()
         {
             InitializeComponent();
+            
+            List<Plan> _planes = this.getPlanes();
+            this.cmbPlanes.DataSource = _planes;
+            this.cmbPlanes.DisplayMember = "DescCompleta";
+            this.cmbPlanes.ValueMember = "ID";
         }
 
         public UsuarioDesktop(ModoForm modo, TiposUsuarios TipoUsuario):this()
@@ -37,6 +42,7 @@ namespace UI.Desktop
             this.TipoUsuario = TipoUsuario;
             this.Modo = modo;
             this.Text = this.Modo.ToString() + " de " + this.TipoUsuario.ToString();
+            this.applyDiffUsers();
         }
 
         public UsuarioDesktop(int ID, ModoForm modo, TiposUsuarios TipoUsuario):this()
@@ -47,8 +53,17 @@ namespace UI.Desktop
             this.TipoUsuario = TipoUsuario;
             this.Text = this.Modo.ToString() + " de " + this.TipoUsuario.ToString();
             MapearDeDatos();
+            this.applyDiffUsers();
         }
 
+        public void applyDiffUsers() {
+            if (this.TipoUsuario != TiposUsuarios.Alumno)
+            {
+                this.cmbPlanes.Visible = false;
+                this.lblPlan.Visible = false;
+            }
+        
+        }
         public override void MapearDeDatos()
         {
             this.txtID.Text = this.UsuarioActual.ID.ToString();
@@ -62,6 +77,7 @@ namespace UI.Desktop
             this.txtFechaNac.Text = this.UsuarioActual.FechaNac;
             this.txtLegajo.Text = this.UsuarioActual.Legajo.ToString();
             this.txtTelefono.Text = this.UsuarioActual.Telefono;
+            this.cmbPlanes.SelectedValue = this.UsuarioActual.IdPlan;
 
             string txtAceptar = "Aceptar";
 
@@ -103,6 +119,8 @@ namespace UI.Desktop
             this.UsuarioActual.FechaNac = this.txtFechaNac.Text;
             this.UsuarioActual.Legajo = int.Parse(this.txtLegajo.Text);
             this.UsuarioActual.Telefono = this.txtTelefono.Text;
+            this.UsuarioActual.IdPlan = (this.cmbPlanes.SelectedValue as int?) ?? 0;
+           
         }
 
         public override bool Validar()
@@ -184,6 +202,16 @@ namespace UI.Desktop
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

@@ -89,6 +89,7 @@ namespace Data.Database
                     usr.FechaNac = ((DateTime)drUsuarios["fecha_nac"]).ToString("dd/MM/yyyy");
                     usr.Legajo = (int)drUsuarios["legajo"];
                     usr.TipoUsuario = (TiposUsuarios)drUsuarios["tipo_usuario"];
+                    usr.IdPlan = (drUsuarios["id_plan"] as int?) ?? 0;
 
                     usuarios.Add(usr);
                 }
@@ -131,6 +132,9 @@ namespace Data.Database
                     usr.FechaNac = ((DateTime)drUsuarios["fecha_nac"]).ToString("dd/MM/yyyy");
                     usr.Legajo = (int)drUsuarios["legajo"];
                     usr.TipoUsuario = (TiposUsuarios)drUsuarios["tipo_usuario"];
+                    usr.IdPlan = (drUsuarios["id_plan"] as int?) ?? 0;
+                  
+
                 }
                 drUsuarios.Close();
             }
@@ -173,6 +177,8 @@ namespace Data.Database
                     usr.FechaNac = ((DateTime)drUsuarios["fecha_nac"]).ToString("dd/MM/yyyy");
                     usr.Legajo = (int)drUsuarios["legajo"];
                     usr.TipoUsuario = (TiposUsuarios)drUsuarios["tipo_usuario"];
+                    usr.IdPlan =  (drUsuarios["id_plan"] as int?) ?? 0;
+                      //  drUsuarios["id_plan"] as default(int);
                 }
                 
                 drUsuarios.Close();
@@ -232,7 +238,7 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdSave = new SqlCommand("UPDATE usuarios SET nombre_usuario = @nombre_usuario, clave = @clave, habilitado = @habilitado, nombre = @nombre, apellido = @apellido, email = @email, telefono = @telefono, legajo = @legajo, fecha_nac = @fecha_nac WHERE id_usuario = @id", sqlConn);
+                SqlCommand cmdSave = new SqlCommand("UPDATE usuarios SET nombre_usuario = @nombre_usuario, clave = @clave, habilitado = @habilitado, nombre = @nombre, apellido = @apellido, email = @email, telefono = @telefono, legajo = @legajo, fecha_nac = @fecha_nac, id_plan = @id_plan WHERE id_usuario = @id", sqlConn);
                 cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = usuario.ID;
                 cmdSave.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = usuario.NombreUsuario;
                 cmdSave.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = usuario.Clave;
@@ -243,6 +249,7 @@ namespace Data.Database
                 cmdSave.Parameters.Add("@telefono", SqlDbType.VarChar, 50).Value = usuario.Telefono;
                 cmdSave.Parameters.Add("@legajo", SqlDbType.Int).Value = usuario.Legajo;
                 cmdSave.Parameters.Add("@fecha_nac", SqlDbType.Date).Value = DateTime.ParseExact(Util.Util.DateToDb(usuario.FechaNac), "yyyy-MM-dd", null);
+                cmdSave.Parameters.Add("@id_plan", SqlDbType.Int).Value = usuario.IdPlan;
                 cmdSave.ExecuteNonQuery();
             }
             catch (Exception Ex)
@@ -275,6 +282,7 @@ namespace Data.Database
                 cmdSave.Parameters.Add("@legajo", SqlDbType.Int).Value = usuario.Legajo;
                 cmdSave.Parameters.Add("@fecha_nac", SqlDbType.Date).Value = DateTime.ParseExact(Util.Util.DateToDb(usuario.FechaNac), "yyyy-MM-dd", null);
                 cmdSave.Parameters.Add("@tipo_usuario", SqlDbType.Int).Value = (int)usuario.TipoUsuario;
+                cmdSave.Parameters.Add("@id_plan", SqlDbType.Int).Value = usuario.IdPlan;
                 usuario.ID = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
             }
             catch (Exception Ex)
