@@ -42,6 +42,17 @@ namespace Business.Logic
             return UsuarioData.GetAll(TipoUsuario);
         }
 
+        public List<Usuario> GetDocentesByCurso(int IdCurso)
+        {
+            return UsuarioData.GetDocentesByCurso(IdCurso);
+        }
+
+        public int addDocenteToCurso(int docente, int curso) {
+            return UsuarioData.addDocenteToCurso(docente,curso);
+        }
+
+
+
         public void Save(Usuario user)
         {
             UsuarioData.Save(user);
@@ -51,5 +62,6 @@ namespace Business.Logic
         {
             UsuarioData.Delete(id);
         }
+       
     }
 }

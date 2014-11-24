@@ -20,7 +20,7 @@ namespace Data.Database
 
                 this.OpenConnection();
 
-                SqlCommand cmdCursos = new SqlCommand("SELECT C.*, M.desc_materia, CO.desc_comision, CO.id_plan, P.* FROM cursos C JOIN materias M ON C.id_materia = M.id_materia JOIN comisiones CO ON C.id_comision = CO.id_comision JOIN planes P ON C.id_plan = P.id_plan", sqlConn);
+                SqlCommand cmdCursos = new SqlCommand("SELECT C.id_curso, C.id_materia, C.id_comision, C.anio_calendario, C.cupo, M.desc_materia, CO.desc_comision, P.id_plan, P.desc_plan, P.id_especialidad FROM cursos AS C INNER JOIN materias AS M ON C.id_materia = M.id_materia INNER JOIN comisiones AS CO ON C.id_comision = CO.id_comision INNER JOIN planes AS P ON M.id_plan = P.id_plan", sqlConn);
                 SqlDataReader drCursos = cmdCursos.ExecuteReader();
                 while (drCursos.Read())
                 {
