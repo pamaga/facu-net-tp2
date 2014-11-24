@@ -23,7 +23,7 @@ namespace UI.Desktop
         public MateriaDesktop()
         {
             InitializeComponent();
-            this.loadCmb();
+            //this.loadCmb(IDEspecialidad);
         }
           public MateriaDesktop(ModoForm modo):this(){
             this.Modo = modo;
@@ -53,9 +53,9 @@ namespace UI.Desktop
               this.btnAceptar.Text = txtAceptar;
           }
 
-          private void loadCmb()
+          private void loadCmb(int IDEspecialidad)
           {
-              this.cmbPlanes.DataSource = this.getPlanes();
+              this.cmbPlanes.DataSource = this.getPlanes(IDEspecialidad);
               this.cmbPlanes.DisplayMember = "DescCompleta";
               this.cmbPlanes.ValueMember = "ID";
           }

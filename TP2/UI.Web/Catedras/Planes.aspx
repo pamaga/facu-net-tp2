@@ -2,9 +2,8 @@
 <asp:Content ID="ContentPlanes" ContentPlaceHolderID="bodyContentPlaceHolder" runat="server">
     <asp:GridView ID="GridView" runat="server" AutoGenerateColumns="False" SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="White" DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" CaptionAlign="Top">
         <Columns>
-            <asp:BoundField HeaderText="Descripcion plan" DataField="Descripcion" />
-            <asp:BoundField HeaderText="ID especialidad" DataField="IdEspecialidad" />
-            <asp:BoundField HeaderText="Descripcion especialidad" DataField="Especialidad" />
+            <asp:BoundField HeaderText="Especialidad" DataField="Especialidad" />
+            <asp:BoundField HeaderText="Plan" DataField="Descripcion" />
             <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
         </Columns>
     </asp:GridView>
@@ -14,13 +13,11 @@
         <asp:LinkButton ID="nuevoLinkButton" runat="server" OnClick="nuevoLinkButton_Click">Nuevo</asp:LinkButton>
     </asp:Panel>
     <asp:Panel ID="formPanel" Visible="false" runat="server">
-        <asp:Label ID="descripcionLabel" runat="server" Text="Descripcion plan: "></asp:Label>
-        <asp:TextBox ID="descripcionTextBox" runat="server"></asp:TextBox>
-        <br />
         <asp:Label ID="especialidadDescripcionLabel" runat="server" Text="Especialidad: "></asp:Label>
-        <asp:DropDownList ID="especialidadDropDownList" runat="server" DataSourceID="especialidadSqlDataSource" DataTextField="desc_especialidad" DataValueField="id_especialidad">
-        </asp:DropDownList>
-        <asp:SqlDataSource ID="especialidadSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:tp2_netConnectionString %>" SelectCommand="SELECT * FROM [especialidades]"></asp:SqlDataSource>
+        <asp:DropDownList ID="especialidadDropDownList" runat="server"></asp:DropDownList>
+        <br />
+        <asp:Label ID="descripcionLabel" runat="server" Text="Plan: "></asp:Label>
+        <asp:TextBox ID="descripcionTextBox" runat="server"></asp:TextBox>
         <br />
         <asp:Panel ID="formActionsPanel" runat="server">
             <asp:LinkButton ID="aceptarLinkButton" runat="server" OnClick="aceptarLinkButton_Click">Aceptar</asp:LinkButton>

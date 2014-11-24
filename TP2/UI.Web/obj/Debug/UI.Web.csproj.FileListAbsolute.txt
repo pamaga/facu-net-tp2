@@ -1,0 +1,14 @@
+C:\Users\Julian\Documents\facu-net-tp2\TP2\UI.Web\bin\UI.Web.dll.config
+C:\Users\Julian\Documents\facu-net-tp2\TP2\UI.Web\bin\UI.Web.dll
+C:\Users\Julian\Documents\facu-net-tp2\TP2\UI.Web\bin\UI.Web.pdb
+C:\Users\Julian\Documents\facu-net-tp2\TP2\UI.Web\bin\Business.Entities.dll
+C:\Users\Julian\Documents\facu-net-tp2\TP2\UI.Web\bin\Business.Logic.dll
+C:\Users\Julian\Documents\facu-net-tp2\TP2\UI.Web\bin\Data.Database.dll
+C:\Users\Julian\Documents\facu-net-tp2\TP2\UI.Web\bin\Util.dll
+C:\Users\Julian\Documents\facu-net-tp2\TP2\UI.Web\bin\Business.Entities.pdb
+C:\Users\Julian\Documents\facu-net-tp2\TP2\UI.Web\bin\Business.Logic.pdb
+C:\Users\Julian\Documents\facu-net-tp2\TP2\UI.Web\bin\Data.Database.pdb
+C:\Users\Julian\Documents\facu-net-tp2\TP2\UI.Web\bin\Util.pdb
+C:\Users\Julian\Documents\facu-net-tp2\TP2\UI.Web\obj\Debug\UI.Web.csprojResolveAssemblyReference.cache
+C:\Users\Julian\Documents\facu-net-tp2\TP2\UI.Web\obj\Debug\UI.Web.dll
+C:\Users\Julian\Documents\facu-net-tp2\TP2\UI.Web\obj\Debug\UI.Web.pdb

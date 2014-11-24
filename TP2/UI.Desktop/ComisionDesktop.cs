@@ -24,28 +24,34 @@ namespace UI.Desktop
         public ComisionDesktop()
         {
             InitializeComponent();
-            this.loadCmb();
+            this.loadCmbEspecialidades();
         }
 
         public ComisionDesktop(ModoForm modo):this(){
             this.Modo = modo;
         }
 
-        private void loadCmb()
+        private void loadCmbEspecialidades()
         {
-            this.cmbPlanes.DataSource = this.getPlanes();
-            this.cmbPlanes.DisplayMember = "DescCompleta";
+            this.cmbEspecialidades.DisplayMember = "Descripcion";
+            this.cmbEspecialidades.ValueMember = "ID";
+            this.cmbEspecialidades.DataSource = this.getEspecialidades();
+            this.cmbEspecialidades.SelectedItem = null;
+        }
+
+        private void loadCmbPlanes(int IDEspecialidad)
+        {
+            this.cmbPlanes.DisplayMember = "Descripcion";
             this.cmbPlanes.ValueMember = "ID";
+            this.cmbPlanes.DataSource = this.getPlanes(IDEspecialidad);
         }
 
         public ComisionDesktop(int ID, ModoForm modo):this()
         {
-           
             this.Modo = modo;
             ComisionLogic logic = new ComisionLogic();
             this.Comision = logic.GetOne(ID);
             MapearDeDatos();
-           
         }
         
         public override void MapearDeDatos()
@@ -53,9 +59,11 @@ namespace UI.Desktop
             this.txtID.Text = this.Comision.ID.ToString();
 
             this.txtDescripcion.Text = Comision.Descripcion;
+            this.cmbEspecialidades.SelectedValue = Comision.IDEspecialidad;
+            this.loadCmbPlanes(Comision.IDEspecialidad);
             this.cmbPlanes.SelectedValue = Comision.IDPlan;
             this.txtAnio.Text = Comision.AnioEspecialidad.ToString();
-
+            
             string txtAceptar = "Aceptar";
 
             if (Modo.Equals(ModoForm.Alta) || Modo.Equals(ModoForm.Modificacion)) txtAceptar = "Guardar";
@@ -121,6 +129,15 @@ namespace UI.Desktop
                 this.Notificar("Error de validación", mensaje, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return !error;
+        }
+
+        private void cmbEspecialidades_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            int IDEspecialidad = int.Parse(this.cmbEspecialidades.SelectedValue.ToString());
+            if(IDEspecialidad != 0)
+            {
+                this.loadCmbPlanes(IDEspecialidad);
+            }
         }
     }
 }

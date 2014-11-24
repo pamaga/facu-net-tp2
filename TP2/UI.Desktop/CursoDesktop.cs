@@ -23,7 +23,7 @@ namespace UI.Desktop
         public CursoDesktop()
         {
             InitializeComponent();
-            loadCmbPlan();
+            //loadCmbPlan();
             this.cmbPlan.SelectedIndexChanged += new System.EventHandler(cmbPlan_SelectedIndexChanged);
             this.cmbPlan.SelectedIndex = this.cmbPlan.Items.Count - 1;
         }
@@ -42,9 +42,9 @@ namespace UI.Desktop
            
         }
 
-        private void loadCmbPlan()
+        private void loadCmbPlan(int IDEspecialidad)
         {
-            this.cmbPlan.DataSource = this.getPlanes();
+            this.cmbPlan.DataSource = this.getPlanes(IDEspecialidad);
             this.cmbPlan.DisplayMember = "DescCompleta";
             this.cmbPlan.ValueMember = "ID";
         }

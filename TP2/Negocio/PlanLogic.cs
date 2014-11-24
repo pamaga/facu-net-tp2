@@ -26,6 +26,11 @@ namespace Business.Logic
             return PlanData.GetOne(id);
         }
 
+        public List<Plan> GetAll(int IDEspecialidad)
+        {
+            return PlanData.GetAll(IDEspecialidad);
+        }
+
         public List<Plan> GetAll()
         {
             return PlanData.GetAll();

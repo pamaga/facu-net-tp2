@@ -18,7 +18,7 @@ namespace Data.Database
             
                 this.OpenConnection();
 
-                SqlCommand cmdMaterias = new SqlCommand("SELECT M.id_materia, M.desc_materia, M.hs_semanales, M.hs_totales, M.id_plan, P.desc_plan, E.desc_especialidad FROM materias AS M LEFT OUTER JOIN planes AS P ON P.id_plan = M.id_plan LEFT JOIN especialidades E ON E.id_especialidad = P.id_especialidad", sqlConn);
+                SqlCommand cmdMaterias = new SqlCommand("SELECT M.id_materia, M.desc_materia, M.hs_semanales, M.hs_totales, M.id_plan, P.desc_plan, E.* FROM materias AS M LEFT OUTER JOIN planes AS P ON P.id_plan = M.id_plan LEFT JOIN especialidades E ON E.id_especialidad = P.id_especialidad", sqlConn);
                 SqlDataReader drMaterias = cmdMaterias.ExecuteReader();
                 while (drMaterias.Read())
                 {
@@ -26,10 +26,12 @@ namespace Data.Database
 
                     Materia.ID = (int)drMaterias["id_materia"];
                     Materia.Descripcion = (string)drMaterias["desc_materia"];
-                    Materia.IDPlan = (int)drMaterias["id_plan"];
                     Materia.HSSemanales = (int)drMaterias["hs_semanales"];
                     Materia.HSTotales = (int)drMaterias["hs_totales"];
-                    Materia.Plan = (string)drMaterias["desc_plan"] + " - " + (string)drMaterias["desc_especialidad"];
+                    Materia.IDPlan = (int)drMaterias["id_plan"];
+                    Materia.Plan = (string)drMaterias["desc_plan"];
+                    Materia.IDEspecialidad = (int)drMaterias["id_especialidad"];
+                    Materia.Especialidad = (string)drMaterias["desc_especialidad"];
 
                     Materias.Add(Materia);
                 }
@@ -54,24 +56,26 @@ namespace Data.Database
 
                 this.OpenConnection();
 
-                SqlCommand cmdMaterias = new SqlCommand("SELECT M.id_materia, M.desc_materia, M.hs_semanales, M.hs_totales, M.id_plan, P.desc_plan FROM materias AS M LEFT OUTER JOIN planes AS P ON P.id_plan = M.id_plan WHERE M.id_materia=@id", sqlConn);
+                SqlCommand cmdMaterias = new SqlCommand("SELECT M.*, P.*, E.* FROM materias AS M LEFT JOIN planes AS P ON P.id_plan = M.id_plan LEFT JOIN especialidades AS E ON P.id_especialidad = E.id_especialidad WHERE M.id_materia=@id", sqlConn);
                 cmdMaterias.Parameters.Add("@id", SqlDbType.Int).Value = ID;
                 SqlDataReader drMaterias = cmdMaterias.ExecuteReader();
                 if (drMaterias.Read())
                 {
                     oEntity.ID = (int)drMaterias["id_materia"];
                     oEntity.Descripcion = (string)drMaterias["desc_materia"];
-                    oEntity.IDPlan = (int)drMaterias["id_plan"];
                     oEntity.HSSemanales = (int)drMaterias["hs_semanales"];
                     oEntity.HSTotales = (int)drMaterias["hs_totales"];
-                    oEntity.Plan = (string)drMaterias["desc_plan"]; ;
-                    
+                    oEntity.IDPlan = (int)drMaterias["id_plan"];
+                    oEntity.Plan = (string)drMaterias["desc_plan"];
+                    oEntity.IDEspecialidad = (int)drMaterias["id_especialidad"];
+                    oEntity.Especialidad = (string)drMaterias["desc_especialidad"];
+
                 }
                 drMaterias.Close();
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al recuperar el Materia", Ex);
+                Exception ExcepcionManejada = new Exception("Error al recuperar la materia", Ex);
                 throw ExcepcionManejada;
             }finally{
                 this.CloseConnection();
@@ -97,10 +101,12 @@ namespace Data.Database
 
                     Materia.ID = (int)drMaterias["id_materia"];
                     Materia.Descripcion = (string)drMaterias["desc_materia"];
-                    Materia.IDPlan = (int)drMaterias["id_plan"];
                     Materia.HSSemanales = (int)drMaterias["hs_semanales"];
                     Materia.HSTotales = (int)drMaterias["hs_totales"];
-                    Materia.Plan = (string)drMaterias["desc_plan"] + " - " + (string)drMaterias["desc_especialidad"];
+                    Materia.IDPlan = (int)drMaterias["id_plan"];
+                    Materia.Plan = (string)drMaterias["desc_plan"];
+                    Materia.IDEspecialidad = (int)drMaterias["id_especialidad"];
+                    Materia.Especialidad = (string)drMaterias["desc_especialidad"];
 
                     Materias.Add(Materia);
                 }

@@ -18,7 +18,7 @@ namespace Data.Database
             
                 this.OpenConnection();
 
-                SqlCommand cmdComisiones = new SqlCommand("SELECT C.*,P.desc_plan, E.desc_especialidad FROM comisiones C LEFT JOIN planes P ON P.id_plan = C.id_plan LEFT JOIN especialidades E ON E.id_especialidad = P.id_especialidad", sqlConn);
+                SqlCommand cmdComisiones = new SqlCommand("SELECT C.*,P.desc_plan, E.* FROM comisiones C LEFT JOIN planes P ON P.id_plan = C.id_plan LEFT JOIN especialidades E ON E.id_especialidad = P.id_especialidad", sqlConn);
                 SqlDataReader drComisiones = cmdComisiones.ExecuteReader();
                 while (drComisiones.Read())
                 {
@@ -27,16 +27,18 @@ namespace Data.Database
                     Comision.ID = (int)drComisiones["id_comision"];
                     Comision.Descripcion = (string)drComisiones["desc_comision"];
                     Comision.IDPlan = (int)drComisiones["id_plan"];
-                    Comision.PlanDescripcion = (string)drComisiones["desc_plan"] + " - " + (string)drComisiones["desc_especialidad"];
+                    Comision.Plan = (string)drComisiones["desc_plan"];
+                    Comision.IDEspecialidad = (int)drComisiones["id_especialidad"];
+                    Comision.Especialidad = (string)drComisiones["desc_especialidad"];
                     Comision.AnioEspecialidad = (int)drComisiones["anio_especialidad"];
-
+                    
                     Comisiones.Add(Comision);
                 }
                 drComisiones.Close();
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al recuperar lista de Comisiones", Ex);
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de comisiones", Ex);
                 throw ExcepcionManejada;
             }finally{
                 this.CloseConnection();
@@ -53,7 +55,7 @@ namespace Data.Database
 
                 this.OpenConnection();
 
-                SqlCommand cmdComisiones = new SqlCommand("SELECT C.*,P.desc_plan FROM comisiones C LEFT JOIN planes P ON P.id_plan = C.id_plan WHERE C.id_comision=@id", sqlConn);
+                SqlCommand cmdComisiones = new SqlCommand("SELECT C.*, P.desc_plan, E.* FROM comisiones C LEFT JOIN planes P ON P.id_plan = C.id_plan LEFT JOIN especialidades E ON E.id_especialidad = P.id_especialidad WHERE C.id_comision=@id", sqlConn);
                 cmdComisiones.Parameters.Add("@id", SqlDbType.Int).Value = ID;
                 SqlDataReader drComisiones = cmdComisiones.ExecuteReader();
                 if (drComisiones.Read())
@@ -61,7 +63,9 @@ namespace Data.Database
                     oEntity.ID = (int)drComisiones["id_comision"];
                     oEntity.Descripcion = (string)drComisiones["desc_comision"];
                     oEntity.IDPlan = (int)drComisiones["id_plan"];
-                    oEntity.PlanDescripcion = (string)drComisiones["desc_plan"];
+                    oEntity.Plan = (string)drComisiones["desc_plan"];
+                    oEntity.IDEspecialidad = (int)drComisiones["id_especialidad"];
+                    oEntity.Especialidad = (string)drComisiones["desc_especialidad"];
                     oEntity.AnioEspecialidad = (int)drComisiones["anio_especialidad"];
                     
                 }
@@ -69,7 +73,7 @@ namespace Data.Database
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al recuperar el Comision", Ex);
+                Exception ExcepcionManejada = new Exception("Error al recuperar la comision", Ex);
                 throw ExcepcionManejada;
             }finally{
                 this.CloseConnection();
@@ -96,7 +100,7 @@ namespace Data.Database
                     Comision.ID = (int)drComisiones["id_comision"];
                     Comision.Descripcion = (string)drComisiones["desc_comision"];
                     Comision.IDPlan = (int)drComisiones["id_plan"];
-                    Comision.PlanDescripcion = (string)drComisiones["desc_plan"] + " - " + (string)drComisiones["desc_especialidad"];
+                    Comision.Plan = (string)drComisiones["desc_plan"] + " - " + (string)drComisiones["desc_especialidad"];
                     Comision.AnioEspecialidad = (int)drComisiones["anio_especialidad"];
 
                     Comisiones.Add(Comision);
@@ -105,7 +109,7 @@ namespace Data.Database
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al recuperar lista de Comisiones", Ex);
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de comisiones", Ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -124,7 +128,7 @@ namespace Data.Database
 
                 cmdDelete.ExecuteNonQuery();
             } catch(Exception Ex) {
-                Exception ExcepcionManejada = new Exception("Error al eliminar el Comision:" + Ex.ToString(), Ex);
+                Exception ExcepcionManejada = new Exception("Error al eliminar la comision:" + Ex.ToString(), Ex);
             } finally {
                 this.CloseConnection();
             }
@@ -161,7 +165,7 @@ namespace Data.Database
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al modificar datos del Comision", Ex);
+                Exception ExcepcionManejada = new Exception("Error al modificar datos de la comision", Ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -186,7 +190,7 @@ namespace Data.Database
             }
             catch (Exception Ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al crear el Comision" + Ex, Ex);
+                Exception ExcepcionManejada = new Exception("Error al crear la comision" + Ex, Ex);
                 throw ExcepcionManejada;
             }
             finally

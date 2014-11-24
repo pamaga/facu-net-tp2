@@ -40,10 +40,11 @@
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.comisionLogicBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AnioEspecialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Especialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PlanDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AnioEspecialidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tlUsuarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComisiones)).BeginInit();
             this.tsUsuarios.SuspendLayout();
@@ -77,10 +78,11 @@
             this.dgvComisiones.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvComisiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvComisiones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.AnioEspecialidad,
+            this.Especialidad,
+            this.PlanDescripcion,
             this.Descripcion,
-            this.PlanDescripcion});
+            this.AnioEspecialidad,
+            this.id});
             this.tlUsuarios.SetColumnSpan(this.dgvComisiones, 2);
             this.dgvComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvComisiones.Location = new System.Drawing.Point(3, 3);
@@ -181,20 +183,19 @@
             // 
             this.comisionLogicBindingSource.DataSource = typeof(Business.Logic.ComisionLogic);
             // 
-            // id
+            // Especialidad
             // 
-            this.id.DataPropertyName = "ID";
-            this.id.FillWeight = 64F;
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
+            this.Especialidad.DataPropertyName = "Especialidad";
+            this.Especialidad.HeaderText = "Especialidad";
+            this.Especialidad.Name = "Especialidad";
+            this.Especialidad.ReadOnly = true;
             // 
-            // AnioEspecialidad
+            // PlanDescripcion
             // 
-            this.AnioEspecialidad.DataPropertyName = "AnioEspecialidad";
-            this.AnioEspecialidad.HeaderText = "Año Especialidad";
-            this.AnioEspecialidad.Name = "AnioEspecialidad";
-            this.AnioEspecialidad.ReadOnly = true;
+            this.PlanDescripcion.DataPropertyName = "Plan";
+            this.PlanDescripcion.HeaderText = "Plan";
+            this.PlanDescripcion.Name = "PlanDescripcion";
+            this.PlanDescripcion.ReadOnly = true;
             // 
             // Descripcion
             // 
@@ -203,12 +204,20 @@
             this.Descripcion.Name = "Descripcion";
             this.Descripcion.ReadOnly = true;
             // 
-            // PlanDescripcion
+            // AnioEspecialidad
             // 
-            this.PlanDescripcion.DataPropertyName = "PlanDescripcion";
-            this.PlanDescripcion.HeaderText = "Plan - Especialidad";
-            this.PlanDescripcion.Name = "PlanDescripcion";
-            this.PlanDescripcion.ReadOnly = true;
+            this.AnioEspecialidad.DataPropertyName = "AnioEspecialidad";
+            this.AnioEspecialidad.HeaderText = "Año Especialidad";
+            this.AnioEspecialidad.Name = "AnioEspecialidad";
+            this.AnioEspecialidad.ReadOnly = true;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "ID";
+            this.id.FillWeight = 64F;
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
             // 
             // Comisiones
             // 
@@ -245,9 +254,10 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.BindingSource comisionLogicBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AnioEspecialidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Especialidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn PlanDescripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AnioEspecialidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
     }
 }

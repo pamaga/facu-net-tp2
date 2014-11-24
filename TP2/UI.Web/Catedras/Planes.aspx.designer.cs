@@ -67,24 +67,6 @@ namespace UI.Web.Catedras {
         protected global::System.Web.UI.WebControls.Panel formPanel;
         
         /// <summary>
-        /// descripcionLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label descripcionLabel;
-        
-        /// <summary>
-        /// descripcionTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox descripcionTextBox;
-        
-        /// <summary>
         /// especialidadDescripcionLabel control.
         /// </summary>
         /// <remarks>
@@ -103,13 +85,22 @@ namespace UI.Web.Catedras {
         protected global::System.Web.UI.WebControls.DropDownList especialidadDropDownList;
         
         /// <summary>
-        /// especialidadSqlDataSource control.
+        /// descripcionLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource especialidadSqlDataSource;
+        protected global::System.Web.UI.WebControls.Label descripcionLabel;
+        
+        /// <summary>
+        /// descripcionTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox descripcionTextBox;
         
         /// <summary>
         /// formActionsPanel control.

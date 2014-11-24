@@ -67,6 +67,42 @@ namespace UI.Web.Catedras {
         protected global::System.Web.UI.WebControls.Panel formPanel;
         
         /// <summary>
+        /// especialidadDescripcionLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label especialidadDescripcionLabel;
+        
+        /// <summary>
+        /// especialidadDropDownList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList especialidadDropDownList;
+        
+        /// <summary>
+        /// planLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label planLabel;
+        
+        /// <summary>
+        /// planDropDownList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList planDropDownList;
+        
+        /// <summary>
         /// descripcionLabel control.
         /// </summary>
         /// <remarks>
@@ -83,24 +119,6 @@ namespace UI.Web.Catedras {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox descripcionTextBox;
-        
-        /// <summary>
-        /// idPlanLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label idPlanLabel;
-        
-        /// <summary>
-        /// idPlanTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox idPlanTextBox;
         
         /// <summary>
         /// horasSemanalesLabel control.
@@ -137,24 +155,6 @@ namespace UI.Web.Catedras {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox horasTotalesTextBox;
-        
-        /// <summary>
-        /// planDescripcionLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label planDescripcionLabel;
-        
-        /// <summary>
-        /// planDescripcionTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox planDescripcionTextBox;
         
         /// <summary>
         /// formActionsPanel control.

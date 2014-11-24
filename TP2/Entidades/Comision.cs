@@ -7,18 +7,32 @@ namespace Business.Entities
 {
     public class Comision : BusinessEntity
     {
-        private string _PlanDescripcion;
-        public string PlanDescripcion
+        private int _IDEspecialidad;
+        public int IDEspecialidad
         {
-            get { return _PlanDescripcion; }
-            set { _PlanDescripcion = value; }
+            get { return _IDEspecialidad; }
+            set { _IDEspecialidad = value; }
         }
 
-        private int _AnioEspecialidad;
-        public int AnioEspecialidad
+        private string _Especialidad;
+        public string Especialidad
         {
-            get { return _AnioEspecialidad; }
-            set { _AnioEspecialidad = value; }
+            get { return _Especialidad; }
+            set { _Especialidad = value; }
+        }
+
+        private int _IDPlan;
+        public int IDPlan
+        {
+            get { return _IDPlan; }
+            set { _IDPlan = value; }
+        }
+
+        private string _Plan;
+        public string Plan
+        {
+            get { return _Plan; }
+            set { _Plan = value; }
         }
 
         private string _Descripcion;
@@ -28,11 +42,11 @@ namespace Business.Entities
             set { _Descripcion = value; }
         }
 
-        private int _IDPlan;
-        public int IDPlan
+        private int _AnioEspecialidad;
+        public int AnioEspecialidad
         {
-            get { return _IDPlan; }
-            set { _IDPlan = value; }
+            get { return _AnioEspecialidad; }
+            set { _AnioEspecialidad = value; }
         }
     }
 }

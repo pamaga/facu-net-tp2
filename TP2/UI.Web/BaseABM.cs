@@ -37,21 +37,17 @@ namespace UI.Web
             get { return (this.SelectedID != 0); }
         }
 
-        public List<Especialidad> getEspecialidades(){
-            if (null == lstEsp)
-            {
-                EspecialidadLogic esp = new EspecialidadLogic();
-                this.lstEsp = esp.GetAll();
-            }
+        public List<Especialidad> getEspecialidades()
+        {
+            EspecialidadLogic esp = new EspecialidadLogic();
+            this.lstEsp = esp.GetAll();
             return this.lstEsp;
         }
-        public List<Plan> getPlanes()
+
+        public List<Plan> getPlanes(int IDEspecialidad)
         {
-            if (null == lstEsp)
-            {
-                PlanLogic esp = new PlanLogic();
-                this.lstPlan = esp.GetAll();
-            }
+            PlanLogic esp = new PlanLogic();
+            this.lstPlan = esp.GetAll(IDEspecialidad);
             return this.lstPlan;
         }
 

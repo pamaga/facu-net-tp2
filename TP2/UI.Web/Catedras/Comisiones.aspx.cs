@@ -30,12 +30,25 @@ namespace UI.Web.Catedras
             set;
         }
 
+        private int SelectedEspecialidad
+        {
+            get
+            {
+                if (this.ViewState["SelectedEspecialidad"] != null) return (int)this.ViewState["SelectedEspecialidad"];
+                else return 0;
+            }
+            set
+            {
+                this.ViewState["SelectedEspecialidad"] = value;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
-                loadCmbPlan();
                 this.LoadGrid();
+                this.loadCmbEspecialidades();
             }
 
         }
@@ -46,9 +59,18 @@ namespace UI.Web.Catedras
             this.GridView.DataBind();
         }
 
-        private void loadCmbPlan(){
-            this.planDropDownList.DataSource = this.getPlanes();
-            this.planDropDownList.DataTextField = "DescCompleta";
+        private void loadCmbEspecialidades()
+        {
+            this.especialidadDropDownList.DataSource = this.getEspecialidades();
+            this.especialidadDropDownList.DataTextField = "Descripcion";
+            this.especialidadDropDownList.DataValueField = "ID";
+            this.especialidadDropDownList.DataBind();
+        }
+
+        private void loadCmbPlan(int IDEspecialidad)
+        {
+            this.planDropDownList.DataSource = this.getPlanes(IDEspecialidad);
+            this.planDropDownList.DataTextField = "Descripcion";
             this.planDropDownList.DataValueField = "ID";
             this.planDropDownList.DataBind();
         }
@@ -112,7 +134,7 @@ namespace UI.Web.Catedras
                 default:
                     break;
             }
-            this.formPanel.Visible = true;
+            this.formPanel.Visible = false;
         }
         protected void cancelarLinkButton_Click(object sender, EventArgs e)
         {
@@ -123,8 +145,10 @@ namespace UI.Web.Catedras
         private void LoadForm(int id)
         {
             this.Entity = this.Logic.GetOne(id);
-            this.descripcionTextBox.Text = this.Entity.Descripcion;
+            this.especialidadDropDownList.SelectedValue = this.Entity.IDEspecialidad.ToString();
+            this.loadCmbPlan(this.Entity.IDEspecialidad);
             this.planDropDownList.SelectedValue = this.Entity.IDPlan.ToString();
+            this.descripcionTextBox.Text = this.Entity.Descripcion;
             this.anioEspecialidadTextBox.Text = this.Entity.AnioEspecialidad.ToString();
         }
 
@@ -132,6 +156,7 @@ namespace UI.Web.Catedras
         {
             comision.Descripcion = this.descripcionTextBox.Text;
             comision.IDPlan = int.Parse(this.planDropDownList.SelectedValue);
+            comision.IDEspecialidad = Int32.Parse(this.especialidadDropDownList.SelectedValue);
             comision.AnioEspecialidad = Int32.Parse(this.anioEspecialidadTextBox.Text);
         }
 
@@ -142,10 +167,11 @@ namespace UI.Web.Catedras
 
         private void EnableForm(bool enable)
         {
-            loadCmbPlan();
             this.descripcionTextBox.Enabled = enable;
-            this.planDropDownList.Enabled = enable;
+            this.especialidadDropDownList.Enabled = enable;
             this.anioEspecialidadTextBox.Enabled = enable;
+            if (this.FormMode == FormModes.Alta) this.planDropDownList.Enabled = !enable;
+            else this.planDropDownList.Enabled = enable;
         }
 
         private void DeleteEntity(int id)
@@ -156,8 +182,27 @@ namespace UI.Web.Catedras
         private void ClearForm()
         {
             this.descripcionTextBox.Text = string.Empty;
-            this.planDropDownList.ClearSelection();
+            this.especialidadDropDownList.ClearSelection();
             this.anioEspecialidadTextBox.Text = string.Empty;
+            this.planDropDownList.Items.Insert(0, new ListItem("Seleccione una especialidad", "-1"));
+            this.planDropDownList.SelectedValue = "-1";
+        }
+
+        protected void especialidadDropDownList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.SelectedEspecialidad = int.Parse(this.especialidadDropDownList.SelectedValue);
+            if (this.SelectedEspecialidad != -1)
+            {
+                int IDEspecialidad = int.Parse(especialidadDropDownList.SelectedValue);
+                this.loadCmbPlan(IDEspecialidad);
+                this.planDropDownList.Enabled = true;
+            }
+            else
+            {
+                this.planDropDownList.Enabled = false;
+                this.planDropDownList.Items.Insert(0, new ListItem("Seleccione una especialidad", "-1"));
+                this.planDropDownList.SelectedValue = "-1";
+            }
         }
     }
 }

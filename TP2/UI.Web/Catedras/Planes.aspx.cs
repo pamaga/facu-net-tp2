@@ -32,13 +32,25 @@ namespace UI.Web.Catedras
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack) this.LoadGrid();
+            if (!Page.IsPostBack)
+            {
+                this.LoadGrid();
+                this.loadCmbEspecialidades();
+            }
         }
 
         private void LoadGrid()
         {
             this.GridView.DataSource = this.Logic.GetAll();
             this.GridView.DataBind();
+        }
+
+        private void loadCmbEspecialidades()
+        {
+            this.especialidadDropDownList.DataSource = this.getEspecialidades();
+            this.especialidadDropDownList.DataTextField = "Descripcion";
+            this.especialidadDropDownList.DataValueField = "ID";
+            this.especialidadDropDownList.DataBind();
         }
 
         #region Eventos

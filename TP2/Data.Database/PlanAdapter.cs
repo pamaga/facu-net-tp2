@@ -26,8 +26,8 @@ namespace Data.Database
 
                     plan.ID = (int)drPlanes["id_plan"];
                     plan.IdEspecialidad = (int)drPlanes["id_especialidad"];
-                    plan.Especialidad = (string)drPlanes["desc_especialidad"];
                     plan.Descripcion = (string)drPlanes["desc_plan"];
+                    plan.Especialidad = (string)drPlanes["desc_especialidad"];
 
                     planes.Add(plan);
                 }
@@ -38,6 +38,42 @@ namespace Data.Database
                 Exception ExcepcionManejada = new Exception("Error al recuperar lista de Planes", Ex);
                 throw ExcepcionManejada;
             }finally{
+                this.CloseConnection();
+            }
+            return planes;
+        }
+
+        public List<Plan> GetAll(int IDEspecialidad)
+        {
+            List<Plan> planes = new List<Plan>();
+
+            try
+            {
+
+                this.OpenConnection();
+
+                SqlCommand cmdPlanes = new SqlCommand("SELECT P.* FROM especialidades E left join planes P on P.id_especialidad = E.id_especialidad WHERE P.id_especialidad = @id", sqlConn);
+                cmdPlanes.Parameters.Add("@id", SqlDbType.Int).Value = IDEspecialidad;
+                SqlDataReader drPlanes = cmdPlanes.ExecuteReader();
+                while (drPlanes.Read())
+                {
+                    Plan plan = new Plan();
+
+                    plan.ID = (int)drPlanes["id_plan"];
+                    plan.IdEspecialidad = (int)drPlanes["id_especialidad"];
+                    plan.Descripcion = (string)drPlanes["desc_plan"];
+
+                    planes.Add(plan);
+                }
+                drPlanes.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de Planes", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
                 this.CloseConnection();
             }
             return planes;
@@ -58,7 +94,6 @@ namespace Data.Database
                 if (drPlanes.Read())
                 {
                     oEntity.IdEspecialidad = (int)drPlanes["id_especialidad"];
-                    oEntity.Especialidad = (string)drPlanes["desc_especialidad"];
                     oEntity.ID = (int)drPlanes["id_plan"];
                     oEntity.Descripcion = (string)drPlanes["desc_plan"];
                 }
