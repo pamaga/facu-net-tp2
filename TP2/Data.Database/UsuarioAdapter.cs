@@ -107,6 +107,37 @@ namespace Data.Database
             return usuarios;
         }
 
+        public Usuario getUserByLegajo(int legajo)
+        {
+            Usuario usr=null;
+            try
+            {
+
+                this.OpenConnection();
+
+                SqlCommand cmdUsuarios = new SqlCommand("SELECT id_usuario FROM usuarios WHERE legajo=@legajo", sqlConn);
+                cmdUsuarios.Parameters.Add("@legajo", SqlDbType.Int).Value = legajo;
+                SqlDataReader drUsuarios = cmdUsuarios.ExecuteReader();
+               
+                if (drUsuarios.Read())
+                {
+                    usr = this.GetOne((int)drUsuarios["id_usuario"]);
+                }
+                drUsuarios.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de usuarios", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+               // this.CloseConnection();
+            }
+            return usr;
+
+
+        }
         public Business.Entities.Usuario GetOne(int ID)
         {
             Usuario usr = new Usuario();

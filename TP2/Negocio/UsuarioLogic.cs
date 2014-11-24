@@ -26,6 +26,12 @@ namespace Business.Logic
         {
             return UsuarioData.GetOne(id);
         }
+
+        public Usuario getUserByLegajo(int legajo)
+        {
+            return UsuarioData.getUserByLegajo(legajo);
+        }
+
         public Usuario getUsuarioPermitido(string usuario, string clave)
         {
             return UsuarioData.GetUserValid(usuario, clave);

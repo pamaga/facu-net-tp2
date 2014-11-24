@@ -172,6 +172,16 @@ namespace UI.Desktop
                 mensaje += "- El legajo sólo puede contener números" + Environment.NewLine;
                 error = true;
             }
+
+            UsuarioLogic ul = new UsuarioLogic();
+            Usuario usr = ul.getUserByLegajo(  Convert.ToInt32(this.txtLegajo.Text));
+           // (this.UsuarioActual.ID ==null || (this.UsuarioActual.ID != usr.ID))
+            if (this.Modo == ModoForm.Alta && usr != null || (this.Modo == ModoForm.Modificacion && usr != null && this.UsuarioActual.ID !=usr.ID))
+            {
+                mensaje += "- El usuario con el legajo ingresado ya existe" + Environment.NewLine;
+                error = true;
+            }
+
             if(error){
                 this.Notificar("Error de validación", mensaje, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
