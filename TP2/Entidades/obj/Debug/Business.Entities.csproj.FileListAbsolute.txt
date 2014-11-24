@@ -1,5 +1,0 @@
-C:\Users\Julian\Documents\facu-net-tp2\TP2\Entidades\bin\Debug\Business.Entities.dll
-C:\Users\Julian\Documents\facu-net-tp2\TP2\Entidades\bin\Debug\Business.Entities.pdb
-C:\Users\Julian\Documents\facu-net-tp2\TP2\Entidades\obj\Debug\Business.Entities.csprojResolveAssemblyReference.cache
-C:\Users\Julian\Documents\facu-net-tp2\TP2\Entidades\obj\Debug\Business.Entities.dll
-C:\Users\Julian\Documents\facu-net-tp2\TP2\Entidades\obj\Debug\Business.Entities.pdb

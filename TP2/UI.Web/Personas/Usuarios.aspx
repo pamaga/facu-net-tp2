@@ -3,7 +3,9 @@
     <asp:Panel ID="gridPanel" runat="server">
         <asp:GridView ID="gridView" runat="server" AutoGenerateColumns="False" 
             SelectedRowStyle-BackColor="Black" SelectedRowStyle-ForeColor="White" 
-            DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" >
+            DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged" 
+            CellPadding="4" ForeColor="#333333" GridLines="None" >
+            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
                 <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
                 <asp:BoundField HeaderText="Apellido" DataField="Apellido" />
@@ -15,15 +17,27 @@
                 <asp:BoundField DataField="FechaNac" HeaderText="Fecha de Nacimiento" />
                 <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
             </Columns>
-            <SelectedRowStyle BackColor="Black" ForeColor="White" />
+            <EditRowStyle BackColor="#999999" />
+            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+            <SelectedRowStyle BackColor="#E2DED6" ForeColor="#333333" Font-Bold="True" />
+            <SortedAscendingCellStyle BackColor="#E9E7E2" />
+            <SortedAscendingHeaderStyle BackColor="#506C8C" />
+            <SortedDescendingCellStyle BackColor="#FFFDF8" />
+            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
         </asp:GridView>
     </asp:Panel>
-    <asp:Panel ID="gridActionsPanel" runat="server">
-        <asp:LinkButton ID="editarLinkButton" runat="server" OnClick="editarLinkButton_Click">Editar</asp:LinkButton>
-        <asp:LinkButton ID="eliminarLinkButton" runat="server" OnClick="eliminarLinkButton_Click">Eliminar</asp:LinkButton>
-        <asp:LinkButton ID="nuevoLinkButton" runat="server" OnClick="nuevoLinkButton_Click">Nuevo</asp:LinkButton>
+    <asp:Panel ID="gridActionsPanel" runat="server" CssClass="acciones">
+        <asp:LinkButton ID="editarLinkButton" runat="server" 
+            OnClick="editarLinkButton_Click" CssClass="btn btnEditar">Editar</asp:LinkButton>
+        <asp:LinkButton ID="eliminarLinkButton" runat="server" 
+            OnClick="eliminarLinkButton_Click" CssClass="btn btnEliminar">Eliminar</asp:LinkButton>
+        <asp:LinkButton ID="nuevoLinkButton" runat="server" 
+            OnClick="nuevoLinkButton_Click" CssClass="btn btnNuevo">Nuevo</asp:LinkButton>
     </asp:Panel>
-    <asp:Panel ID="formPanel" Visible="false" runat="server">
+    <asp:Panel ID="formPanel" Visible="false" runat="server" CssClass="wrapForm">
         <asp:Label ID="nombreLabel" runat="server" Text="Nombre: "></asp:Label>
         <asp:TextBox ID="nombreTextBox" runat="server"></asp:TextBox>
         <br />
@@ -55,8 +69,10 @@
         <asp:TextBox ID="repetirClaveTextBox" TextMode="Password" runat="server"></asp:TextBox>
         <br />
         <asp:Panel ID="formActionsPanel" runat="server">
-            <asp:LinkButton ID="aceptarLinkButton" runat="server" OnClick="aceptarLinkButton_Click">Aceptar</asp:LinkButton>
-            <asp:LinkButton ID="cancelarLinkButton" runat="server" OnClick="cancelarLinkButton_Click">Cancelar</asp:LinkButton>
+            <asp:LinkButton ID="aceptarLinkButton" runat="server" 
+                OnClick="aceptarLinkButton_Click" CssClass="btn">Aceptar</asp:LinkButton>
+            <asp:LinkButton ID="cancelarLinkButton" runat="server" 
+                OnClick="cancelarLinkButton_Click" CssClass="btn">Cancelar</asp:LinkButton>
         </asp:Panel>
     </asp:Panel>
 </asp:Content>
