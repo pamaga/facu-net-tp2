@@ -7,6 +7,20 @@ namespace Business.Entities
 {
     public class Curso : BusinessEntity
     {
+        private int _IDEspecialidad;
+        public int IDEspecialidad
+        {
+            get { return _IDEspecialidad; }
+            set { _IDEspecialidad = value; }
+        }
+
+        private string _Especialidad;
+        public string Especialidad
+        {
+            get { return _Especialidad; }
+            set { _Especialidad = value; }
+        }
+
         private int _IDPlan;
         public int IDPlan
         {

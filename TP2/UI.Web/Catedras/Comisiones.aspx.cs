@@ -156,8 +156,8 @@ namespace UI.Web.Catedras
         {
             comision.Descripcion = this.descripcionTextBox.Text;
             comision.IDPlan = int.Parse(this.planDropDownList.SelectedValue);
-            comision.IDEspecialidad = Int32.Parse(this.especialidadDropDownList.SelectedValue);
-            comision.AnioEspecialidad = Int32.Parse(this.anioEspecialidadTextBox.Text);
+            comision.IDEspecialidad = int.Parse(this.especialidadDropDownList.SelectedValue);
+            comision.AnioEspecialidad = int.Parse(this.anioEspecialidadTextBox.Text);
         }
 
         private void SaveEntity(Comision comision)

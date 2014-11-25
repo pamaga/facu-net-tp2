@@ -13,105 +13,98 @@ namespace UI.Desktop
 {
     public partial class CursoDesktop : ApplicationForm
     {
-        private Curso _CursoActual;
-        public Curso CursoActual
+        private Curso _Curso;
+        public Curso Curso
         {
-          get { return _CursoActual; }
-          set { _CursoActual = value; }
+          get { return _Curso; }
+          set { _Curso = value; }
         }
 
         public CursoDesktop()
         {
             InitializeComponent();
-            //loadCmbPlan();
-            this.cmbPlan.SelectedIndexChanged += new System.EventHandler(cmbPlan_SelectedIndexChanged);
-            this.cmbPlan.SelectedIndex = this.cmbPlan.Items.Count - 1;
+            this.loadCmbEspecialidades();
         }
 
-        public CursoDesktop(ModoForm modo):this(){
+        public CursoDesktop(ModoForm modo):this()
+        {
             this.Modo = modo;
+            this.cmbEnable(false);
+            this.cmbEspecialidades.SelectedItem = null;
         }
 
         public CursoDesktop(int ID, ModoForm modo):this()
         {
-           
             this.Modo = modo;
             CursoLogic logic = new CursoLogic();
-            this.CursoActual = logic.GetOne(ID);
+            this.Curso = logic.GetOne(ID);
             MapearDeDatos();
-           
+            this.cmbEnable(true);
         }
 
-        private void loadCmbPlan(int IDEspecialidad)
+        private void loadCmbEspecialidades()
         {
-            this.cmbPlan.DataSource = this.getPlanes(IDEspecialidad);
-            this.cmbPlan.DisplayMember = "DescCompleta";
-            this.cmbPlan.ValueMember = "ID";
+            this.cmbEspecialidades.DisplayMember = "Descripcion";
+            this.cmbEspecialidades.ValueMember = "ID";
+            this.cmbEspecialidades.DataSource = this.getEspecialidades();
         }
 
-        private void loadCmbMateria(int IDPlan)
+        private void loadCmbPlanes(int IDEspecialidad)
+        {
+            this.cmbPlanes.DisplayMember = "Descripcion";
+            this.cmbPlanes.ValueMember = "ID";
+            this.cmbPlanes.DataSource = this.getPlanes(IDEspecialidad);
+        }
+
+        private void loadCmbMaterias(int IDPlan)
         {
             MateriaLogic MatLogic = new MateriaLogic();
-
-            this.cmbMateria.DataSource = MatLogic.GetSome(IDPlan);
-            this.cmbMateria.DisplayMember = "Descripcion";
-            this.cmbMateria.ValueMember = "ID";
+            this.cmbMaterias.DataSource = MatLogic.GetSome(IDPlan);
+            this.cmbMaterias.DisplayMember = "Descripcion";
+            this.cmbMaterias.ValueMember = "ID";
         }
 
-        private void loadCmbComision(int IDPlan)
+        private void loadCmbComisiones(int IDPlan)
         {
             ComisionLogic ComLogic = new ComisionLogic();
-
-            this.cmbComision.DataSource = ComLogic.GetSome(IDPlan);
-            this.cmbComision.DisplayMember = "Descripcion";
-            this.cmbComision.ValueMember = "ID";
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void cmbPlan_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.loadCmbMateria((int)this.cmbPlan.SelectedValue);
-            this.loadCmbComision((int)this.cmbPlan.SelectedValue);
+            this.cmbComisiones.DataSource = ComLogic.GetSome(IDPlan);
+            this.cmbComisiones.DisplayMember = "Descripcion";
+            this.cmbComisiones.ValueMember = "ID";
         }
 
         public override void MapearDeDatos()
         {
-            this.txtID.Text = this.CursoActual.ID.ToString();
-
-            this.txtCupo.Text = CursoActual.Cupo.ToString();
-            this.txtAnio.Text = CursoActual.AnioCalendario.ToString();
-            this.cmbPlan.SelectedValue = CursoActual.IDPlan;
-            this.cmbMateria.SelectedValue = CursoActual.IDMateria;
-            this.cmbComision.SelectedValue = CursoActual.IDComision;
-            this.txtAnio.Text = CursoActual.AnioCalendario.ToString();
-
-            string txtAceptar = "Aceptar";
-
-            if (Modo.Equals(ModoForm.Alta) || Modo.Equals(ModoForm.Modificacion)) txtAceptar = "Guardar";
-            this.btnAceptar.Text = txtAceptar;
+            this.txtID.Text = this.Curso.ID.ToString();
+            this.txtCupo.Text = Curso.Cupo.ToString();
+            this.txtAnio.Text = Curso.AnioCalendario.ToString();
+            this.cmbEspecialidades.SelectedValue = Curso.IDEspecialidad;
+            this.loadCmbPlanes(Curso.IDEspecialidad);
+            this.cmbPlanes.SelectedValue = Curso.IDPlan;
+            this.loadCmbMaterias(Curso.IDPlan);
+            this.cmbMaterias.SelectedValue = Curso.IDMateria;
+            this.loadCmbComisiones(Curso.IDPlan);
+            this.cmbComisiones.SelectedValue = Curso.IDComision;
         }
 
         public override void MapearADatos()
         {
             if (Modo.Equals(ModoForm.Alta))
             {
-                this.CursoActual = new Curso();
-                this.CursoActual.State = BusinessEntity.States.New;
+                this.Curso = new Curso();
+                this.Curso.State = BusinessEntity.States.New;
             }
             else if (Modo.Equals(ModoForm.Modificacion))
             {
-                this.CursoActual.ID = Int32.Parse(txtID.Text);
-                this.CursoActual.State = BusinessEntity.States.Modified;
+                this.Curso.ID = Int32.Parse(txtID.Text);
+                this.Curso.State = BusinessEntity.States.Modified;
             }
 
-            this.CursoActual.IDComision = (int)this.cmbComision.SelectedValue;
-            this.CursoActual.IDMateria = (int)this.cmbMateria.SelectedValue;
-            this.CursoActual.AnioCalendario = Convert.ToInt32(this.txtAnio.Text);
-            this.CursoActual.Cupo = Convert.ToInt32(this.txtCupo.Text);
+            this.Curso.IDComision = (int)this.cmbComisiones.SelectedValue;
+            this.Curso.IDMateria = (int)this.cmbMaterias.SelectedValue;
+            this.Curso.AnioCalendario = Convert.ToInt32(this.txtAnio.Text);
+            this.Curso.Cupo = Convert.ToInt32(this.txtCupo.Text);
+            this.Curso.IDPlan = (int)this.cmbPlanes.SelectedValue;
+            this.Curso.IDEspecialidad = (int)this.cmbEspecialidades.SelectedValue;
         }
 
         public override bool Validar()
@@ -120,10 +113,12 @@ namespace UI.Desktop
             string mensaje = "Errores en el formulario:" + Environment.NewLine;
 
             if (
-                this.cmbMateria.SelectedValue == null ||
-                this.cmbComision.SelectedValue == null ||
                 !Util.Util.validarRequerido(this.txtAnio.Text) ||
-                !Util.Util.validarRequerido(this.txtCupo.Text))
+                !Util.Util.validarRequerido(this.txtCupo.Text) ||
+                !Util.Util.validarRequerido(this.cmbEspecialidades.SelectedValue) ||
+                !Util.Util.validarRequerido(this.cmbPlanes.SelectedValue) ||
+                !Util.Util.validarRequerido(this.cmbMaterias.SelectedValue) ||
+                !Util.Util.validarRequerido(this.cmbComisiones.SelectedValue))
             {
                 mensaje += "- Complete todos los campos" + Environment.NewLine;
                 error = true;
@@ -152,7 +147,7 @@ namespace UI.Desktop
         {
             this.MapearADatos();
             CursoLogic uLogic = new CursoLogic();
-            uLogic.Save(this.CursoActual);
+            uLogic.Save(this.Curso);
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -162,6 +157,55 @@ namespace UI.Desktop
                 this.GuardarCambios();
                 this.Close();
             }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void cmbEspecialidades_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            int IDEspecialidad = int.Parse(this.cmbEspecialidades.SelectedValue.ToString());
+            if (IDEspecialidad != 0)
+            {
+                this.loadCmbPlanes(IDEspecialidad);
+                this.cmbPlanes.Enabled = true;
+            }
+            else
+            {
+                this.cmbPlanes.Enabled = false;
+            }
+            this.cmbPlanes.SelectedItem = null;
+            this.cmbMaterias.SelectedItem = null;
+            this.cmbMaterias.Enabled = false;
+            this.cmbComisiones.SelectedItem = null;
+            this.cmbComisiones.Enabled = false;
+        }
+
+        private void cmbPlanes_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            int IDPlan = int.Parse(this.cmbPlanes.SelectedValue.ToString());
+            if (IDPlan != 0)
+            {
+                this.loadCmbMaterias(IDPlan);
+                this.loadCmbComisiones(IDPlan);
+                this.cmbEnable(true);
+            }
+            else
+            {
+                this.cmbMaterias.SelectedItem = null;
+                this.cmbComisiones.SelectedItem = null;
+                this.cmbMaterias.Enabled = false;
+                this.cmbComisiones.Enabled = false;
+            }
+        }
+
+        private void cmbEnable(bool enable)
+        {
+            this.cmbPlanes.Enabled = enable;
+            this.cmbMaterias.Enabled = enable;
+            this.cmbComisiones.Enabled = enable;
         }
     }
 }

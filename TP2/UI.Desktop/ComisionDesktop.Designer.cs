@@ -46,11 +46,11 @@
             // 
             this.lblAnio.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblAnio.AutoSize = true;
-            this.lblAnio.Location = new System.Drawing.Point(46, 113);
+            this.lblAnio.Location = new System.Drawing.Point(49, 113);
             this.lblAnio.Name = "lblAnio";
-            this.lblAnio.Size = new System.Drawing.Size(29, 13);
+            this.lblAnio.Size = new System.Drawing.Size(26, 13);
             this.lblAnio.TabIndex = 30;
-            this.lblAnio.Text = "Año:";
+            this.lblAnio.Text = "Año";
             // 
             // txtAnio
             // 
@@ -63,21 +63,21 @@
             // 
             this.lblPlan.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPlan.AutoSize = true;
-            this.lblPlan.Location = new System.Drawing.Point(44, 169);
+            this.lblPlan.Location = new System.Drawing.Point(47, 169);
             this.lblPlan.Name = "lblPlan";
-            this.lblPlan.Size = new System.Drawing.Size(31, 13);
+            this.lblPlan.Size = new System.Drawing.Size(28, 13);
             this.lblPlan.TabIndex = 28;
-            this.lblPlan.Text = "Plan:";
+            this.lblPlan.Text = "Plan";
             // 
             // lblDescripcion
             // 
             this.lblDescripcion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(9, 87);
+            this.lblDescripcion.Location = new System.Drawing.Point(12, 87);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(66, 13);
+            this.lblDescripcion.Size = new System.Drawing.Size(63, 13);
             this.lblDescripcion.TabIndex = 27;
-            this.lblDescripcion.Text = "Descripción:";
+            this.lblDescripcion.Text = "Descripción";
             // 
             // cmbPlanes
             // 
@@ -109,11 +109,11 @@
             // 
             this.lblID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(54, 61);
+            this.lblID.Location = new System.Drawing.Point(57, 61);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(21, 13);
+            this.lblID.Size = new System.Drawing.Size(18, 13);
             this.lblID.TabIndex = 22;
-            this.lblID.Text = "ID:";
+            this.lblID.Text = "ID";
             // 
             // btnAceptar
             // 
@@ -136,15 +136,16 @@
             this.btnCancelar.TabIndex = 24;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // lblEspecialidad
             // 
             this.lblEspecialidad.AutoSize = true;
-            this.lblEspecialidad.Location = new System.Drawing.Point(5, 142);
+            this.lblEspecialidad.Location = new System.Drawing.Point(8, 142);
             this.lblEspecialidad.Name = "lblEspecialidad";
-            this.lblEspecialidad.Size = new System.Drawing.Size(70, 13);
+            this.lblEspecialidad.Size = new System.Drawing.Size(67, 13);
             this.lblEspecialidad.TabIndex = 31;
-            this.lblEspecialidad.Text = "Especialidad:";
+            this.lblEspecialidad.Text = "Especialidad";
             // 
             // cmbEspecialidades
             // 

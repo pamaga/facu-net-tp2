@@ -92,7 +92,7 @@ namespace Data.Database
 
                 this.OpenConnection();
 
-                SqlCommand cmdMaterias = new SqlCommand("SELECT M.id_materia, M.desc_materia, M.hs_semanales, M.hs_totales, M.id_plan, P.desc_plan, E.desc_especialidad FROM materias AS M LEFT OUTER JOIN planes AS P ON P.id_plan = M.id_plan LEFT JOIN especialidades E ON E.id_especialidad = P.id_especialidad WHERE M.id_plan = @id_plan", sqlConn);
+                SqlCommand cmdMaterias = new SqlCommand("SELECT M.*, P.*, E.* FROM materias AS M LEFT OUTER JOIN planes AS P ON P.id_plan = M.id_plan LEFT JOIN especialidades E ON E.id_especialidad = P.id_especialidad WHERE M.id_plan = @id_plan", sqlConn);
                 cmdMaterias.Parameters.Add("@id_plan", SqlDbType.Int).Value = IDPlan;
                 SqlDataReader drMaterias = cmdMaterias.ExecuteReader();
                 while (drMaterias.Read())

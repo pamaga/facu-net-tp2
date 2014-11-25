@@ -20,7 +20,7 @@ namespace Data.Database
 
                 this.OpenConnection();
 
-                SqlCommand cmdCursos = new SqlCommand("SELECT C.id_curso, C.id_materia, C.id_comision, C.anio_calendario, C.cupo, M.desc_materia, CO.desc_comision, P.id_plan, P.desc_plan, P.id_especialidad FROM cursos AS C INNER JOIN materias AS M ON C.id_materia = M.id_materia INNER JOIN comisiones AS CO ON C.id_comision = CO.id_comision INNER JOIN planes AS P ON M.id_plan = P.id_plan", sqlConn);
+                SqlCommand cmdCursos = new SqlCommand("SELECT C.*, M.*, CO.*, P.*, E.* FROM cursos C JOIN materias M ON C.id_materia = M.id_materia JOIN comisiones CO ON C.id_comision = CO.id_comision JOIN planes P ON CO.id_plan = P.id_plan JOIN especialidades E ON P.id_especialidad = E.id_especialidad", sqlConn);
                 SqlDataReader drCursos = cmdCursos.ExecuteReader();
                 while (drCursos.Read())
                 {
@@ -37,6 +37,8 @@ namespace Data.Database
                     Curso.Materia = (string)drCursos["desc_materia"];
                     Curso.IDPlan = (int)drCursos["id_plan"];
                     Curso.Plan = (string)drCursos["desc_plan"];
+                    Curso.IDEspecialidad = (int)drCursos["id_especialidad"];
+                    Curso.Especialidad = (string)drCursos["desc_especialidad"];
 
                     Cursos.Add(Curso);
                 }
@@ -62,19 +64,22 @@ namespace Data.Database
             {
                 this.OpenConnection();
 
-                SqlCommand cmdCursos = new SqlCommand("SELECT C.*, M.desc_materia, CO.desc_comision, CO.id_plan FROM cursos C JOIN materias M ON C.id_materia = M.id_materia JOIN comisiones CO ON C.id_comision = CO.id_comision WHERE C.id_curso = @id", sqlConn);
+                SqlCommand cmdCursos = new SqlCommand("SELECT C.*, M.*, CO.*, P.*, E.* FROM cursos C JOIN materias M ON C.id_materia = M.id_materia JOIN comisiones CO ON C.id_comision = CO.id_comision JOIN planes P ON CO.id_plan = P.id_plan JOIN especialidades E ON P.id_especialidad = E.id_especialidad WHERE C.id_curso = @id", sqlConn);
                 cmdCursos.Parameters.Add("@id", SqlDbType.Int).Value = ID;
                 SqlDataReader drCursos = cmdCursos.ExecuteReader();
                 if (drCursos.Read())
                 {
                     Curso.ID = (int)drCursos["id_curso"];
-                    Curso.IDMateria = (int)drCursos["id_materia"];
-                    Curso.IDComision = (int)drCursos["id_comision"];
-                    Curso.IDPlan = (int)drCursos["id_plan"];
                     Curso.AnioCalendario = (int)drCursos["anio_calendario"];
                     Curso.Cupo = (int)drCursos["cupo"];
+                    Curso.IDComision = (int)drCursos["id_comision"];
                     Curso.Comision = (string)drCursos["desc_comision"];
+                    Curso.IDMateria = (int)drCursos["id_materia"];
                     Curso.Materia = (string)drCursos["desc_materia"];
+                    Curso.IDPlan = (int)drCursos["id_plan"];
+                    Curso.Plan = (string)drCursos["desc_plan"];
+                    Curso.IDEspecialidad = (int)drCursos["id_especialidad"];
+                    Curso.Especialidad = (string)drCursos["desc_especialidad"];
                 }
                 drCursos.Close();
             }

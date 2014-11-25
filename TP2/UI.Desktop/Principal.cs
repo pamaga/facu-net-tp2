@@ -11,7 +11,7 @@ using Business.Logic;
 
 namespace UI.Desktop
 {
-    public partial class Principal : ApplicationForm
+    public partial class Principal : Form
     {
         public Principal()
         {
@@ -55,7 +55,6 @@ namespace UI.Desktop
                     this.Dispose();
                 }
                 else {
-                    this.UsuarioLogueado = appLogin.Usr;
                     List<String> lstOptionNotAllowed = bl.getMenuNotAllowedByRol(appLogin.Usr);
                     foreach(String menu in lstOptionNotAllowed ){
                         MessageBox.Show(menu);

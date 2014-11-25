@@ -23,13 +23,30 @@ namespace UI.Desktop
         public MateriaDesktop()
         {
             InitializeComponent();
-            //this.loadCmb(IDEspecialidad);
+            this.loadCmbEspecialidades();
         }
-          public MateriaDesktop(ModoForm modo):this(){
+
+        public MateriaDesktop(ModoForm modo):this()
+        {
             this.Modo = modo;
         }
 
-          public MateriaDesktop(int ID, ModoForm modo):this()
+        private void loadCmbEspecialidades()
+        {
+            this.cmbEspecialidades.DisplayMember = "Descripcion";
+            this.cmbEspecialidades.ValueMember = "ID";
+            this.cmbEspecialidades.DataSource = this.getEspecialidades();
+            this.cmbEspecialidades.SelectedItem = null;
+        }
+
+        private void loadCmbPlanes(int IDEspecialidad)
+        {
+            this.cmbPlanes.DisplayMember = "Descripcion";
+            this.cmbPlanes.ValueMember = "ID";
+            this.cmbPlanes.DataSource = this.getPlanes(IDEspecialidad);
+        }
+
+        public MateriaDesktop(int ID, ModoForm modo):this()
         {
            
             this.Modo = modo;
@@ -38,26 +55,17 @@ namespace UI.Desktop
             MapearDeDatos();
            
         }
-          public override void MapearDeDatos()
-          {
-              this.txtID.Text = this.Materia.ID.ToString();
 
-              this.txtMateria.Text = Materia.Descripcion;
-              this.cmbPlanes.SelectedValue = Materia.IDPlan;
-              this.txtHsSemanales.Text = Materia.HSSemanales.ToString();
-              this.txtHsTotales.Text = Materia.HSTotales.ToString();
+        public override void MapearDeDatos()
+        {
+            this.txtID.Text = this.Materia.ID.ToString();
 
-              string txtAceptar = "Aceptar";
-
-              if (Modo.Equals(ModoForm.Alta) || Modo.Equals(ModoForm.Modificacion)) txtAceptar = "Guardar";
-              this.btnAceptar.Text = txtAceptar;
-          }
-
-          private void loadCmb(int IDEspecialidad)
-          {
-              this.cmbPlanes.DataSource = this.getPlanes(IDEspecialidad);
-              this.cmbPlanes.DisplayMember = "DescCompleta";
-              this.cmbPlanes.ValueMember = "ID";
+            this.txtMateria.Text = Materia.Descripcion;
+            this.cmbEspecialidades.SelectedValue = Materia.IDEspecialidad;
+            this.loadCmbPlanes(Materia.IDEspecialidad);
+            this.cmbPlanes.SelectedValue = Materia.IDPlan;
+            this.txtHsSemanales.Text = Materia.HSSemanales.ToString();
+            this.txtHsTotales.Text = Materia.HSTotales.ToString();
           }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -76,7 +84,9 @@ namespace UI.Desktop
 
             if (!Util.Util.validarRequerido(this.txtMateria.Text) ||
                 !Util.Util.validarRequerido(this.txtHsSemanales.Text) ||
-                !Util.Util.validarRequerido(this.txtHsTotales.Text))
+                !Util.Util.validarRequerido(this.txtHsTotales.Text) ||
+                !Util.Util.validarRequerido(this.cmbEspecialidades.SelectedValue) ||
+                !Util.Util.validarRequerido(this.cmbPlanes.SelectedValue))
             {
                 mensaje += "- Complete todos los campos" + Environment.NewLine;
                 error = true;
@@ -119,14 +129,18 @@ namespace UI.Desktop
             this.Materia.Descripcion = this.txtMateria.Text;
             this.Materia.HSSemanales = Convert.ToInt32(this.txtHsSemanales.Text);
             this.Materia.HSTotales = Convert.ToInt32(this.txtHsTotales.Text);
-       
+            this.Materia.IDEspecialidad = (int)this.cmbEspecialidades.SelectedValue;
             this.Materia.IDPlan = (int)this.cmbPlanes.SelectedValue;
 
         }
 
-        private void MateriaDesktop_Load(object sender, EventArgs e)
+        private void cmbEspecialidades_SelectionChangeCommitted(object sender, EventArgs e)
         {
-
+            int IDEspecialidad = int.Parse(this.cmbEspecialidades.SelectedValue.ToString());
+            if (IDEspecialidad != 0)
+            {
+                this.loadCmbPlanes(IDEspecialidad);
+            }
         }
     }
 }

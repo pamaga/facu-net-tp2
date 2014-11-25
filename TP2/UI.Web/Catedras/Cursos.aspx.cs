@@ -11,6 +11,7 @@ namespace UI.Web.Catedras
 {
     public partial class Cursos : BaseABM
     {
+        #region PROPIEDADES
         CursoLogic _logic;
         private CursoLogic Logic
         {
@@ -29,40 +30,84 @@ namespace UI.Web.Catedras
             get;
             set;
         }
-        /*
+
+        private int SelectedEspecialidad
+        {
+            get
+            {
+                if (this.ViewState["SelectedEspecialidad"] != null) return (int)this.ViewState["SelectedEspecialidad"];
+                else return 0;
+            }
+            set
+            {
+                this.ViewState["SelectedEspecialidad"] = value;
+            }
+        }
+
+        private int SelectedPlan
+        {
+            get
+            {
+                if (this.ViewState["SelectedPlan"] != null) return (int)this.ViewState["SelectedPlan"];
+                else return 0;
+            }
+            set
+            {
+                this.ViewState["SelectedPlan"] = value;
+            }
+        }
+        #endregion
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
-                this.loadCmbComision();
-                this.loadCmbMateria();
                 this.LoadGrid();
+                this.loadCmbEspecialidades();
             }
         }
-        */
+
+        #region DATABIND
         private void LoadGrid()
         {
             this.GridView.DataSource = this.Logic.GetAll();
             this.GridView.DataBind();
         }
-        /*
-        private void loadCmbComision()
+
+        private void loadCmbEspecialidades()
         {
-            this.comisionDropDownList.DataSource = this.getPlanes();
-            this.comisionDropDownList.DataTextField = "DescComision";
-            this.comisionDropDownList.DataValueField = "IDComision";
+            this.especialidadDropDownList.DataSource = this.getEspecialidades();
+            this.especialidadDropDownList.DataTextField = "Descripcion";
+            this.especialidadDropDownList.DataValueField = "ID";
+            this.especialidadDropDownList.DataBind();
+        }
+
+        private void loadCmbPlan(int IDEspecialidad)
+        {
+            this.planDropDownList.DataSource = this.getPlanes(IDEspecialidad);
+            this.planDropDownList.DataTextField = "Descripcion";
+            this.planDropDownList.DataValueField = "ID";
+            this.planDropDownList.DataBind();
+        }
+
+        private void loadCmbComision(int IDPlan)
+        {
+            this.comisionDropDownList.DataSource = this.getComisiones(IDPlan);
+            this.comisionDropDownList.DataTextField = "Descripcion";
+            this.comisionDropDownList.DataValueField = "ID";
             this.comisionDropDownList.DataBind();
         }
 
-        private void loadCmbMateria()
+        private void loadCmbMateria(int IDPlan)
         {
-            this.materiaDropDownList.DataSource = this.getPlanes();
-            this.materiaDropDownList.DataTextField = "DescMateria";
-            this.materiaDropDownList.DataValueField = "IDMateria";
+            this.materiaDropDownList.DataSource = this.getMaterias(IDPlan);
+            this.materiaDropDownList.DataTextField = "Descripcion";
+            this.materiaDropDownList.DataValueField = "ID";
             this.materiaDropDownList.DataBind();
         }
-        */
-        #region Eventos
+        #endregion
+
+        #region EVENTOS
         protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.SelectedID = (int)this.GridView.SelectedValue;
@@ -88,6 +133,7 @@ namespace UI.Web.Catedras
                 this.LoadForm(this.SelectedID);
             }
         }
+
         protected void nuevoLinkButton_Click(object sender, EventArgs e)
         {
             this.formPanel.Visible = true;
@@ -123,9 +169,48 @@ namespace UI.Web.Catedras
             }
             this.formPanel.Visible = false;
         }
+
         protected void cancelarLinkButton_Click(object sender, EventArgs e)
         {
             this.formPanel.Visible = false;
+        }
+
+        protected void especialidadDropDownList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.SelectedEspecialidad = int.Parse(this.especialidadDropDownList.SelectedValue);
+            if (this.SelectedEspecialidad != -1)
+            {
+                this.loadCmbPlan(this.SelectedEspecialidad);
+                this.planDropDownList.Enabled = true;
+            }
+            else
+            {
+                this.planDropDownList.Enabled = false;
+            }
+            this.ddlPlanReset();
+            this.materiaDropDownList.Enabled = false;
+            this.ddlMateriaReset();
+            this.comisionDropDownList.Enabled = false;
+            this.ddlComisionReset();
+        }
+
+        protected void planDropDownList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.SelectedPlan = int.Parse(this.planDropDownList.SelectedValue);
+            if (this.SelectedPlan != -1)
+            {
+                this.loadCmbMateria(this.SelectedPlan);
+                this.loadCmbComision(this.SelectedPlan);
+                this.materiaDropDownList.Enabled = true;
+                this.comisionDropDownList.Enabled = true;
+            }
+            else
+            {
+                this.materiaDropDownList.Enabled = false;
+                this.ddlMateriaReset();
+                this.comisionDropDownList.Enabled = false;
+                this.ddlComisionReset();
+            }
         }
         #endregion
 
@@ -134,8 +219,12 @@ namespace UI.Web.Catedras
             this.Entity = this.Logic.GetOne(id);
             this.anioTextBox.Text = this.Entity.AnioCalendario.ToString();
             this.cupoTextBox.Text = this.Entity.Cupo.ToString();
-            this.planTextBox.Text = this.Entity.Plan;
+            this.especialidadDropDownList.SelectedValue = this.Entity.IDEspecialidad.ToString();
+            this.loadCmbPlan(this.Entity.IDEspecialidad);
+            this.planDropDownList.SelectedValue = this.Entity.IDPlan.ToString();
+            this.loadCmbComision(this.Entity.IDPlan);
             this.comisionDropDownList.SelectedValue = this.Entity.IDComision.ToString();
+            this.loadCmbMateria(this.Entity.IDPlan);
             this.materiaDropDownList.SelectedValue = this.Entity.IDMateria.ToString();
         }
 
@@ -143,7 +232,8 @@ namespace UI.Web.Catedras
         {
             this.Entity.AnioCalendario = int.Parse(this.anioTextBox.Text);
             this.Entity.Cupo = int.Parse(this.cupoTextBox.Text);
-            this.Entity.Plan = this.planTextBox.Text;
+            this.Entity.IDEspecialidad = int.Parse(this.especialidadDropDownList.SelectedValue);
+            this.Entity.IDPlan = int.Parse(this.planDropDownList.SelectedValue);
             this.Entity.IDComision = int.Parse(this.comisionDropDownList.SelectedValue);
             this.Entity.IDMateria = int.Parse(this.materiaDropDownList.SelectedValue);
         }
@@ -157,9 +247,19 @@ namespace UI.Web.Catedras
         {
             this.anioTextBox.Enabled = enable;
             this.cupoTextBox.Enabled = enable;
-            this.planTextBox.Enabled = enable;
-            this.comisionDropDownList.Enabled = enable;
-            this.materiaDropDownList.Enabled = enable;
+            this.especialidadDropDownList.Enabled = enable;
+            if (this.FormMode == FormModes.Alta)
+            {
+                this.planDropDownList.Enabled = !enable;
+                this.comisionDropDownList.Enabled = !enable;
+                this.materiaDropDownList.Enabled = !enable;
+            }
+            else
+            {
+                this.planDropDownList.Enabled = enable;
+                this.comisionDropDownList.Enabled = enable;
+                this.materiaDropDownList.Enabled = enable;
+            }
         }
 
         private void DeleteEntity(int id)
@@ -171,9 +271,28 @@ namespace UI.Web.Catedras
         {
             this.anioTextBox.Text = string.Empty;
             this.cupoTextBox.Text = string.Empty;
-            this.planTextBox.Text = string.Empty;
-            this.comisionDropDownList.ClearSelection();
-            this.materiaDropDownList.ClearSelection();
+            this.especialidadDropDownList.ClearSelection();
+            this.ddlPlanReset();
+            this.ddlComisionReset();
+            this.ddlMateriaReset();
+        }
+
+        protected void ddlPlanReset()
+        {
+            this.planDropDownList.Items.Insert(0, new ListItem("Seleccione una especialidad", "-1"));
+            this.planDropDownList.SelectedValue = "-1";
+        }
+
+        protected void ddlMateriaReset()
+        {
+            this.materiaDropDownList.Items.Insert(0, new ListItem("Seleccione un plan", "-1"));
+            this.materiaDropDownList.SelectedValue = "-1";
+        }
+
+        protected void ddlComisionReset()
+        {
+            this.comisionDropDownList.Items.Insert(0, new ListItem("Seleccione un plan", "-1"));
+            this.comisionDropDownList.SelectedValue = "-1";
         }
     }
 }
