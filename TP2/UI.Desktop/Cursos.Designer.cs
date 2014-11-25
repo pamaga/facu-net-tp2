@@ -34,15 +34,15 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.dgvCursos = new System.Windows.Forms.DataGridView();
             this.tsCursos = new System.Windows.Forms.ToolStrip();
+            this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
+            this.tsbEditar = new System.Windows.Forms.ToolStripButton();
+            this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.AnioCalendario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DescMateria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DescComision = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DescPlan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnDocentes = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
-            this.tsbEditar = new System.Windows.Forms.ToolStripButton();
-            this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.tscCursos.ContentPanel.SuspendLayout();
             this.tscCursos.TopToolStripPanel.SuspendLayout();
             this.tscCursos.SuspendLayout();
@@ -114,7 +114,7 @@
             this.dgvCursos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvCursos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvCursos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCursos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.dgvCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -143,48 +143,6 @@
             this.tsCursos.Name = "tsCursos";
             this.tsCursos.Size = new System.Drawing.Size(81, 25);
             this.tsCursos.TabIndex = 0;
-            // 
-            // AnioCalendario
-            // 
-            this.AnioCalendario.DataPropertyName = "AnioCalendario";
-            this.AnioCalendario.HeaderText = "Año";
-            this.AnioCalendario.Name = "AnioCalendario";
-            this.AnioCalendario.Width = 51;
-            // 
-            // DescMateria
-            // 
-            this.DescMateria.DataPropertyName = "DescMateria";
-            this.DescMateria.HeaderText = "Materia";
-            this.DescMateria.Name = "DescMateria";
-            this.DescMateria.Width = 67;
-            // 
-            // DescComision
-            // 
-            this.DescComision.DataPropertyName = "DescComision";
-            this.DescComision.HeaderText = "Comisión";
-            this.DescComision.Name = "DescComision";
-            this.DescComision.Width = 74;
-            // 
-            // Cupo
-            // 
-            this.Cupo.DataPropertyName = "Cupo";
-            this.Cupo.HeaderText = "Cupo";
-            this.Cupo.Name = "Cupo";
-            this.Cupo.Width = 57;
-            // 
-            // DescPlan
-            // 
-            this.DescPlan.DataPropertyName = "DescPlan";
-            this.DescPlan.HeaderText = "Plan - Especialidad";
-            this.DescPlan.Name = "DescPlan";
-            this.DescPlan.Width = 112;
-            // 
-            // btnDocentes
-            // 
-            this.btnDocentes.HeaderText = "Docentes";
-            this.btnDocentes.Name = "btnDocentes";
-            this.btnDocentes.Text = "Docentes";
-            this.btnDocentes.Width = 59;
             // 
             // tsbNuevo
             // 
@@ -215,6 +173,43 @@
             this.tsbEliminar.Size = new System.Drawing.Size(23, 22);
             this.tsbEliminar.Text = "Eliminar";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
+            // 
+            // AnioCalendario
+            // 
+            this.AnioCalendario.DataPropertyName = "AnioCalendario";
+            this.AnioCalendario.HeaderText = "Año";
+            this.AnioCalendario.Name = "AnioCalendario";
+            // 
+            // DescMateria
+            // 
+            this.DescMateria.DataPropertyName = "DescMateria";
+            this.DescMateria.HeaderText = "Materia";
+            this.DescMateria.Name = "DescMateria";
+            // 
+            // DescComision
+            // 
+            this.DescComision.DataPropertyName = "DescComision";
+            this.DescComision.HeaderText = "Comisión";
+            this.DescComision.Name = "DescComision";
+            // 
+            // Cupo
+            // 
+            this.Cupo.DataPropertyName = "Cupo";
+            this.Cupo.HeaderText = "Cupo";
+            this.Cupo.Name = "Cupo";
+            // 
+            // DescPlan
+            // 
+            this.DescPlan.DataPropertyName = "DescPlan";
+            this.DescPlan.HeaderText = "Plan - Especialidad";
+            this.DescPlan.Name = "DescPlan";
+            // 
+            // btnDocentes
+            // 
+            this.btnDocentes.HeaderText = "Docentes";
+            this.btnDocentes.Name = "btnDocentes";
+            this.btnDocentes.Text = "Docentes";
+            this.btnDocentes.ToolTipText = "Docentes";
             // 
             // Cursos
             // 

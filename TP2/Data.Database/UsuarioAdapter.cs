@@ -134,6 +134,27 @@ namespace Data.Database
         
         }
 
+        public void removeDocenteToCurso(int id_docente, int id_curso)
+        {
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdDelete = new SqlCommand("DELETE docentes_cursos WHERE id_docente=@id_docente AND id_curso=@id_curso", sqlConn);
+                cmdDelete.Parameters.Add("@id_docente", SqlDbType.Int).Value = id_docente;
+                cmdDelete.Parameters.Add("@id_curso", SqlDbType.Int).Value = id_curso;
+
+                cmdDelete.ExecuteNonQuery();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al quitar el docente:" + Ex.ToString(), Ex);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+        }
+
         public List<Usuario> GetDocentesByCurso(int idCurso)
         {
             List<Usuario> usuarios = new List<Usuario>();
