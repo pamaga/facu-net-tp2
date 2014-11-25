@@ -11,7 +11,7 @@ using Business.Logic;
 
 namespace UI.Desktop
 {
-    public partial class Principal : Form
+    public partial class Principal : ApplicationForm
     {
         public Principal()
         {
@@ -55,6 +55,7 @@ namespace UI.Desktop
                     this.Dispose();
                 }
                 else {
+                    this.UsuarioLogueado = appLogin.Usr;
                     List<String> lstOptionNotAllowed = bl.getMenuNotAllowedByRol(appLogin.Usr);
                     foreach(String menu in lstOptionNotAllowed ){
                         MessageBox.Show(menu);
@@ -137,6 +138,11 @@ namespace UI.Desktop
         {
             Usuarios form = new Usuarios(TiposUsuarios.Docente);
             form.ShowDialog();
+        }
+
+        private void misMateriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

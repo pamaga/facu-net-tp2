@@ -13,11 +13,12 @@ namespace UI.Desktop
 {
     public partial class CursoDesktop : ApplicationForm
     {
+        private Curso _CursoActual;
         private Curso _Curso;
         public Curso Curso
         {
-          get { return _Curso; }
-          set { _Curso = value; }
+            get { return _Curso; }
+            set { _Curso = value; }
         }
 
         public CursoDesktop()
@@ -26,8 +27,7 @@ namespace UI.Desktop
             this.loadCmbEspecialidades();
         }
 
-        public CursoDesktop(ModoForm modo):this()
-        {
+        public CursoDesktop(ModoForm modo):this(){
             this.Modo = modo;
             this.cmbEnable(false);
             this.cmbEspecialidades.SelectedItem = null;
@@ -41,6 +41,7 @@ namespace UI.Desktop
             MapearDeDatos();
             this.cmbEnable(true);
         }
+
 
         private void loadCmbEspecialidades()
         {
@@ -71,6 +72,12 @@ namespace UI.Desktop
             this.cmbComisiones.DisplayMember = "Descripcion";
             this.cmbComisiones.ValueMember = "ID";
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
 
         public override void MapearDeDatos()
         {
@@ -159,10 +166,6 @@ namespace UI.Desktop
             }
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-        }
 
         private void cmbEspecialidades_SelectionChangeCommitted(object sender, EventArgs e)
         {

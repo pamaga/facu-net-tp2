@@ -76,5 +76,32 @@ namespace Business.Entities
             get { return _Cupo; }
             set { _Cupo = value; }
         }
+
+        private Condiciones _condicion;
+        public Condiciones Condicion
+        {
+            get { return _condicion; }
+            set { _condicion = value; }
+        }
+
+        private int _nota;
+        public int Nota
+        {
+            get { return _nota; }
+            set { _nota = value; }
+        }
+
+        private int _IdInscripcion;
+        public int IdInscripcion
+        {
+            get { return _IdInscripcion; }
+            set { _IdInscripcion = value; }
+        }
+
+        private string _materiaComision;
+        public string MateriaComision
+        {
+            get { return this.Materia + " - " + this.Comision; }
+        }
     }
 }

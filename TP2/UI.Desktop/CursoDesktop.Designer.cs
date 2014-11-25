@@ -49,7 +49,7 @@
             // lblID
             // 
             this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(81, 28);
+            this.lblID.Location = new System.Drawing.Point(72, 24);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(18, 13);
             this.lblID.TabIndex = 0;
@@ -58,7 +58,7 @@
             // lblPlan
             // 
             this.lblPlan.AutoSize = true;
-            this.lblPlan.Location = new System.Drawing.Point(71, 81);
+            this.lblPlan.Location = new System.Drawing.Point(62, 79);
             this.lblPlan.Name = "lblPlan";
             this.lblPlan.Size = new System.Drawing.Size(28, 13);
             this.lblPlan.TabIndex = 1;
@@ -67,7 +67,7 @@
             // lblMateria
             // 
             this.lblMateria.AutoSize = true;
-            this.lblMateria.Location = new System.Drawing.Point(57, 108);
+            this.lblMateria.Location = new System.Drawing.Point(48, 110);
             this.lblMateria.Name = "lblMateria";
             this.lblMateria.Size = new System.Drawing.Size(42, 13);
             this.lblMateria.TabIndex = 2;
@@ -76,7 +76,7 @@
             // lblComision
             // 
             this.lblComision.AutoSize = true;
-            this.lblComision.Location = new System.Drawing.Point(50, 135);
+            this.lblComision.Location = new System.Drawing.Point(41, 141);
             this.lblComision.Name = "lblComision";
             this.lblComision.Size = new System.Drawing.Size(49, 13);
             this.lblComision.TabIndex = 3;
@@ -85,7 +85,7 @@
             // lblAnio
             // 
             this.lblAnio.AutoSize = true;
-            this.lblAnio.Location = new System.Drawing.Point(20, 162);
+            this.lblAnio.Location = new System.Drawing.Point(11, 175);
             this.lblAnio.Name = "lblAnio";
             this.lblAnio.Size = new System.Drawing.Size(79, 13);
             this.lblAnio.TabIndex = 4;
@@ -94,7 +94,7 @@
             // lblCupo
             // 
             this.lblCupo.AutoSize = true;
-            this.lblCupo.Location = new System.Drawing.Point(67, 188);
+            this.lblCupo.Location = new System.Drawing.Point(58, 206);
             this.lblCupo.Name = "lblCupo";
             this.lblCupo.Size = new System.Drawing.Size(32, 13);
             this.lblCupo.TabIndex = 5;
@@ -102,7 +102,7 @@
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(105, 25);
+            this.txtID.Location = new System.Drawing.Point(105, 21);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(100, 20);
@@ -112,7 +112,7 @@
             // 
             this.cmbPlanes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPlanes.FormattingEnabled = true;
-            this.cmbPlanes.Location = new System.Drawing.Point(105, 78);
+            this.cmbPlanes.Location = new System.Drawing.Point(105, 76);
             this.cmbPlanes.Name = "cmbPlanes";
             this.cmbPlanes.Size = new System.Drawing.Size(205, 21);
             this.cmbPlanes.TabIndex = 7;
@@ -122,7 +122,7 @@
             // 
             this.cmbMaterias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMaterias.FormattingEnabled = true;
-            this.cmbMaterias.Location = new System.Drawing.Point(105, 105);
+            this.cmbMaterias.Location = new System.Drawing.Point(105, 107);
             this.cmbMaterias.Name = "cmbMaterias";
             this.cmbMaterias.Size = new System.Drawing.Size(205, 21);
             this.cmbMaterias.TabIndex = 8;
@@ -131,28 +131,28 @@
             // 
             this.cmbComisiones.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbComisiones.FormattingEnabled = true;
-            this.cmbComisiones.Location = new System.Drawing.Point(105, 132);
+            this.cmbComisiones.Location = new System.Drawing.Point(105, 138);
             this.cmbComisiones.Name = "cmbComisiones";
             this.cmbComisiones.Size = new System.Drawing.Size(205, 21);
             this.cmbComisiones.TabIndex = 9;
             // 
             // txtAnio
             // 
-            this.txtAnio.Location = new System.Drawing.Point(105, 159);
+            this.txtAnio.Location = new System.Drawing.Point(105, 172);
             this.txtAnio.Name = "txtAnio";
             this.txtAnio.Size = new System.Drawing.Size(100, 20);
             this.txtAnio.TabIndex = 10;
             // 
             // txtCupo
             // 
-            this.txtCupo.Location = new System.Drawing.Point(105, 185);
+            this.txtCupo.Location = new System.Drawing.Point(105, 203);
             this.txtCupo.Name = "txtCupo";
             this.txtCupo.Size = new System.Drawing.Size(100, 20);
             this.txtCupo.TabIndex = 11;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(261, 227);
+            this.btnCancelar.Location = new System.Drawing.Point(235, 243);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 12;
@@ -162,7 +162,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(180, 227);
+            this.btnAceptar.Location = new System.Drawing.Point(154, 243);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 13;
@@ -173,7 +173,7 @@
             // lblEspecialidad
             // 
             this.lblEspecialidad.AutoSize = true;
-            this.lblEspecialidad.Location = new System.Drawing.Point(32, 54);
+            this.lblEspecialidad.Location = new System.Drawing.Point(23, 53);
             this.lblEspecialidad.Name = "lblEspecialidad";
             this.lblEspecialidad.Size = new System.Drawing.Size(67, 13);
             this.lblEspecialidad.TabIndex = 14;
@@ -183,7 +183,7 @@
             // 
             this.cmbEspecialidades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEspecialidades.FormattingEnabled = true;
-            this.cmbEspecialidades.Location = new System.Drawing.Point(105, 51);
+            this.cmbEspecialidades.Location = new System.Drawing.Point(105, 47);
             this.cmbEspecialidades.Name = "cmbEspecialidades";
             this.cmbEspecialidades.Size = new System.Drawing.Size(205, 21);
             this.cmbEspecialidades.TabIndex = 15;
@@ -193,7 +193,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(348, 262);
+            this.ClientSize = new System.Drawing.Size(348, 278);
             this.Controls.Add(this.cmbEspecialidades);
             this.Controls.Add(this.lblEspecialidad);
             this.Controls.Add(this.btnAceptar);

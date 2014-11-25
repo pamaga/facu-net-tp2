@@ -27,18 +27,8 @@ namespace UI.Desktop
             this.loadCmbEspecialidades();
         }
 
-        public ComisionDesktop(ModoForm modo):this()
-        {
+        public ComisionDesktop(ModoForm modo):this(){
             this.Modo = modo;
-        }
-
-        public ComisionDesktop(int ID, ModoForm modo)
-            : this()
-        {
-            this.Modo = modo;
-            ComisionLogic logic = new ComisionLogic();
-            this.Comision = logic.GetOne(ID);
-            MapearDeDatos();
         }
 
         private void loadCmbEspecialidades()
@@ -56,6 +46,13 @@ namespace UI.Desktop
             this.cmbPlanes.DataSource = this.getPlanes(IDEspecialidad);
         }
 
+        public ComisionDesktop(int ID, ModoForm modo):this()
+        {
+            this.Modo = modo;
+            ComisionLogic logic = new ComisionLogic();
+            this.Comision = logic.GetOne(ID);
+            MapearDeDatos();
+        }
         
         public override void MapearDeDatos()
         {
@@ -66,8 +63,29 @@ namespace UI.Desktop
             this.loadCmbPlanes(Comision.IDEspecialidad);
             this.cmbPlanes.SelectedValue = Comision.IDPlan;
             this.txtAnio.Text = Comision.AnioEspecialidad.ToString();
+            
+            string txtAceptar = "Aceptar";
+
+            if (Modo.Equals(ModoForm.Alta) || Modo.Equals(ModoForm.Modificacion)) txtAceptar = "Guardar";
+            this.btnAceptar.Text = txtAceptar;
         }
 
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            if (this.Validar())
+            {
+                this.GuardarCambios();
+                this.Close();
+            }
+        }
+       
+        public override void GuardarCambios()
+        {
+            this.MapearADatos();
+            ComisionLogic uLogic = new ComisionLogic();
+            uLogic.Save(this.Comision);
+        }
+        
         public override void MapearADatos()
         {
             if (Modo.Equals(ModoForm.Alta))
@@ -84,7 +102,7 @@ namespace UI.Desktop
             this.Comision.Descripcion = this.txtDescripcion.Text;
             this.Comision.AnioEspecialidad = Convert.ToInt32(this.txtAnio.Text);
             this.Comision.IDPlan = (int)this.cmbPlanes.SelectedValue;
-            this.Comision.IDEspecialidad = (int)this.cmbEspecialidades.SelectedValue;
+
         }
 
         public override bool Validar()
@@ -92,18 +110,17 @@ namespace UI.Desktop
             bool error = false;
             string mensaje = "Errores en el formulario:" + Environment.NewLine;
 
-            if (!Util.Util.validarRequerido(this.txtDescripcion.Text) ||
-                !Util.Util.validarRequerido(this.txtAnio.Text) ||
-                !Util.Util.validarRequerido(this.cmbEspecialidades.SelectedValue) ||
-                !Util.Util.validarRequerido(this.cmbPlanes.SelectedValue))
+            if (
+                !Util.Util.validarRequerido(this.txtDescripcion.Text) ||
+                !Util.Util.validarRequerido(this.txtAnio.Text))
             {
                 mensaje += "- Complete todos los campos" + Environment.NewLine;
                 error = true;
             }
 
-            if (!Util.Util.validarNumero(this.txtAnio.Text) || !Util.Util.validarLength(this.txtAnio.Text, 1))
+            if (!Util.Util.validarNumero(this.txtAnio.Text) || !Util.Util.validarLength(this.txtAnio.Text, 4))
             {
-                mensaje += "- El año debe ser en formato a (Ej: 1)" + Environment.NewLine;
+                mensaje += "- El año debe ser en formato yyyy (Ej: 2014)" + Environment.NewLine;
                 error = true;
             }
 
@@ -113,32 +130,11 @@ namespace UI.Desktop
             }
             return !error;
         }
-       
-        public override void GuardarCambios()
-        {
-            this.MapearADatos();
-            ComisionLogic uLogic = new ComisionLogic();
-            uLogic.Save(this.Comision);
-        }
-
-        private void btnAceptar_Click(object sender, EventArgs e)
-        {
-            if (this.Validar())
-            {
-                this.GuardarCambios();
-                this.Close();
-            }
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-        }
 
         private void cmbEspecialidades_SelectionChangeCommitted(object sender, EventArgs e)
         {
             int IDEspecialidad = int.Parse(this.cmbEspecialidades.SelectedValue.ToString());
-            if (IDEspecialidad != 0)
+            if(IDEspecialidad != 0)
             {
                 this.loadCmbPlanes(IDEspecialidad);
             }

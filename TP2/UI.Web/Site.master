@@ -25,7 +25,14 @@
             <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
             <StaticSelectedStyle BackColor="#507CD1" />
         </asp:Menu>
-        
+        <p id="userArea">
+            Hola
+            <asp:Label ID="lblUsuario" runat="server" Font-Bold="True" Text="Usuario"></asp:Label>
+            (<asp:Label ID="lblNombre" runat="server" Text="Nombre"></asp:Label>) | 
+
+            <asp:HyperLink ID="linkSalir" runat="server" NavigateUrl="~/Default.aspx?logout=true">Salir</asp:HyperLink>
+
+        </p>        
         <div>
             <asp:ContentPlaceHolder ID="bodyContentPlaceHolder" runat="server">
             </asp:ContentPlaceHolder>

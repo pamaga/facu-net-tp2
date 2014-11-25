@@ -53,6 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlumnosInscripciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlumnosInscripciones.Designer.cs">
+      <DependentUpon>AlumnosInscripciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="ApplicationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dataSetReportes.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DocentesCursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DocentesCursos.Designer.cs">
+      <DependentUpon>DocentesCursos.cs</DependentUpon>
+    </Compile>
     <Compile Include="EspecialidadDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +117,12 @@
     </Compile>
     <Compile Include="formLogin.designer.cs">
       <DependentUpon>formLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InscripcionMateria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InscripcionMateria.Designer.cs">
+      <DependentUpon>InscripcionMateria.cs</DependentUpon>
     </Compile>
     <Compile Include="MateriaDesktop.cs">
       <SubType>Form</SubType>
@@ -156,6 +174,9 @@
     <Compile Include="Usuarios.designer.cs">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AlumnosInscripciones.resx">
+      <DependentUpon>AlumnosInscripciones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ApplicationForm.resx">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,6 +192,9 @@
     <EmbeddedResource Include="Cursos.resx">
       <DependentUpon>Cursos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DocentesCursos.resx">
+      <DependentUpon>DocentesCursos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EspecialidadDesktop.resx">
       <DependentUpon>EspecialidadDesktop.cs</DependentUpon>
     </EmbeddedResource>
@@ -179,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formLogin.resx">
       <DependentUpon>formLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InscripcionMateria.resx">
+      <DependentUpon>InscripcionMateria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MateriaDesktop.resx">
       <DependentUpon>MateriaDesktop.cs</DependentUpon>
@@ -280,6 +307,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

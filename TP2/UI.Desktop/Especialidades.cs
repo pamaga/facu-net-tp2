@@ -73,5 +73,10 @@ namespace UI.Desktop
             }
             else this.Notificar("No hay fila seleccionada", "Por favor, seleccione una fila", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
+
+        private void btnActualizar_Click_1(object sender, EventArgs e)
+        {
+            this.Listar();
+        }
     }
 }

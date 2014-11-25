@@ -35,6 +35,10 @@ namespace UI.Desktop
             this.Text = tipo.ToString();
             this.TipoUsuario = tipo;
             this.dgvUsuarios.AutoGenerateColumns = false;
+
+            if(!this.TipoUsuario.Equals(TiposUsuarios.Alumno)){
+                this.tsUsuarios.Items.RemoveAt(3);
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -90,6 +94,18 @@ namespace UI.Desktop
                 }
             }
             else this.Notificar("No hay fila seleccionada", "Por favor, seleccione una fila", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void tsbListarMaterias_Click(object sender, EventArgs e)
+        {
+            if (this.dgvUsuarios.SelectedRows.Count == 1)
+            {
+                int ID = ((Business.Entities.Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
+
+                AlumnosInscripciones formAi = new AlumnosInscripciones(ID);
+                formAi.ShowDialog();
+                this.Listar();
+            }
         }
     }
 }

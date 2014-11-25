@@ -43,19 +43,25 @@ namespace UI.Desktop
             MapearDeDatos();
            
         }
-
         public override void MapearDeDatos()
         {
             this.txtID.Text = this.Plan.ID.ToString();
+
             this.txtDescripcion.Text = Plan.Descripcion;
             this.cmbEspecialidades.SelectedValue = Plan.IdEspecialidad;
-        }
+            string txtAceptar = "Aceptar";
 
-        private void loadCmb()
-        {
+            if (Modo.Equals(ModoForm.Alta) || Modo.Equals(ModoForm.Modificacion)) txtAceptar = "Guardar";
+            this.btnAceptar.Text = txtAceptar;
+        }
+        private void loadCmb() {
             this.cmbEspecialidades.DataSource = this.getEspecialidades();
             this.cmbEspecialidades.DisplayMember = "Descripcion";
             this.cmbEspecialidades.ValueMember = "ID";
+        }
+        private void PlanDesktop_Load(object sender, EventArgs e)
+        {
+           
         }
 
         public override void GuardarCambios()

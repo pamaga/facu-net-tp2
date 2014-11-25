@@ -94,6 +94,7 @@ namespace Data.Database
                 if (drPlanes.Read())
                 {
                     oEntity.IdEspecialidad = (int)drPlanes["id_especialidad"];
+                    oEntity.Especialidad = (string)drPlanes["desc_especialidad"];
                     oEntity.ID = (int)drPlanes["id_plan"];
                     oEntity.Descripcion = (string)drPlanes["desc_plan"];
                 }

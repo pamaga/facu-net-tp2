@@ -55,18 +55,22 @@ namespace UI.Desktop
             MapearDeDatos();
            
         }
-
+          
         public override void MapearDeDatos()
         {
-            this.txtID.Text = this.Materia.ID.ToString();
+              this.txtID.Text = this.Materia.ID.ToString();
 
-            this.txtMateria.Text = Materia.Descripcion;
-            this.cmbEspecialidades.SelectedValue = Materia.IDEspecialidad;
-            this.loadCmbPlanes(Materia.IDEspecialidad);
-            this.cmbPlanes.SelectedValue = Materia.IDPlan;
-            this.txtHsSemanales.Text = Materia.HSSemanales.ToString();
-            this.txtHsTotales.Text = Materia.HSTotales.ToString();
+              this.txtMateria.Text = Materia.Descripcion;
+              this.cmbPlanes.SelectedValue = Materia.IDPlan;
+              this.txtHsSemanales.Text = Materia.HSSemanales.ToString();
+              this.txtHsTotales.Text = Materia.HSTotales.ToString();
+
+              string txtAceptar = "Aceptar";
+
+              if (Modo.Equals(ModoForm.Alta) || Modo.Equals(ModoForm.Modificacion)) txtAceptar = "Guardar";
+              this.btnAceptar.Text = txtAceptar;
           }
+
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
@@ -131,6 +135,11 @@ namespace UI.Desktop
             this.Materia.HSTotales = Convert.ToInt32(this.txtHsTotales.Text);
             this.Materia.IDEspecialidad = (int)this.cmbEspecialidades.SelectedValue;
             this.Materia.IDPlan = (int)this.cmbPlanes.SelectedValue;
+
+        }
+
+        private void MateriaDesktop_Load(object sender, EventArgs e)
+        {
 
         }
 

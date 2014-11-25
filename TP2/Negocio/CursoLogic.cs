@@ -32,6 +32,17 @@ namespace Business.Logic
             return CursoData.GetAll();
         }
 
+
+        public List<Curso> GetCursosAlumno(int IdAlumno)
+        {
+            return CursoData.GetCursosAlumno(IdAlumno);
+        }
+
+        public List<Curso> GetAllCursosAnio(int IdPlan)
+        {
+            return CursoData.GetAllCursosAnio(IdPlan);
+        }
+
         public void Save(Curso esp)
         {
             CursoData.Save(esp);

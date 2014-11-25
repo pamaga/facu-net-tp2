@@ -11,8 +11,6 @@ namespace UI.Web
     {
         public List<Especialidad> lstEsp;
         public List<Plan> lstPlan;
-        public List<Comision> lstCom;
-        public List<Materia> lstMat;
 
         public enum FormModes { Alta, Baja, Modificacion }
         public FormModes FormMode
@@ -58,20 +56,6 @@ namespace UI.Web
             this.getEspecialidades();
             string nombre = this.lstEsp.Find(o => o.ID == id).Descripcion;
             return nombre;
-        }
-
-        public List<Comision> getComisiones(int IDPlan)
-        {
-            ComisionLogic com = new ComisionLogic();
-            this.lstCom = com.GetSome(IDPlan);
-            return this.lstCom;
-        }
-
-        public List<Materia> getMaterias(int IDPlan)
-        {
-            MateriaLogic mat = new MateriaLogic();
-            this.lstMat = mat.GetSome(IDPlan);
-            return this.lstMat;
         }
     }
 }

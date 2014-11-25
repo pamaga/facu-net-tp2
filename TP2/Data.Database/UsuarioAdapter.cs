@@ -107,6 +107,99 @@ namespace Data.Database
             return usuarios;
         }
 
+        public int addDocenteToCurso(int id_docente,int id_curso) {
+            int ID = 0;
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdSave = new SqlCommand("INSERT INTO docentes_cursos (id_curso, id_docente, cargo) " +
+                    "VALUES (@id_curso, @id_docente, 1) " +
+                    "SELECT @@identity", sqlConn);
+
+                cmdSave.Parameters.Add("@id_curso", SqlDbType.VarChar, 50).Value = id_curso;
+                cmdSave.Parameters.Add("@id_docente", SqlDbType.VarChar, 50).Value = id_docente;
+                
+               ID = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al asignar el docente al curso", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return ID;    
+        
+        }
+
+        public void removeDocenteToCurso(int id_docente, int id_curso)
+        {
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdDelete = new SqlCommand("DELETE docentes_cursos WHERE id_docente=@id_docente AND id_curso=@id_curso", sqlConn);
+                cmdDelete.Parameters.Add("@id_docente", SqlDbType.Int).Value = id_docente;
+                cmdDelete.Parameters.Add("@id_curso", SqlDbType.Int).Value = id_curso;
+
+                cmdDelete.ExecuteNonQuery();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al quitar el docente:" + Ex.ToString(), Ex);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+        }
+
+        public List<Usuario> GetDocentesByCurso(int idCurso)
+        {
+            List<Usuario> usuarios = new List<Usuario>();
+
+            try
+            {
+
+                this.OpenConnection();
+
+                SqlCommand cmdUsuarios = new SqlCommand("SELECT U.* FROM  docentes_cursos DC INNER JOIN usuarios U ON  DC.id_docente = U.id_usuario WHERE DC.id_curso=@id_curso", sqlConn);
+                cmdUsuarios.Parameters.Add("@id_curso", SqlDbType.Int).Value = (int)idCurso;
+                SqlDataReader drUsuarios = cmdUsuarios.ExecuteReader();
+                while (drUsuarios.Read())
+                {
+                    Usuario usr = new Usuario();
+
+                    usr.ID = (int)drUsuarios["id_usuario"];
+                    usr.NombreUsuario = (string)drUsuarios["nombre_usuario"];
+                    usr.Clave = (string)drUsuarios["clave"];
+                    usr.Habilitado = (bool)drUsuarios["habilitado"];
+                    usr.Nombre = (string)drUsuarios["nombre"];
+                    usr.Apellido = (string)drUsuarios["apellido"];
+                    usr.EMail = (string)drUsuarios["email"];
+                    usr.Telefono = (string)drUsuarios["telefono"];
+                    usr.FechaNac = ((DateTime)drUsuarios["fecha_nac"]).ToString("dd/MM/yyyy");
+                    usr.Legajo = (int)drUsuarios["legajo"];
+                    usr.TipoUsuario = (TiposUsuarios)drUsuarios["tipo_usuario"];
+                    usr.IdPlan = (drUsuarios["id_plan"] as int?) ?? 0;
+
+                    usuarios.Add(usr);
+                }
+                drUsuarios.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de Docentes", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return usuarios;
+        }
+
         public Usuario getUserByLegajo(int legajo)
         {
             Usuario usr=null;

@@ -17,6 +17,7 @@ namespace UI.Desktop
         {
             InitializeComponent();
             this.dgvCursos.AutoGenerateColumns = false;
+            
         }
 
         public void Listar()
@@ -74,5 +75,18 @@ namespace UI.Desktop
             }
             else this.Notificar("No hay fila seleccionada", "Por favor, seleccione una fila", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
-    }
+
+        private void dgvCursos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            DataGridView dg = (DataGridView)sender;
+            Curso cur = (Curso) dg.CurrentRow.DataBoundItem;
+            if (e.ColumnIndex == 6 )
+            {
+               
+                DocentesCursos dc = new DocentesCursos(cur);
+                dc.Show();         
+            }
+         }
+     }
 }

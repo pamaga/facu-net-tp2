@@ -140,6 +140,7 @@
             this.Controls.Add(this.btnCancelar);
             this.Name = "PlanDesktop";
             this.Text = "PlanDesktop";
+            this.Load += new System.EventHandler(this.PlanDesktop_Load);
             ((System.ComponentModel.ISupportInitialize)(this.businessLogicBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

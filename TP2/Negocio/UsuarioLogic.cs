@@ -42,6 +42,30 @@ namespace Business.Logic
             return UsuarioData.GetAll(TipoUsuario);
         }
 
+        public List<Usuario> GetDocentesByCurso(int IdCurso)
+        {
+            return UsuarioData.GetDocentesByCurso(IdCurso);
+        }
+
+        public int addDocenteToCurso(int docente, int curso) {
+            return UsuarioData.addDocenteToCurso(docente,curso);
+        }
+        public void removeDocenteToCurso(int docente, int curso)
+        {
+            UsuarioData.removeDocenteToCurso(docente, curso);
+        }
+
+        public bool isAssignedDocenteToCurso(int docente, int curso)
+        {
+            List<Usuario> aUsers = UsuarioData.GetDocentesByCurso(curso);
+
+            foreach (Usuario u in aUsers) {
+                if (u.ID == docente) return true;
+            }
+            return false;
+
+        }
+
         public void Save(Usuario user)
         {
             UsuarioData.Save(user);
@@ -51,5 +75,6 @@ namespace Business.Logic
         {
             UsuarioData.Delete(id);
         }
+       
     }
 }
