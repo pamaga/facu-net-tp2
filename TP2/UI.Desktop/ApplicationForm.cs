@@ -92,5 +92,12 @@ namespace UI.Desktop
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
+        private Usuario _UsuarioLogueado;
+
+        public Usuario UsuarioLogueado
+        {
+            get { return _UsuarioLogueado; }
+            set { _UsuarioLogueado = value; }
+        }
     }
 }
