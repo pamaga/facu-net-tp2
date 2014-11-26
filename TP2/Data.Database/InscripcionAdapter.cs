@@ -114,7 +114,6 @@ namespace Data.Database
             }
         }
 
-
         public void Delete(int ID)
         {
             try
@@ -135,6 +134,34 @@ namespace Data.Database
             }
         }
 
+        public bool checkInscripcion(int IdAlumno, int IdCurso)
+        {
+            bool ret;
+            try
+            {
+                this.OpenConnection();
+                SqlCommand cmdCursos = new SqlCommand("SELECT COUNT(*) FROM alumnos_inscripciones AI WHERE AI.id_alumno = @id_alumno AND AI.id_curso = @id_curso", sqlConn);
+                cmdCursos.Parameters.Add("@id_alumno", SqlDbType.Int).Value = IdAlumno;
+                cmdCursos.Parameters.Add("@id_curso", SqlDbType.Int).Value = IdCurso;
+                Int32 nInsc = (Int32)cmdCursos.ExecuteScalar();
+                if (nInsc > 0)
+                {
+                    ret = false;
+                }else{
+                    ret = true;
+                }
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar el Curso", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return ret;
+        }
 
     }
 }

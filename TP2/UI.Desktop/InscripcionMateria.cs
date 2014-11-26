@@ -128,6 +128,15 @@ namespace UI.Desktop
                 error = true;
             }
 
+            InscripcionLogic iLogic = new InscripcionLogic();
+
+            if (!iLogic.checkInscripcion(this.AlumnoActual.ID, (int)this.cmbMateria.SelectedValue))
+            {
+                mensaje += "- El alumno ya se encuentra inscripto a esa materia" + Environment.NewLine;
+                error = true;
+            }
+
+
             if (error)
             {
                 this.Notificar("Error de validación", mensaje, MessageBoxButtons.OK, MessageBoxIcon.Error);

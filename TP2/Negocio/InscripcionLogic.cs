@@ -35,5 +35,9 @@ namespace Business.Logic
         {
             InscripcionData.Delete(id);
         }
+
+        public bool checkInscripcion(int IdAlumno, int IdCurso){
+            return InscripcionData.checkInscripcion(IdAlumno,IdCurso);
+        }
     }
 }

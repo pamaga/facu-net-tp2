@@ -3,11 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using Business.Entities;
 
 namespace Util
 {
     public static class Util
     {
+
+        private static Usuario _usuarioLogueado;
+        public static Usuario UsuarioLogueado
+        {
+            get { return Util._usuarioLogueado; }
+            set { Util._usuarioLogueado = value; }
+        }
+
         public static string DateToDb(string date)
         {
             string[] arr = date.Split('/');

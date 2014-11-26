@@ -14,12 +14,15 @@ namespace Business.Logic
             List<String> optionNotAllowed = new List<string>();
             switch (Convert.ToInt32(usr.TipoUsuario))
             {
+                case 0:
+                    optionNotAllowed.Add("misMateriasToolStripMenuItem");
+                    break;
                 case 1:
-                    //optionNotAllowed.Add("personasToolStripMenuItem");
+                    optionNotAllowed.Add("personasToolStripMenuItem");
                     optionNotAllowed.Add("catedrasToolStripMenuItem");
+                    optionNotAllowed.Add("misMateriasToolStripMenuItem");
                     break;
                 case 2:
-                   
                     optionNotAllowed.Add("personasToolStripMenuItem");
                     optionNotAllowed.Add("catedrasToolStripMenuItem");
                     break;

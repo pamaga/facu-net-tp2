@@ -58,12 +58,9 @@ namespace UI.Desktop
                     this.UsuarioLogueado = appLogin.Usr;
                     List<String> lstOptionNotAllowed = bl.getMenuNotAllowedByRol(appLogin.Usr);
                     foreach(String menu in lstOptionNotAllowed ){
-                        MessageBox.Show(menu);
-
                         ToolStripMenuItem ctrl = menuStrip1.Items.Find(menu, true)[0] as ToolStripMenuItem;
                         ctrl.Visible = false;
                     }
-                   
 
                     //this.personasToolStripMenuItem.Visible = false;
 
@@ -143,6 +140,14 @@ namespace UI.Desktop
         private void misMateriasToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void misMateriasToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            int ID = Util.Util.UsuarioLogueado.ID;
+
+            AlumnosInscripciones formAi = new AlumnosInscripciones(ID);
+            formAi.ShowDialog();
         }
     }
 }

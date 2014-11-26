@@ -41,6 +41,10 @@ namespace UI.Desktop
 
         private void AlumnosInscripciones_Load(object sender, EventArgs e)
         {
+            if(Util.Util.UsuarioLogueado.TipoUsuario > 0){
+                this.btnEditar.Visible = false;
+                this.btnEliminar.Visible = false;
+            }
             this.Listar();
         }
 

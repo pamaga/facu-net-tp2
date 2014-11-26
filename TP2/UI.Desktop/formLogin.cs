@@ -51,12 +51,12 @@ namespace UI.Desktop
             if (Usr != null)
             {
                // MessageBox.Show("Usted ha ingresado al sistema correctamente.", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Util.Util.UsuarioLogueado = Usr;
                 this.DialogResult = DialogResult.OK;
-                
             }
             else
             {
-                MessageBox.Show("Usuario y/o contraseña incorrectos (usuario:" + this.txtUsuario.Text + " clave:" + this.txtPass.Text + ")", "Login"
+                MessageBox.Show("Usuario y/o contraseña incorrectos (usuario: " + this.txtUsuario.Text + " clave: " + this.txtPass.Text + ")", "Login"
                 , MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
