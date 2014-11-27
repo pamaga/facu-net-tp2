@@ -149,5 +149,10 @@ namespace UI.Desktop
             AlumnosInscripciones formAi = new AlumnosInscripciones(ID);
             formAi.ShowDialog();
         }
+
+        private void listadoDeAlumnosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new reporteAlumnos().ShowDialog();
+        }
     }
 }
