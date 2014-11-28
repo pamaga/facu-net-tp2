@@ -39,6 +39,10 @@ namespace UI.Desktop
         private void Cursos_Load(object sender, EventArgs e)
         {
             this.Listar();
+            if (Util.Util.UsuarioLogueado.TipoUsuario == TiposUsuarios.Docente) {
+                this.dgvCursos.Columns[6].Visible = false;
+                this.tsCursos.Enabled = false;
+            }
         }
 
         private void tsbNuevo_Click(object sender, EventArgs e)

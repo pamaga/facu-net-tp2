@@ -154,5 +154,10 @@ namespace UI.Desktop
         {
             new reporteAlumnos().ShowDialog();
         }
+
+        private void alumnosPorCursosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new reporteMaterias().ShowDialog();
+        }
     }
 }

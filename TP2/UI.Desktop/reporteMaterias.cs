@@ -19,6 +19,9 @@ namespace UI.Desktop
 
         private void reporteMaterias_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'DataSet1.SPEstadoAcademicoAlumno' Puede moverla o quitarla según sea necesario.
+            this.SPEstadoAcademicoAlumnoTableAdapter.Fill(DataSet1.SPEstadoAcademicoAlumno, Convert.ToInt32(Util.Util.UsuarioLogueado.ID));
+            
 
             this.MateriaBindingSource.DataSource = new MateriaAdapter().GetAll();
             this.reportViewer1.RefreshReport();

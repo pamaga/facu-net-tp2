@@ -42,12 +42,9 @@
             this.misMateriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.planesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.materiasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.alumnosPorCursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblUsuario = new System.Windows.Forms.Label();
             this.listadoDeAlumnosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblUsuario = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -161,39 +158,25 @@
             // reportesToolStripMenuItem
             // 
             this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cursosToolStripMenuItem,
-            this.planesToolStripMenuItem,
-            this.materiasToolStripMenuItem1,
             this.alumnosPorCursosToolStripMenuItem,
             this.listadoDeAlumnosToolStripMenuItem});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.reportesToolStripMenuItem.Text = "Reportes";
             // 
-            // cursosToolStripMenuItem
-            // 
-            this.cursosToolStripMenuItem.Name = "cursosToolStripMenuItem";
-            this.cursosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cursosToolStripMenuItem.Text = "Cursos";
-            // 
-            // planesToolStripMenuItem
-            // 
-            this.planesToolStripMenuItem.Name = "planesToolStripMenuItem";
-            this.planesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.planesToolStripMenuItem.Text = "Planes";
-            // 
-            // materiasToolStripMenuItem1
-            // 
-            this.materiasToolStripMenuItem1.Name = "materiasToolStripMenuItem1";
-            this.materiasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.materiasToolStripMenuItem1.Text = "Materias";
-            this.materiasToolStripMenuItem1.Click += new System.EventHandler(this.materiasToolStripMenuItem1_Click);
-            // 
             // alumnosPorCursosToolStripMenuItem
             // 
             this.alumnosPorCursosToolStripMenuItem.Name = "alumnosPorCursosToolStripMenuItem";
-            this.alumnosPorCursosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.alumnosPorCursosToolStripMenuItem.Text = "Alumnos por cursos";
+            this.alumnosPorCursosToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.alumnosPorCursosToolStripMenuItem.Text = "Estado academico";
+            this.alumnosPorCursosToolStripMenuItem.Click += new System.EventHandler(this.alumnosPorCursosToolStripMenuItem_Click);
+            // 
+            // listadoDeAlumnosToolStripMenuItem
+            // 
+            this.listadoDeAlumnosToolStripMenuItem.Name = "listadoDeAlumnosToolStripMenuItem";
+            this.listadoDeAlumnosToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.listadoDeAlumnosToolStripMenuItem.Text = "Listado de alumnos";
+            this.listadoDeAlumnosToolStripMenuItem.Click += new System.EventHandler(this.listadoDeAlumnosToolStripMenuItem_Click);
             // 
             // lblUsuario
             // 
@@ -205,13 +188,6 @@
             this.lblUsuario.Text = "label1";
             this.lblUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblUsuario.Visible = false;
-            // 
-            // listadoDeAlumnosToolStripMenuItem
-            // 
-            this.listadoDeAlumnosToolStripMenuItem.Name = "listadoDeAlumnosToolStripMenuItem";
-            this.listadoDeAlumnosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.listadoDeAlumnosToolStripMenuItem.Text = "Listado de alumnos";
-            this.listadoDeAlumnosToolStripMenuItem.Click += new System.EventHandler(this.listadoDeAlumnosToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -241,8 +217,6 @@
         private System.Windows.Forms.ToolStripMenuItem catedrasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem planesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem alumnosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem docentesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem planesToolStripMenuItem1;
@@ -250,7 +224,6 @@
         private System.Windows.Forms.ToolStripMenuItem comisionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem materiasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem materiasToolStripMenuItem1;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.ToolStripMenuItem alumnosPorCursosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem misMateriasToolStripMenuItem;
