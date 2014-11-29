@@ -342,8 +342,8 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdSave = new SqlCommand("INSERT INTO usuarios (nombre_usuario, clave, habilitado, nombre, apellido, email, telefono, legajo, fecha_nac, tipo_usuario) " +
-                    "VALUES (@nombre_usuario, @clave, @habilitado, @nombre, @apellido, @email, @telefono, @legajo, @fecha_nac, @tipo_usuario) " +
+                SqlCommand cmdSave = new SqlCommand("INSERT INTO usuarios (nombre_usuario, clave, habilitado, nombre, apellido, email, telefono, legajo, fecha_nac, tipo_usuario, id_plan) " +
+                    "VALUES (@nombre_usuario, @clave, @habilitado, @nombre, @apellido, @email, @telefono, @legajo, @fecha_nac, @tipo_usuario, @id_plan) " +
                     "SELECT @@identity", sqlConn);
 
                 cmdSave.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = usuario.NombreUsuario;

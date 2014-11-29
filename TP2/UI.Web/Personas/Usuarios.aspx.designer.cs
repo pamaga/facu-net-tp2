@@ -76,6 +76,15 @@ namespace UI.Web.Personas {
         protected global::System.Web.UI.WebControls.Panel formPanel;
         
         /// <summary>
+        /// Control formError.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label formError;
+        
+        /// <summary>
         /// Control nombreLabel.
         /// </summary>
         /// <remarks>
@@ -254,6 +263,24 @@ namespace UI.Web.Personas {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox repetirClaveTextBox;
+        
+        /// <summary>
+        /// Control lblPlan.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPlan;
+        
+        /// <summary>
+        /// Control cmbPlan.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList cmbPlan;
         
         /// <summary>
         /// Control formActionsPanel.

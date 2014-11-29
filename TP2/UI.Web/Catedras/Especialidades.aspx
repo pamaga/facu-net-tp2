@@ -27,6 +27,7 @@
         <asp:LinkButton ID="nuevoLinkButton" runat="server" OnClick="nuevoLinkButton_Click" CssClass="btn btnNuevo">Nuevo</asp:LinkButton>
     </asp:Panel>
     <asp:Panel ID="formPanel" Visible="false" runat="server" CssClass="wrapForm">
+        <asp:Label ID="formError" runat="server" Text=""></asp:Label>
         <asp:Label ID="descripcionLabel" runat="server" Text="Descripcion: "></asp:Label>
         <asp:TextBox ID="descripcionTextBox" runat="server"></asp:TextBox>
         <br />

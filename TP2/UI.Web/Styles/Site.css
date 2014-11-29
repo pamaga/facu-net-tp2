@@ -358,6 +358,14 @@ a.btn:hover
     padding: 20px;
     background: #ddd;
 }
+.formError{
+    color: #fff;
+    max-width: 173px;
+    background: #ff3333;
+    font-size: 12px;
+    padding: 6px;
+}
+
 .wrapForm span
 {
     display: block;

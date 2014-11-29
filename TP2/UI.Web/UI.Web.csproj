@@ -62,6 +62,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Scripts\global.js" />
+    <Content Include="Scripts\jquery-2.1.0.js" />
+    <Content Include="Scripts\jquery-2.1.0.min.js" />
     <Content Include="_Account\ChangePassword.aspx" />
     <Content Include="_Account\ChangePasswordSuccess.aspx" />
     <Content Include="_Account\Login.aspx" />
@@ -216,6 +219,10 @@
     <ProjectReference Include="..\Negocio\Business.Logic.csproj">
       <Project>{dcba4f21-125b-4954-8261-d5c93f770453}</Project>
       <Name>Business.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Util\Util.csproj">
+      <Project>{F96F42A3-8D23-4B3A-83A2-1C80363F8343}</Project>
+      <Name>Util</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

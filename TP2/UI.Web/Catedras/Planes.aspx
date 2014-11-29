@@ -31,6 +31,7 @@
             OnClick="nuevoLinkButton_Click" CssClass="btn btnNuevo">Nuevo</asp:LinkButton>
     </asp:Panel>
     <asp:Panel ID="formPanel" Visible="false" runat="server" CssClass="wrapForm">
+        <asp:Label ID="formError" runat="server" Text=""></asp:Label>
         <asp:Label ID="especialidadDescripcionLabel" runat="server" Text="Especialidad: "></asp:Label>
         <asp:DropDownList ID="especialidadDropDownList" runat="server"></asp:DropDownList>
         <br />

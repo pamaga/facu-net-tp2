@@ -38,6 +38,7 @@
             OnClick="nuevoLinkButton_Click" CssClass="btn btnNuevo">Nuevo</asp:LinkButton>
     </asp:Panel>
     <asp:Panel ID="formPanel" Visible="false" runat="server" CssClass="wrapForm">
+        <asp:Label ID="formError" runat="server" Text=""></asp:Label>
         <asp:Label ID="nombreLabel" runat="server" Text="Nombre: "></asp:Label>
         <asp:TextBox ID="nombreTextBox" runat="server"></asp:TextBox>
         <br />
@@ -67,6 +68,10 @@
         <br />
         <asp:Label ID="repetirClaveLabel" runat="server" Text="Repetir clave: "></asp:Label>
         <asp:TextBox ID="repetirClaveTextBox" TextMode="Password" runat="server"></asp:TextBox>
+        <br />
+        <asp:Label ID="lblPlan" runat="server" Text="Especialidad - Plan:"></asp:Label>
+        <asp:DropDownList ID="cmbPlan" runat="server">
+        </asp:DropDownList>
         <br />
         <asp:Panel ID="formActionsPanel" runat="server">
             <asp:LinkButton ID="aceptarLinkButton" runat="server" 

@@ -30,9 +30,10 @@
         <asp:LinkButton ID="eliminarLinkButton" runat="server" 
             OnClick="eliminarLinkButton_Click" CssClass="btn btnEliminar">Eliminar</asp:LinkButton>
         <asp:LinkButton ID="nuevoLinkButton" runat="server" 
-            OnClick="nuevoLinkButton_Click" CssClass="btn btnNuevo" Enabled="False">Nuevo</asp:LinkButton>
+            OnClick="nuevoLinkButton_Click" CssClass="btn btnNuevo">Nuevo</asp:LinkButton>
     </asp:Panel>
     <asp:Panel ID="formPanel" Visible="false" runat="server" CssClass="wrapForm">
+        <asp:Label ID="formError" runat="server" Text=""></asp:Label>
         <asp:Label ID="especialidadDescripcionLabel" runat="server" Text="Especialidad:"></asp:Label>
         <asp:DropDownList ID="especialidadDropDownList" runat="server" AutoPostBack="True" OnSelectedIndexChanged="especialidadDropDownList_SelectedIndexChanged" AppendDataBoundItems="True" CausesValidation="True"><asp:ListItem Text="Seleccione una especialidad" Value="-1"></asp:ListItem></asp:DropDownList>
         <br />

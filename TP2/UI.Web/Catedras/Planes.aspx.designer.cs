@@ -67,6 +67,15 @@ namespace UI.Web.Catedras {
         protected global::System.Web.UI.WebControls.Panel formPanel;
         
         /// <summary>
+        /// Control formError.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label formError;
+        
+        /// <summary>
         /// Control especialidadDescripcionLabel.
         /// </summary>
         /// <remarks>

@@ -45,6 +45,7 @@ namespace UI.Web.Catedras
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.ToggleError(this.formError);
             if (!Page.IsPostBack)
             {
                 this.LoadGrid();
@@ -95,10 +96,10 @@ namespace UI.Web.Catedras
         {
             if (this.IsEntitySelected)
             {
-                this.formPanel.Visible = true;
+                this.DeleteEntity(this.SelectedID);
+                this.formPanel.Visible = false;
                 this.FormMode = FormModes.Baja;
-                this.EnableForm(false);
-                this.LoadForm(this.SelectedID);
+                this.LoadGrid();
             }
         }
         protected void nuevoLinkButton_Click(object sender, EventArgs e)
@@ -111,36 +112,80 @@ namespace UI.Web.Catedras
 
         protected void aceptarLinkButton_Click(object sender, EventArgs e)
         {
+            this.Entity = new Materia();
             switch (this.FormMode)
             {
-                case FormModes.Baja:
-                    this.DeleteEntity(this.SelectedID);
-                    this.LoadGrid();
-                    break;
                 case FormModes.Modificacion:
-                    this.Entity = new Materia();
                     this.Entity.ID = this.SelectedID;
                     this.Entity.State = BusinessEntity.States.Modified;
                     this.LoadEntity(this.Entity);
-                    this.SaveEntity(this.Entity);
-                    this.LoadGrid();
+                    if(Validar()){
+                        this.SaveEntity(this.Entity);
+                        this.formPanel.Visible = false;
+                    }
                     break;
                 case FormModes.Alta:
-                    this.Entity = new Materia();
-                    this.LoadEntity(this.Entity);
-                    this.SaveEntity(this.Entity);
-                    this.LoadGrid();
+                    if(Validar()){
+                        this.LoadEntity(this.Entity);
+                        this.SaveEntity(this.Entity);
+                        this.formPanel.Visible = false;
+                    }
                     break;
                 default:
                     break;
             }
-            this.formPanel.Visible = false;
+            this.LoadGrid();
         }
         protected void cancelarLinkButton_Click(object sender, EventArgs e)
         {
             this.formPanel.Visible = false;
         }
         #endregion
+
+        public override bool Validar()
+        {
+            bool error = false;
+            string mensaje = "Errores en el formulario:" + "<br />";
+
+            if (!Util.Util.validarRequerido(this.descripcionTextBox.Text) ||
+                !Util.Util.validarRequerido(this.horasSemanalesTextBox.Text) ||
+                !Util.Util.validarRequerido(this.horasTotalesTextBox.Text) ||
+                !Util.Util.validarRequerido(this.especialidadDropDownList.SelectedValue) ||
+                !Util.Util.validarRequerido(this.planDropDownList.SelectedValue))
+            {
+                mensaje += "- Complete todos los campos" + "<br />";
+                error = true;
+            }
+
+            if (!Util.Util.validarNumero(this.horasSemanalesTextBox.Text) ||
+               !Util.Util.validarNumero(this.horasTotalesTextBox.Text))
+            {
+                mensaje += "- Ingrese un valor numérico para las horas" + Environment.NewLine;
+                error = true;
+            }
+
+            if (error)
+            {
+                this.ToggleError(this.formError, mensaje);
+            }
+            else
+            {
+                this.ToggleError(this.formError);
+            }
+            return !error;
+        }
+
+        private void ToggleError(Label lblError)
+        {
+            lblError.CssClass = "";
+            lblError.Text = "";
+        }
+
+        private void ToggleError(Label lblError, string msj)
+        {
+            lblError.CssClass = "formError";
+            lblError.Text = msj;
+        }
 
         private void LoadForm(int id)
         {
