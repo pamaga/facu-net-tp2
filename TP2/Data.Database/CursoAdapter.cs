@@ -57,6 +57,54 @@ namespace Data.Database
             return Cursos;
         }
 
+        public List<Curso> GetAllDocente(int IdDocente)
+        {
+            List<Curso> Cursos = new List<Curso>();
+
+            try
+            {
+                PlanAdapter Plan = new PlanAdapter();
+
+                this.OpenConnection();
+
+                SqlCommand cmdCursos = new SqlCommand("SELECT C.*, M.*, CO.*, P.*, E.* FROM cursos C JOIN materias M ON C.id_materia = M.id_materia JOIN comisiones CO ON C.id_comision = CO.id_comision JOIN planes P ON CO.id_plan = P.id_plan JOIN especialidades E ON P.id_especialidad = E.id_especialidad JOIN docentes_cursos DC ON C.id_curso = DC.id_curso WHERE DC.id_docente = @id_docente", sqlConn);
+                cmdCursos.Parameters.Add("@id_docente", SqlDbType.Int).Value = IdDocente;
+                SqlDataReader drCursos = cmdCursos.ExecuteReader();
+                while (drCursos.Read())
+                {
+                    Curso Curso = new Curso();
+
+                    Plan PlanActual = Plan.GetOne((int)drCursos["id_plan"]);
+
+                    Curso.ID = (int)drCursos["id_curso"];
+                    Curso.AnioCalendario = (int)drCursos["anio_calendario"];
+                    Curso.Cupo = (int)drCursos["cupo"];
+                    Curso.IDComision = (int)drCursos["id_comision"];
+                    Curso.Comision = (string)drCursos["desc_comision"];
+                    Curso.IDMateria = (int)drCursos["id_materia"];
+                    Curso.Materia = (string)drCursos["desc_materia"];
+                    Curso.IDPlan = (int)drCursos["id_plan"];
+                    Curso.Plan = (string)drCursos["desc_plan"];
+                    Curso.IDEspecialidad = (int)drCursos["id_especialidad"];
+                    Curso.Especialidad = (string)drCursos["desc_especialidad"];
+
+                    Cursos.Add(Curso);
+                }
+                drCursos.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de Cursos", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return Cursos;
+        }
+
+
         /*Recupera todas las materias de este año, para el plan*/
         public List<Curso> GetAllCursosAnio(int IdPlan)
         {

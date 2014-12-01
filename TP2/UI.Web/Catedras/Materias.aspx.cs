@@ -118,21 +118,15 @@ namespace UI.Web.Catedras
                 case FormModes.Modificacion:
                     this.Entity.ID = this.SelectedID;
                     this.Entity.State = BusinessEntity.States.Modified;
-                    this.LoadEntity(this.Entity);
-                    if(Validar()){
-                        this.SaveEntity(this.Entity);
-                        this.formPanel.Visible = false;
-                    }
-                    break;
-                case FormModes.Alta:
-                    if(Validar()){
-                        this.LoadEntity(this.Entity);
-                        this.SaveEntity(this.Entity);
-                        this.formPanel.Visible = false;
-                    }
                     break;
                 default:
                     break;
+            }
+            if (Validar())
+            {
+                this.LoadEntity(this.Entity);
+                this.SaveEntity(this.Entity);
+                this.formPanel.Visible = false;
             }
             this.LoadGrid();
         }

@@ -98,7 +98,6 @@ namespace Business.Entities
             set { _IdInscripcion = value; }
         }
 
-        private string _materiaComision;
         public string MateriaComision
         {
             get { return this.Materia + " - " + this.Comision; }

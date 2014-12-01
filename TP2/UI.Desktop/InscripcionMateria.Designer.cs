@@ -32,7 +32,7 @@
             this.lblNombreAlumno = new System.Windows.Forms.Label();
             this.lblPlan = new System.Windows.Forms.Label();
             this.lblNombrePlan = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblMateria = new System.Windows.Forms.Label();
             this.cmbMateria = new System.Windows.Forms.ComboBox();
             this.lblCondicion = new System.Windows.Forms.Label();
             this.cmbCondicion = new System.Windows.Forms.ComboBox();
@@ -79,14 +79,14 @@
             this.lblNombrePlan.TabIndex = 3;
             this.lblNombrePlan.Text = "Especialidad - Plan";
             // 
-            // label1
+            // lblMateria
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 81);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Materia";
+            this.lblMateria.AutoSize = true;
+            this.lblMateria.Location = new System.Drawing.Point(34, 81);
+            this.lblMateria.Name = "lblMateria";
+            this.lblMateria.Size = new System.Drawing.Size(42, 13);
+            this.lblMateria.TabIndex = 4;
+            this.lblMateria.Text = "Materia";
             // 
             // cmbMateria
             // 
@@ -172,7 +172,7 @@
             this.Controls.Add(this.cmbCondicion);
             this.Controls.Add(this.lblCondicion);
             this.Controls.Add(this.cmbMateria);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblMateria);
             this.Controls.Add(this.lblNombrePlan);
             this.Controls.Add(this.lblPlan);
             this.Controls.Add(this.lblNombreAlumno);
@@ -191,7 +191,7 @@
         private System.Windows.Forms.Label lblNombreAlumno;
         private System.Windows.Forms.Label lblPlan;
         private System.Windows.Forms.Label lblNombrePlan;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblMateria;
         private System.Windows.Forms.ComboBox cmbMateria;
         private System.Windows.Forms.Label lblCondicion;
         private System.Windows.Forms.ComboBox cmbCondicion;

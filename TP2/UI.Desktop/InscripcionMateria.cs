@@ -124,13 +124,13 @@ namespace UI.Desktop
 
             if (!Util.Util.validarNumero(this.txtNota.Text) && Modo.Equals(ModoForm.Modificacion))
             {
-                mensaje += "- El ingrese un valor numérico para la nota" + Environment.NewLine;
+                mensaje += "- Ingrese un valor numérico para la nota" + Environment.NewLine;
                 error = true;
             }
 
             InscripcionLogic iLogic = new InscripcionLogic();
 
-            if (!iLogic.checkInscripcion(this.AlumnoActual.ID, (int)this.cmbMateria.SelectedValue))
+            if (!iLogic.checkInscripcion(this.AlumnoActual.ID, (int)this.cmbMateria.SelectedValue) && Modo.Equals(ModoForm.Alta))
             {
                 mensaje += "- El alumno ya se encuentra inscripto a esa materia" + Environment.NewLine;
                 error = true;

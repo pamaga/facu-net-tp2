@@ -184,6 +184,24 @@ namespace UI.Web.Catedras {
         protected global::System.Web.UI.WebControls.TextBox cupoTextBox;
         
         /// <summary>
+        /// Control lblDocentes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDocentes;
+        
+        /// <summary>
+        /// Control cmbDocentes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox cmbDocentes;
+        
+        /// <summary>
         /// Control formActionsPanel.
         /// </summary>
         /// <remarks>

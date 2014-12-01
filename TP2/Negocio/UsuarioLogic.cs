@@ -50,9 +50,15 @@ namespace Business.Logic
         public int addDocenteToCurso(int docente, int curso) {
             return UsuarioData.addDocenteToCurso(docente,curso);
         }
+        
         public void removeDocenteToCurso(int docente, int curso)
         {
             UsuarioData.removeDocenteToCurso(docente, curso);
+        }
+
+        public void removeDocentesFromCurso(string excepto, int curso)
+        {
+            UsuarioData.removeDocentesFromCurso(excepto, curso);
         }
 
         public bool isAssignedDocenteToCurso(int docente, int curso)

@@ -370,6 +370,7 @@ a.btn:hover
 {
     display: block;
     margin-top: 4px;
+    max-width: 177px;
 }
 
 .wrapForm select

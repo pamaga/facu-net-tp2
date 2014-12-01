@@ -65,13 +65,22 @@ namespace UI.Web.Catedras
             {
                 this.LoadGrid();
                 this.loadCmbEspecialidades();
+                loadCmbDocentes();
             }
         }
 
         #region DATABIND
         private void LoadGrid()
         {
-            this.GridView.DataSource = this.Logic.GetAll();
+            if (Session["tipo_usuario"].ToString().Equals("1"))
+            {
+                this.GridView.DataSource = this.Logic.GetAllDocente((int)Session["id_usuario"]);
+                this.nuevoLinkButton.Visible = false;
+                this.editarLinkButton.Visible = false;
+                this.eliminarLinkButton.Visible = false;
+            }else{
+                this.GridView.DataSource = this.Logic.GetAll();
+            }
             this.GridView.DataBind();
         }
 
@@ -105,6 +114,15 @@ namespace UI.Web.Catedras
             this.materiaDropDownList.DataTextField = "Descripcion";
             this.materiaDropDownList.DataValueField = "ID";
             this.materiaDropDownList.DataBind();
+        }
+
+        private void loadCmbDocentes()
+        {
+            UsuarioLogic ul = new UsuarioLogic();
+            this.cmbDocentes.DataSource = ul.GetAll(TiposUsuarios.Docente);
+            this.cmbDocentes.DataTextField = "NombreCompleto";
+            this.cmbDocentes.DataValueField = "ID";
+            this.cmbDocentes.DataBind();
         }
         #endregion
 
@@ -275,6 +293,14 @@ namespace UI.Web.Catedras
             this.comisionDropDownList.SelectedValue = this.Entity.IDComision.ToString();
             this.loadCmbMateria(this.Entity.IDPlan);
             this.materiaDropDownList.SelectedValue = this.Entity.IDMateria.ToString();
+
+            UsuarioLogic ul = new UsuarioLogic();
+            List<Usuario> docentes = ul.GetDocentesByCurso(id);
+            this.cmbDocentes.ClearSelection();
+            foreach (Usuario docente in docentes)
+            {
+                this.cmbDocentes.Items.FindByValue(docente.ID.ToString()).Selected = true;
+            }
         }
 
         private void LoadEntity(Curso curso)
@@ -290,6 +316,25 @@ namespace UI.Web.Catedras
         private void SaveEntity(Curso curso)
         {
             this.Logic.Save(curso);
+            saveDocentes(curso.ID);
+        }
+
+        private void saveDocentes(int IdCurso){
+            UsuarioLogic ul = new UsuarioLogic();
+
+            int[] docentes = this.cmbDocentes.GetSelectedIndices();
+            string noRemover = "";
+            foreach (int docente in docentes)
+            {
+                int IdDocente = int.Parse(this.cmbDocentes.Items[docente].Value);
+                noRemover += "," + IdDocente.ToString();
+                if (!ul.isAssignedDocenteToCurso(IdDocente, IdCurso))
+                {
+                    ul.addDocenteToCurso(IdDocente, IdCurso);
+                }
+            }
+            if (!noRemover.Equals("")) noRemover = noRemover.Substring(1);
+            ul.removeDocentesFromCurso(noRemover, IdCurso);
         }
 
         private void EnableForm(bool enable)
@@ -313,8 +358,17 @@ namespace UI.Web.Catedras
 
         private void DeleteEntity(int id)
         {
+            this.deleteDocentes(id);
             this.Logic.Delete(id);
         }
+
+
+        private void deleteDocentes(int IdCurso)
+        {
+            UsuarioLogic ul = new UsuarioLogic();
+            ul.removeDocentesFromCurso("", IdCurso);
+        }
+
 
         private void ClearForm()
         {
@@ -324,6 +378,7 @@ namespace UI.Web.Catedras
             this.ddlPlanReset();
             this.ddlComisionReset();
             this.ddlMateriaReset();
+            this.cmbDocentes.ClearSelection();
         }
 
         protected void ddlPlanReset()

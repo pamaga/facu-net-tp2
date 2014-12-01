@@ -51,6 +51,10 @@
         <asp:Label ID="cupoLabel" runat="server" Text="Cupo:"></asp:Label>
         <asp:TextBox ID="cupoTextBox" runat="server"></asp:TextBox>
         <br />
+        <asp:Label ID="lblDocentes" runat="server" Text="Docentes:"></asp:Label>
+        <asp:ListBox ID="cmbDocentes" runat="server" CssClass="multiCmbDocentes" 
+            SelectionMode="Multiple"></asp:ListBox>
+        <br />
         <asp:Panel ID="formActionsPanel" runat="server">
             <asp:LinkButton ID="aceptarLinkButton" runat="server" 
                 OnClick="aceptarLinkButton_Click" CssClass="btn">Aceptar</asp:LinkButton>

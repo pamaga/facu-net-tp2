@@ -91,9 +91,9 @@ namespace Business.Entities
             get { return _idPlan; }
             set { _idPlan = value; }
         }
-        private string _NombreCompleto;
+
         public string NombreCompleto {
-            get { return this.Nombre + " " + this.Apellido; }
+            get { return this.Apellido + ", " + this.Nombre; }
             
         }
 

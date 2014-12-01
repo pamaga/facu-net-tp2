@@ -32,6 +32,10 @@ namespace Business.Logic
             return CursoData.GetAll();
         }
 
+        public List<Curso> GetAllDocente(int IdDocente)
+        {
+            return CursoData.GetAllDocente(IdDocente);
+        }
 
         public List<Curso> GetCursosAlumno(int IdAlumno)
         {

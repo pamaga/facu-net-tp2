@@ -20,7 +20,7 @@ namespace Data.Database
 
                 this.OpenConnection();
 
-                SqlCommand cmdUsuarios = new SqlCommand("SELECT * FROM usuarios WHERE tipo_usuario = @tipo_usuario", sqlConn);
+                SqlCommand cmdUsuarios = new SqlCommand("SELECT * FROM usuarios WHERE tipo_usuario = @tipo_usuario ORDER BY apellido, nombre", sqlConn);
                 cmdUsuarios.Parameters.Add("@tipo_usuario", SqlDbType.Int).Value = (int)TipoUsuario;
                 SqlDataReader drUsuarios = cmdUsuarios.ExecuteReader();
                 while (drUsuarios.Read())
@@ -103,6 +103,29 @@ namespace Data.Database
                 this.CloseConnection();
             }
         }
+
+        public void removeDocentesFromCurso(string excepto, int id_curso)
+        {
+            try
+            {
+                this.OpenConnection();
+                string command = "DELETE docentes_cursos WHERE id_curso=@id_curso";
+                if (excepto != "") command += " AND id_docente NOT IN (" + excepto + ")";
+                SqlCommand cmdDelete = new SqlCommand(command, sqlConn);
+                cmdDelete.Parameters.Add("@id_curso", SqlDbType.Int).Value = id_curso;
+
+                cmdDelete.ExecuteNonQuery();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al quitar el docente:" + Ex.ToString(), Ex);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+        }
+
 
         public List<Usuario> GetDocentesByCurso(int idCurso)
         {

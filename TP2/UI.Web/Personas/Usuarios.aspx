@@ -36,6 +36,8 @@
             OnClick="eliminarLinkButton_Click" CssClass="btn btnEliminar">Eliminar</asp:LinkButton>
         <asp:LinkButton ID="nuevoLinkButton" runat="server" 
             OnClick="nuevoLinkButton_Click" CssClass="btn btnNuevo">Nuevo</asp:LinkButton>
+         <asp:LinkButton ID="btnInscripciones" runat="server" 
+            OnClick="inscripcionesLinkButton_Click" CssClass="btn btnInscripciones">Inscripciones</asp:LinkButton>
     </asp:Panel>
     <asp:Panel ID="formPanel" Visible="false" runat="server" CssClass="wrapForm">
         <asp:Label ID="formError" runat="server" Text=""></asp:Label>

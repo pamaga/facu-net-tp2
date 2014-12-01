@@ -13,7 +13,7 @@ namespace UI.Desktop
 {
     public partial class CursoDesktop : ApplicationForm
     {
-        private Curso _CursoActual;
+
         private Curso _Curso;
         public Curso Curso
         {

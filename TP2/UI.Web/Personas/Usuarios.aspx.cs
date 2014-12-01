@@ -29,6 +29,10 @@ namespace UI.Web.Personas
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Request.QueryString["TipoUsuario"].ToString().Equals(TiposUsuarios.Alumno.ToString())){
+                this.btnInscripciones.Visible = false;
+            }
+
             this.ToggleError(this.formError);
             if (!Page.IsPostBack){
                 this.LoadGrid();
@@ -117,6 +121,13 @@ namespace UI.Web.Personas
         protected void cancelarLinkButton_Click(object sender, EventArgs e)
         {
             this.formPanel.Visible = false;
+        }
+        protected void inscripcionesLinkButton_Click(object sender, EventArgs e)
+        {
+            if (this.IsEntitySelected)
+            {
+                Response.Redirect("~/Catedras/Inscripciones.aspx?id_alumno=" + this.SelectedID.ToString());
+            }
         }
         #endregion
 

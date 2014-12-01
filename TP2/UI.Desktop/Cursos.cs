@@ -23,7 +23,11 @@ namespace UI.Desktop
         public void Listar()
         {
             CursoLogic ul = new CursoLogic();
-            this.dgvCursos.DataSource = ul.GetAll();
+            if(Util.Util.UsuarioLogueado.TipoUsuario.Equals(TiposUsuarios.Docente)){
+                this.dgvCursos.DataSource = ul.GetAllDocente(Util.Util.UsuarioLogueado.ID);
+            }else{
+                this.dgvCursos.DataSource = ul.GetAll();
+            }
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
