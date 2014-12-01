@@ -15,7 +15,15 @@ namespace UI.Desktop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Principal());
+            Principal app = new Principal();
+            try {
+                Application.Run(app);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+             
+            }
         }
     }
 }
